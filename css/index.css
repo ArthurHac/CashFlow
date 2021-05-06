@@ -46,7 +46,7 @@ body {
 /* login */
 .main {
     width: 100%;
-    background-color: blueviolet;
+    background-color: rgb(255, 255, 255);
 }
 
 .main h1 {
@@ -58,7 +58,7 @@ body {
 
 .banner-p {
     padding-top: 50px ;
-    margin:30px;
+   
     font-size: 4em;
     font-family:   'Arial Narrow';
     font-variant: small-caps;
@@ -66,12 +66,13 @@ body {
 }
 
 .banner-login {
-    position: absolute;
     background-image: url('../img/index/bannerFundo.png');
     background-attachment: fixed;
     background-size: 1200px;
     width: 100%;
-    height: 80%;
+    padding-bottom: 150px;
+    
+   
 }
 
 .banner-login form {
@@ -80,6 +81,8 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 0px 0px;
+
+    padding-top: 20px;
 }
 
 
@@ -87,17 +90,17 @@ body {
 .banner-login input {
     width:90%;
     border-radius: 10px;
-    padding:15px;
-    margin-top: 20px;
+    padding:20px;
+    margin: 20px;
     margin: auto;
     
 }
 
-
 .form-login form{
-    width: 300px;
+    width: 70%;
+    max-width: 250px;
     float: right;
-    margin-top: 100px;
+    margin-top: 50px;
     border-radius: 20px 0px 0px 20px;
     
 }
@@ -121,7 +124,39 @@ body {
     background-color:rgb(57, 66, 53);
     color: aliceblue;
     padding:10px;
-    
+    font-size: 2em;
     border-radius: 0px 0px 0px 10px;
 }
 /* fim login */
+
+/* CSS card */
+
+.card-function {
+    width: 100%;
+    background-color: cadetblue;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.card {
+    width: 100%;
+    margin-top: 20px; 
+    padding-top: 0px;
+}
+
+.card-box {
+    width: 100%;
+    height: 500px;
+    padding: 20px;
+}
+
+/* final card */
+
+.banner-cadastro {
+    width: 100%;
+    height: 200px;
+}
+
+.form-cadastro {
+    
+}
