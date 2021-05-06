@@ -1,5 +1,8 @@
+
+
+
 body {
-    background-color: aliceblue0;
+    background-color: aliceblue;
 }
 
 .display-none {
@@ -46,10 +49,27 @@ body {
     background-color: blueviolet;
 }
 
+.main h1 {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(128, 132, 136);
+}
+
+.banner-p {
+    padding-top: 50px ;
+    margin:30px;
+    font-size: 4em;
+    font-family:   'Arial Narrow';
+    font-variant: small-caps;
+    color:aliceblue;
+}
+
 .banner-login {
     position: absolute;
-    background-image: url('../img/index/banner.jpg');
-    background-size: 100%;
+    background-image: url('../img/index/bannerFundo.png');
+    background-attachment: fixed;
+    background-size: 1200px;
     width: 100%;
     height: 80%;
 }
@@ -57,23 +77,51 @@ body {
 .banner-login form {
     
     background-color: rgb(202, 202, 207);
-    max-width:300px;
-    padding: 30px;
-    margin: auto;
-    margin-top: 150px;
-
-    border-radius: 10px;
-
-}
-
-.button-form {
     width: 100%;
-    padding: 5px;
-    border-radius: 10px;
+    height: 100%;
+    border-radius: 0px 0px;
 }
+
+
 
 .banner-login input {
+    width:90%;
     border-radius: 10px;
     padding:15px;
+    margin-top: 20px;
+    margin: auto;
+    
+}
+
+
+.form-login form{
+    width: 300px;
+    float: right;
+    margin-top: 100px;
+    border-radius: 20px 0px 0px 20px;
+    
+}
+
+
+.footer-login {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px !important;
+}
+
+.form-control {
+    margin-bottom: 20px !important;
+}
+
+.footer-login button{
+    width: 100%;
+    border: none;
+    background-color:rgb(57, 66, 53);
+    color: aliceblue;
+    padding:10px;
+    
+    border-radius: 0px 0px 0px 10px;
 }
 /* fim login */
