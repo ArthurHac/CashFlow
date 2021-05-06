@@ -10,8 +10,8 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Dashboard',
+            data: [12, 19, 30, 15, 22, 43, 33, 49, 43, 45, 32, 43],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -50,11 +50,11 @@ var ctx = 'grafico02';
 
 var ctx = document.getElementById('grafico02');
 var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'pie',
     data: {
         labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],
         datasets: [{
-            label: '# of Votes',
+            label: 'Dashboard',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -86,6 +86,8 @@ var myChart = new Chart(ctx, {
 
 
 
+
+
 var ctx = document.getElementById('grafico03');
 var ctx = document.getElementById('grafico03').getContext('2d');
 var ctx = $('#grafico03');
@@ -96,10 +98,10 @@ var ctx = document.getElementById('grafico03');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Dashboard',
+            data: [12, 19, 30, 15, 22, 43, 33, 49, 43, 45, 32, 43],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
