@@ -1,198 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<!-- CABEÇALHO  INICIO -->
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cash Flow</title>
-  <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/index.css">
-  <link rel="stylesheet" href="src/css/fontello.css">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Flow</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
+<body>
 
-<!-- CABEÇALHO  FIM -->
-
-
-<body class="fundo">
-
-  <!-- MENU INICIO -->
-
-
-  <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <img src="/img/dashbords/logo.png" alt="Logo">
-      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <article class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline my-2 my-lg-0 d-flex ml-auto">
-          <input class="form-control mr-sm-2" type="Pesquisa" placeholder="Pesquisa" aria-label="Pesquisa">
-          <button class="btn bg-primary my-2 my-sm-0" type="submit">Pesquisa</button>
-        </form>
-      </article>
-    </nav>
-  </header>
-
-  <!-- MENU FIM -->
-
-  <!--CONTEÚDO DO MENU INICIO-->
-
-  <ul class="nav nav-pills mb-3 mt-3 justify-content-center bg-info" id="pills-tab" role="tablist">
-    <li class="nav-item bg-info">
-      <a class="nav-link active text-white" id="pills-home-tab" data-toggle="pill" href="#pills-Dashboard" role="tab"
-        aria-controls="pills-home" aria-selected="true">Dashboard</a>
-    </li>
-    <li class="nav-item bg-info">
-      <a class="nav-link text-white" id="pills-profile-tab" data-toggle="pill" href="#pills-Despesas" role="tab"
-        aria-controls="pills-Despesas" aria-selected="false">Despesas</a>
-    </li>
-    <li class="nav-item bg-info">
-      <a class="nav-link text-white" id="pills-contact-tab" data-toggle="pill" href="#pills-Estoque" role="tab"
-        aria-controls="pills-Estoque" aria-selected="false">Estoque</a>
-    </li>
-    <li class="nav-item bg-info">
-      <a class="nav-link text-white" id="pills-contact-tab" data-toggle="pill" href="#pills-Fornecedor" role="tab"
-        aria-controls="pills-Fornecedor" aria-selected="false">Fornecedor</a>
-    </li>
-    <li class="nav-item bg-info">
-      <a class="nav-link text-white" id="pills-contact-tab" data-toggle="pill" href="#pills-Lançamento_recorrentes"
-        role="tab" aria-controls="pills-Lançamento_recorrentes" aria-selected="false">Lançamento recorrentes</a>
-    </li>
-    <li class="nav-item bg-info">
-      <a class="nav-link text-white" id="pills-contact-tab" data-toggle="pill" href="#pills-Metas" role="tab"
-        aria-controls="pills-Metas" aria-selected="false">Metas</a>
-    </li>
-    <li class="nav-item bg-info">
-      <a class="nav-link text-white" id="pills-contact-tab" data-toggle="pill" href="#pills-Recibos" role="tab"
-        aria-controls="pills-Recibos" aria-selected="false">Recibos</a>
-    </li>
-    <li class="nav-item bg-info">
-      <a class="nav-link text-white" id="pills-contact-tab" data-toggle="pill" href="#pills-Relatorios" role="tab"
-        aria-controls="pills-Relatorios" aria-selected="false">Relatórios</a>
-    </li>
-  </ul>
-  <article class="tab-content" id="pills-tabContent">
-
-    <article class="tab-pane fade show active" id="pills-Dashboard" role="tabpanel"
-      aria-labelledby="pills-Dashboard-tab">
-
-      <section class="Dashboard mt-2">
-
-        <section class="container Graficos">
-
-          <section class="row">
-
-            <section class="col-sm-12 col-md-6 col-lg-4">
-
-              <canvas id="grafico01" width="400" height="400"></canvas>
-
-            </section>
-
-            <section class="col-sm-12 col-md-6 col-lg-4">
-
-              <canvas id="grafico02" width="400" height="400"></canvas>
-
-            </section>
-
-            <acide class="col-sm-12 col-md-12 col-lg-4">
-
-              <article class="list-group">
-                <button type="button" class="list-group-item list-group-item-action active text-center">
-                  Fornecedores
-                </button>
-                <button type="button" class="list-group-item list-group-item-action">Fornecedor 01</button>
-                <button type="button" class="list-group-item list-group-item-action">Fornecedor 02</button>
-                <button type="button" class="list-group-item list-group-item-action">Fornecedor 03</button>
-                <button type="button" class="list-group-item list-group-item-action">Fornecedor 04</button>
-                <button type="button" class="list-group-item list-group-item-action">Fornecedor 05</button>
-                <button type="button" class="list-group-item list-group-item-action">Fornecedor 06</button>
-              </article>
-
-            </acide>
-
-          </section>
-
-          <section class="row mt-4">
-
-            <section class="grafica col-sm-12 col-md-12 col-lg-12">
-
-              <canvas id="grafico03" width="400" height="150"></canvas>
-
-            </section>
-
-          </section>
-
-        </section>
-
-      </section>
-
-    </article>
-
-    <article class="tab-pane fade" id="pills-Despesas" role="tabpanel" aria-labelledby="pills-Despesas-tab">
-
-    </article>
-
-    <article class="tab-pane fade" id="pills-Estoque" role="tabpanel" aria-labelledby="pills-Estoque-tab">
-
-    </article>
-
-    <article class="tab-pane fade" id="pills-Fornecedor" role="tabpanel" aria-labelledby="pills-Fornecedor-tab">
-
-      <section class="container">
-
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Exemplos de Fornecedores
+    <header class="header mb-3" style="background-color: #20c997;">
+    <section class="container">
+        <nav class="navbar navbar-expand-lg navbar-light"> 
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/html/dashboard.html"><img src="/img/dashbords/logo.png" style="width: 150px;" alt="Logo"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
               </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <strong>Coca Cola das Divs</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, vitae repudiandae iure fugit quae quasi harum deserunt sed magnam eveniet ea aliquam eum suscipit cupiditate obcaecati tempora sint dolore repellendus repellat est maxime distinctio reiciendis!
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="form-inline my-2 my-lg-0 d-flex ml-auto">
+                  <input class="form-control me-2" type="Pesquisa" placeholder="Pesquisa" aria-label="Pesquisa">
+                  <button class="btn btn-outline-success" type="submit">Pesquisa</button>
+                </form>
               </div>
             </div>
-          </div>
-        </div>
+          </nav>
       </section>
+    </header>
 
-    </article>
 
-    <article class="tab-pane fade" id="pills-Lançamento_recorrentes" role="tabpanel"
-      aria-labelledby="pills-Lançamento_recorrentes-tab">
 
-    </article>
+      <ul class="nav nav-pills nt-3 mb-3 justify-content-center" style="background-color: #20c997;" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-Dashboard" type="button" role="tab" aria-controls="pills-Dashboard" aria-selected="true">Dashboard</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-Despesas" type="button" role="tab" aria-controls="pills-Despesas" aria-selected="false">Despesas</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-Estoque" type="button" role="tab" aria-controls="pills-Estoque" aria-selected="false">Estoque</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-Fornecedor" type="button" role="tab" aria-controls="pills-Fornecedor" aria-selected="false">Fornecedor</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-Lançamento_recorrentes" type="button" role="tab" aria-controls="pills-Lançamento_recorrentes" aria-selected="false">Lançamento recorrentes</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-Metas" type="button" role="tab" aria-controls="pills-Metas" aria-selected="false">Metas</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-Recibos" type="button" role="tab" aria-controls="pills-Recibos" aria-selected="false">Recibos</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-Relatorios" type="button" role="tab" aria-controls="pills-Relatorios" aria-selected="false">Relatórios</button>
+          </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
 
-    <article class="tab-pane fade" id="pills-Metas" role="tabpanel" aria-labelledby="pills-Metas-tab">
+        <!--Dashboard-->
+        <div class="tab-pane fade show active" id="pills-Dashboard" role="tabpanel" aria-labelledby="pills-Dashboard-tab">
 
-    </article>
+        </div>
 
-    <article class="tab-pane fade" id="pills-Recibos" role="tabpanel" aria-labelledby="pills-Recibos-tab">
+        <!--Despesas-->
+        <div class="tab-pane fade" id="pills-Despesas" role="tabpanel" aria-labelledby="pills-Despesas-tab">
 
-    </article>
+        </div>
 
-    <article class="tab-pane fade" id="pills-Relatorios" role="tabpanel" aria-labelledby="pills-Relatorios-tab">
+        <!--Estoque-->
+        <div class="tab-pane fade" id="pills-Estoque" role="tabpanel" aria-labelledby="pills-Estoque-tab">
 
-    </article>
+        </div>
 
-  </article>
+        <!--Fornecedor-->
+        <div class="tab-pane fade" id="pills-Fornecedor" role="tabpanel" aria-labelledby="pills-Fornecedor-tab">
 
-  <!--CONTEÚDO DO MENU FIM-->
+            <section class="container">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Fornecedor 01
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <strong>Divis</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero delectus laboriosam possimus inventore ducimus dolores qui itaque accusamus, ipsum laudantium rerum veniam cupiditate illo voluptatem porro modi mollitia sunt quibusdam iure quaerat facilis veritatis optio?
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Fornecedor 02
+                        </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <strong>Coca das Divs</strong> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo delectus, est totam officiis blanditiis magni inventore exercitationem nulla! Accusamus, laboriosam id. Aliquid, sit beatae tempore quos, perferendis dolore corrupti, minima distinctio quas quia quibusdam sint.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </section>
 
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+        </div>
+
+        <!--Lançamento recorrentes-->
+        <div class="tab-pane fade" id="pills-Lançamento_recorrentes" role="tabpanel" aria-labelledby="pills-Lançamento_recorrentes-tab">
+
+        </div>
+
+        <!--Metas-->
+        <div class="tab-pane fade" id="pills-Metas" role="tabpanel" aria-labelledby="pills-Metas-tab">
+
+        </div>
+
+        <!--Recibos-->
+        <div class="tab-pane fade" id="pills-Recibos" role="tabpanel" aria-labelledby="pills-Recibos-tab">
+
+        </div>
+
+        <!--Relatorios-->
+        <div class="tab-pane fade" id="pills-Relatorios" role="tabpanel" aria-labelledby="pills-Relatorios-tab">
+
+        </div>
+      </div>
+
+    
+      <!-- JavaScript Bundle with Popper -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
-  <script src="/src/js/scripts.js"></script>
 </body>
-
 </html>
