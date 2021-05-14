@@ -137,6 +137,7 @@ var myChart = new Chart(ctx, {
 });
 }
 
+
 var ctx = document.getElementById('grafico04').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
