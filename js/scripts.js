@@ -1,7 +1,3 @@
-
-
-
-
 var ctx = document.getElementById('grafico01');
 var myChart = new Chart(ctx, {
     type: 'doughnut',
@@ -71,11 +67,34 @@ var myChart = new Chart(ctx, {
     }
 });
 
+
+$('document').ready(function () {
+
+    $.ajax({
+        type: "GET",
+        url: "chart.php",
+        dataType: "json",
+        success:function (data){
+            var mes = [];
+            var vendas = [];
+    
+            for (var i = 0; i< data.length; i++)
+            {
+                mes.push(data[i].nome);
+                vendas.push(data[i].vendas);
+            }
+            grafico03(mes, vendas)
+        }
+
+      });
+    
+    })
+function grafico03 (mes, vendas){
 var ctx = document.getElementById('grafico03');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        labels: ['mes'],
         datasets: [
             {
                 label: 'Meta',
@@ -116,6 +135,7 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+}
 
 
 var ctx = document.getElementById('grafico04').getContext('2d');

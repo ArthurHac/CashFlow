@@ -9,6 +9,12 @@ body {
     display: none;
 }
 
+/* CSS ANDERSON  */
+.Fornecedores{
+    overflow: auto;
+    height: 79vh;
+}
+
 /* header CSS */
 
 .header {
