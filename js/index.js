@@ -54,7 +54,7 @@ const buttonLogin = document.getElementById('form').onsubmit = (e) => {
             sessionStorage.setItem(campoLogin[0].value,localStorage.getItem(campoLogin[0].value))
             location.href = "html/dashboard.html"
         }else{
-
+            document.getElementById('click').click()
         }
     }else {
         console.log("sem retorno")
