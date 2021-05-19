@@ -8,7 +8,7 @@
 const button = document.getElementById('btn_login')
 const email = document.getElementsByName('email')[0]
 const senha = document.getElementsByName('senha')[0]
-
+let campoLogin = document.querySelectorAll('#form input')
 
 // cadastrando com form-cadastro
 const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) => {
@@ -33,9 +33,14 @@ const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) 
         const obj = {
             nome: campoCadastro[0].value,
             senha: campoCadastro[2].value,
-            email: campoCadastro[4].value
+            email: campoCadastro[4].value,
+            produto: {},
+            fornecedor: {},
+            categoria: {}
         }
         localStorage.setItem(campoCadastro[4].value, JSON.stringify(obj))
+        location.href = "html/dashboard.html"
+        sessionStorage.setItem(campoLogin[0].value,localStorage.getItem(campoLogin[0].value))
     }else{
         document.querySelector('#DOM_erro label').textContent = "Valores incorretos"
     }
@@ -43,7 +48,7 @@ const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) 
 
 // logando com dados no locakStorage
 
-let campoLogin = document.querySelectorAll('#form input')
+
 
 const buttonLogin = document.getElementById('form').onsubmit = (e) => {
     e.preventDefault()
