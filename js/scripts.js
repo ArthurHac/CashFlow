@@ -72,7 +72,7 @@ $('document').ready(function () {
 
     $.ajax({
         type: "GET",
-        url: "chart.php",
+        url: "../chart/chart.php",
         dataType: "json",
         success:function (data){
             var mes = [];
