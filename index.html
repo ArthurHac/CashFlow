@@ -17,10 +17,10 @@
 
 
 
-    <header class="container-fluid header">
+    <header class="container-fluid header" style="background-color: #033B26;">
         <img src="img/index/logo.png">
-        <button type="button" class="btn btn-primary button-cadastro-header"><a
-                href="html/dashboard.html">Cadastrar</a></button>
+        <button type="button" id="button_cadastro" class="btn btn-primary button-cadastro-header" data-bs-toggle="modal"
+            data-bs-target="#modal_cadastro">Cadastro</button>
     </header>
 
     <main class="main">
@@ -32,22 +32,20 @@
                             <p class="banner-p">
                                 Controles,<br>Dashboards <br>e tudo que há de bom.
                             </p>
-
                         </div>
-
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 p-0">
-                            <div class="form-login">
-                                <form id="form" name="login" method="post" action="https://postman-echo.com/post">
-                                    <div class="form-group">
+                            <div class="form-login" >
+                                <form id="form" name="login" method="post" style="background-color: #f8f8ff;">
+                                    <div class="form-group" >
 
                                         <input type="email" class="form-control" id="email" name="email"
-                                            aria-describedby="emailHelp" placeholder="Usuario">
+                                            aria-describedby="emailHelp" placeholder="Email">
 
                                         <input type="password" class="form-control" id="senha" name="senha"
                                             placeholder="Senha">
                                     </div>
-                                    <footer class="footer-login">
-                                        <button class="button-login" type="submit" id="btn_login">Entrar</button>
+                                    <footer class="footer-login" style="font-size: 10px;">
+                                        <button class="button-login" style="background-color: #033B26;" type="submit" id="btn_login">Entrar</button>
                                     </footer>
                                 </form>
                             </div>
@@ -119,12 +117,55 @@
 
         </section>
 
-        <button type="button" id="click" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+        <button type="button" id="click" class="btn btn-primary d-none" data-bs-toggle="modal"
+            data-bs-target="#exampleModal"></button>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
                         <h4>senha ou email incorretos</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal_cadastro" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form id="form_cadastro" class="row g-3" method="POST" action="">
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Nome</label>
+                                <input type="name" class="form-control" name="nome">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPassword4" class="form-label">Sobrenome</label>
+                                <input type="name" class="form-control" name="sobrenome">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPassword4" class="form-label">Senha</label>
+                                <input type="password" class="form-control" name="senha">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="inputPassword4" class="form-label">Confirmação de senha</label>
+                                <input type="password" class="form-control" name="senha_c">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress2" class="form-label">Confirmação de Email</label>
+                                <input type="email" class="form-control" name="email_c">
+                            </div>
+                            <div class="col-12" id="DOM_erro">
+                                <button type="submit" id="button_submit" class="btn btn-primary">Cadastro</button>
+                                <label for="DOM_erro"></label>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
@@ -156,7 +197,7 @@
 
     <script src="js/index.js">
     </script>
-    
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>

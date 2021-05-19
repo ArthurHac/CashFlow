@@ -29,10 +29,11 @@ body {
 
 .button-cadastro-header {
     background-color: rgb(255, 255, 255) !important;
-    position: absolute;
-    right: 0px;
+    float: right;
     margin: 20px;
     border: none !important;
+    color: black !important;
+    font-family: arial;
 }
 
 .button-cadastro-header a {
@@ -163,8 +164,6 @@ body {
     height: 200px;
 }
 
-.form-cadastro {
-}
 
  /* tag chamadas pelo javaScript */
 
