@@ -105,14 +105,35 @@ var myChart = new Chart(ctx, {
 });
 
 
+
+
+
+
+var salvarProduto = function(){
+    var cadastroProdutos = document.getElementById ('cadastroProdutos').value;
+    var cadastroEAN = document.getElementById ('cadastroEAN').value;
+    var cadastroCategoria = document.getElementById ('cadastroCategoria').value;
+    var cadastroQuantidade = document.getElementById ('cadastroQuantidade').value;
+    var cadastroFornecerdor = document.getElementById ('cadastroFornecerdor').value;
+    localStorage.setItem('cadastroProdutos', cadastroProdutos);
+    localStorage.setItem('cadastroEAN', cadastroEAN);
+    localStorage.setItem('cadastroCategoria', cadastroCategoria);
+    localStorage.setItem('cadastroQuantidade', cadastroQuantidade);
+    localStorage.setItem('cadastroFornecerdor', cadastroFornecerdor);
+}
+
+document.onchange = salvarProduto;
+
+
+
 var ctx = document.getElementById('graficoEstoque').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Produtos 01', 'Produtos 02', 'Produtos 03'],
+        labels: [document.getElementById('cadastroProdutos').value = localStorage.cadastroProdutos],
         datasets: [{
             label: 'Gategorias',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [document.getElementById('cadastroQuantidade').value = localStorage.cadastroQuantidade],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
