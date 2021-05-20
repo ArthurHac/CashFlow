@@ -154,14 +154,25 @@ var salvarProduto = function(){
     var cadastroCategoria = document.getElementById ('cadastroCategoria').value;
     var cadastroQuantidade = document.getElementById ('cadastroQuantidade').value;
     var cadastroFornecerdor = document.getElementById ('cadastroFornecerdor').value;
-    localStorage.setItem('cadastroProdutos', cadastroProdutos);
-    localStorage.setItem('cadastroEAN', cadastroEAN);
-    localStorage.setItem('cadastroCategoria', cadastroCategoria);
-    localStorage.setItem('cadastroQuantidade', cadastroQuantidade);
-    localStorage.setItem('cadastroFornecerdor', cadastroFornecerdor);
+    sessionStorage.key(1)
+    const getId = JSON.parse(localStorage.getItem(sessionStorage.key(1),id).value)
+    const produto = { 
+        nome: cadastroProdutos,
+        codEAN: cadastroEAN,
+        categoria: {},
+        quantidade: cadastroQuantidade,
+        fornecedor: cadastroFornecerdor
+    }
+
+    const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.key(1)))
+    dadoProduto.produto = produto
+
+
+    localStorage.setItem(sessionStorage.key(1),JSON.stringify(produto))
+    
 }
 
-document.onchange = salvarProduto;
+document.getElementById('button_salvar_produto').click = salvarProduto;
 
 
 
@@ -171,7 +182,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: [document.getElementById('cadastroProdutos').value = localStorage.cadastroProdutos],
         datasets: [{
-            label: 'Gategorias',
+            label: 'Categorias',
             data: [document.getElementById('cadastroQuantidade').value = localStorage.cadastroQuantidade],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

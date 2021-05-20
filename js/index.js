@@ -34,7 +34,7 @@ const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) 
             nome: campoCadastro[0].value,
             senha: campoCadastro[2].value,
             email: campoCadastro[4].value,
-            produto: {},
+            produto: {id:0},
             fornecedor: {},
             categoria: {}
         }
