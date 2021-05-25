@@ -151,11 +151,11 @@ sessionStorage.key(1)
 
 const salvarProduto = document.getElementById('button_salvar_produto').onclick = () => {
     console.log("show")
-    var cadastroProdutos = document.getElementById ('cadastroProdutos').value;
+    var cadastroProdutos = document.getElementById ('cadastroProduto').value;
     var cadastroEAN = document.getElementById ('cadastroEAN').value;
-    var cadastroCategoria = document.getElementById ('cadastroCategoria').value;
-    var cadastroQuantidade = document.getElementById ('cadastroQuantidade').value;
-    var cadastroFornecerdor = document.getElementById ('cadastroFornecerdor').value;
+    var cadastroCategoria = document.getElementById ('cadastroQuantidade').value;
+    var cadastroQuantidade = document.getElementById ('cadastroCategoria').value;
+    var cadastroFornecerdor = document.getElementById ('cadastroFornecedor').value;
     
     const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     const getId = dadoProduto.produto.length
