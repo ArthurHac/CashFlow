@@ -196,3 +196,184 @@ body {
     font-size: 3em !important;
     float: left;
 }
+
+
+
+
+
+/* Formato Geral da Pagina */
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    overflow: hidden;
+}
+
+
+/* Cabeçalho SideBar Mobile */
+
+.offcanvas-header{
+    background: rgb(0 46 33);
+}
+
+
+/* Menu SideBar Mobile */
+
+.offcanvas-body {
+    background: rgb(0 83 62 / 85%);
+}
+.offcanvas-body a{
+    color: white;
+    display: block;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+.offcanvas-body i{
+    margin-right: 10px;
+}
+.offcanvas-body a:hover{
+    background: rgba(0, 60, 47, 0.597);
+    text-decoration: none;
+    color: white;
+}
+
+
+/* Button SideBar Mobile */
+
+.imgLogo button{
+    display:block;
+    margin-left: auto;
+    margin-top: -33px;
+    margin-right: 23px;
+    background: rgb(21, 140, 140);
+    border:0
+}
+
+
+/* Cabeçalho Desktop */
+
+.cabecalho{
+    background: rgb(0 46 33);
+    width: 100%;
+    height: 70px;
+}
+
+.imgLogo img{
+    width: 150px;
+    margin-left: 2%;
+    margin-top: 17px;
+}
+
+
+/* Menu SideBar Desktop */
+
+.sideBar{
+    background: rgb(0 83 62 / 85%);
+    padding-top: 30px;
+    position: fixed;
+    width: 15%;
+    height: 100%;
+}
+
+.sideBar a{
+    color: white;
+    display: block;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.sideBar a:hover{
+    background: rgba(0, 60, 47, 0.597);
+    text-decoration: none;
+    color: white;
+}
+
+.sideBar i{
+    padding-right: 10px;
+    font-size: 17px;
+}
+
+
+/* Deixar o valor do Faturamento centralizado no Desktop */
+
+.faturamentoCentral{
+    padding-top: 80px;
+}
+
+
+/* Barra de Rolagem da Lista de Cadastro Desktop */
+
+.listaCadastro{
+    overflow: auto;
+    height: 79vh;
+}
+
+
+/* Graficos */
+
+.graficoEntradaSaidacss{
+    position: relative;
+    margin: auto;
+    width: 70%;
+}
+
+.graficoEstoqueAtualcss{
+    position: relative;
+    margin: auto;
+    width: 70%;
+}
+
+.graficoMetaAnualcss{
+    position: relative;
+    margin: auto;
+    width: 60%;
+}
+.graficoDoEstoquecss{
+    position: relative;
+    margin: auto;
+    width: 100%;
+}
+
+
+/* GAMBIARRA? TALVEZ?! */
+
+
+.ajustarContainer{
+    margin-left: 15% !important;
+}
+
+@media screen and (max-width:1035px) {
+    .sideBar a {
+        padding-left: 10px;
+    }
+  }
+
+@media screen and (max-width:900px) {
+    .sideBar {
+     display: none;
+    }
+  }
+
+@media screen and (max-width:900px) {
+    .ajustarContainer{
+       margin-left: -15px !important;
+    }
+  }
+
+@media screen and (min-width:900px) {
+    .imgLogo button{
+       display: none;
+    }
+  }
+
+@media screen and (max-width:900px) {
+    body {
+        overflow: auto;
+    }
+
+  }
