@@ -157,7 +157,7 @@ body {
 
 .card-function {
     width: 100%;
-    background-color: cadetblue;
+    background-color: white;
     padding: 20px;
     padding-top: 0px;
 }
@@ -166,6 +166,7 @@ body {
     width: 100%;
     margin-top: 20px; 
     padding-top: 0px;
+    background-color: #f8f8f8 !important;
 }
 
 .card-box {
