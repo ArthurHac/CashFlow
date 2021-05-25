@@ -10,9 +10,16 @@ body {
 }
 
 /* CSS ANDERSON  */
+.conteudoMenu{
+    width: 100%;
+}
 .Fornecedores{
     overflow: auto;
     height: 79vh;
+}
+
+.graficoTeste{
+    width: 50%;
 }
 
 /* header CSS */
