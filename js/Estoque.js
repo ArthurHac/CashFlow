@@ -6,11 +6,11 @@ sessionStorage.key(1)
 const salvarProduto = document.getElementById('button_salvar_produto').onclick = () => {
     console.log("show")
 
-    var cadastroProdutos = document.getElementById ('cadastroProduto').value;
+    var cadastroProduto = document.getElementById ('cadastroProduto').value;
     var cadastroEAN = document.getElementById ('cadastroEAN').value;
-    var cadastroCategoria = document.getElementById ('cadastroQuantidade').value;
-    var cadastroQuantidade = document.getElementById ('cadastroCategoria').value;
-    var cadastroFornecerdor = document.getElementById ('cadastroFornecedor').value;
+    var cadastroQuantidade = document.getElementById ('cadastroQuantidade').value;
+    var cadastroCategoria = document.getElementById ('cadastroCategoria').value;
+    var cadastroFornecedor = document.getElementById ('cadastroFornecedor').value;
 
     const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     const getId = dadoProduto.produto.length
@@ -40,18 +40,55 @@ const adicionarHTMLproduto  = () => {
         const node = document.createElement("li")
         node.className = "list-group-item" 
         node.innerHTML = `
-        <p>${prodPropriedade[i].nome}</p>
-        <p>${prodPropriedade[i].categoria}</p>
-        <p>${prodPropriedade[i].fornecedor}</p>
-        <p>${prodPropriedade[i].quantidade}</p>
-        ` 
-        document.getElementById("produto_html").appendChild(node)
+        
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+        
+                <div class="accordion-item">
+        
+                    <h2 class="accordion-header" id="TESTE-AR">
+        
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        
+                            data-bs-target="#${prodPropriedade[i].nome}" aria-expanded="false"
+        
+                            aria-controls="${prodPropriedade[i].nome}">
+        
+                            ${prodPropriedade[i].nome}
+        
+                        </button>
+        
+                    </h2>
+        
+                    <div id="${prodPropriedade[i].nome}" class="accordion-collapse collapse"
+        
+                        aria-labelledby="TESTE-AR">
+        
+                        <div class="accordion-body">
+        
+                        <p>${prodPropriedade[i].quantidade}</p>
+                        <p>${prodPropriedade[i].fornecedor}</p>
+                        <p>${prodPropriedade[i].categoria}</p>
+                        <p>${prodPropriedade[i].cadastroEAN}</p>
+        
+                        </div>
+        
+                    </div>
+        
+                </div>
+        
+            </div>
+        
+        
+
+     `
+        
+        document.getElementById("prod_lista").appendChild(node)
     }
 }
 
 
 document.getElementById('button_salvar_produto').onclick = salvarProduto;
-document.getElementById('button_down').onclick = adicionarHTMLproduto
+document.getElementById('busca_item').onclick = adicionarHTMLproduto
 
 var ctx = document.getElementById('graficoDoEstoque');
 var ctx = document.getElementById('graficoDoEstoque').getContext('2d');

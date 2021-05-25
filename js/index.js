@@ -57,7 +57,7 @@ const buttonLogin = document.getElementById('form').onsubmit = (e) => {
         if(dadosSenha == campoLogin[1].value){
             console.log('show')
             console.log(localStorage.getItem(campoLogin[0].value))
-            sessionStorage.setItem(campoLogin[0].value,localStorage.getItem(campoLogin[0].value))
+            sessionStorage.setItem(0,localStorage.getItem(campoLogin[0].value))
             location.href = "html/dashboard.html"
         }else{
             document.getElementById('click').click()

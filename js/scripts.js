@@ -174,30 +174,10 @@ const salvarProduto = document.getElementById('button_salvar_produto').onclick =
 }
 
 
-const adicionarHTMLproduto  = () => {
-    
-    const prod = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    const prodPropriedade = prod.produto
-    
-
-
-    for(i = 1; i < prod.produto.length; i++){
-        
-        const node = document.createElement("li")
-        node.className = "list-group-item mt-4" 
-        node.innerHTML = `
-        <p>${prodPropriedade[i].nome}</p>
-        <p>${prodPropriedade[i].categoria}</p>
-        <p>${prodPropriedade[i].fornecedor}</p>
-        <p>${prodPropriedade[i].quantidade}</p>
-        ` 
-        document.getElementById("produto_html").appendChild(node)
-    }
-}
 
 
 document.getElementById('button_salvar_produto').onclick = salvarProduto;
-document.getElementById('button_down').onclick = adicionarHTMLproduto
+document.getElementById('busca_item').onclick = adicionarHTMLproduto
 
 var ctx = document.getElementById('graficoEstoque').getContext('2d');
 var myChart = new Chart(ctx, {
