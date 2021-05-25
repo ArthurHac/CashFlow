@@ -1,5 +1,7 @@
 
 // Estoque
+
+var
 var ctx = document.getElementById('graficoDoEstoque');
 var ctx = document.getElementById('graficoDoEstoque').getContext('2d');
 var ctx = $('#graficoDoEstoque');
