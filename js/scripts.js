@@ -5,7 +5,7 @@ var myChart = new Chart(ctx, {
         labels: ['Entrada','Saida'],
         datasets: [{
             label: 'Entrada x Saida',
-            data: [25, 20,],
+            data: [50, 10,],
             backgroundColor: [
                 'rgba(50,205,50)',
                 'rgba(220,20,60)'
@@ -147,34 +147,57 @@ var myChart = new Chart(ctx, {
 
 
 
+sessionStorage.key(1)
 
-var salvarProduto = function(){
+const salvarProduto = document.getElementById('button_salvar_produto').onclick = () => {
+    console.log("show")
     var cadastroProdutos = document.getElementById ('cadastroProdutos').value;
     var cadastroEAN = document.getElementById ('cadastroEAN').value;
     var cadastroCategoria = document.getElementById ('cadastroCategoria').value;
     var cadastroQuantidade = document.getElementById ('cadastroQuantidade').value;
     var cadastroFornecerdor = document.getElementById ('cadastroFornecerdor').value;
-    sessionStorage.key(1)
-    const getId = JSON.parse(localStorage.getItem(sessionStorage.key(1),id).value)
-    const produto = { 
+    
+    const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    const getId = dadoProduto.produto.length
+    const componente = { 
         nome: cadastroProdutos,
         codEAN: cadastroEAN,
-        categoria: {},
+        categoria: cadastroCategoria,
         quantidade: cadastroQuantidade,
         fornecedor: cadastroFornecerdor
     }
 
-    const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.key(1)))
-    dadoProduto.produto = produto
 
-
-    localStorage.setItem(sessionStorage.key(1),JSON.stringify(produto))
-    
+    dadoProduto.produto[0] = getId
+    dadoProduto.produto.push(componente)
+    localStorage.setItem(sessionStorage.getItem(0),JSON.stringify(dadoProduto))
 }
 
-document.getElementById('button_salvar_produto').click = salvarProduto;
+
+const adicionarHTMLproduto  = () => {
+    
+    const prod = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    const prodPropriedade = prod.produto
+    const 
 
 
+    for(i = 1; i < prod.produto.length; i++){
+        
+        const node = document.createElement("li")
+        node.className = "list-group-item mt-4" 
+        node.innerHTML = `
+        <p>${prodPropriedade[i].nome}</p>
+        <p>${prodPropriedade[i].categoria}</p>
+        <p>${prodPropriedade[i].fornecedor}</p>
+        <p>${prodPropriedade[i].quantidade}</p>
+        ` 
+        document.getElementById("produto_html").appendChild(node)
+    }
+}
+
+
+document.getElementById('button_salvar_produto').onclick = salvarProduto;
+document.getElementById('button_down').onclick = adicionarHTMLproduto
 
 var ctx = document.getElementById('graficoEstoque').getContext('2d');
 var myChart = new Chart(ctx, {
