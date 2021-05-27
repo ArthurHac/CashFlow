@@ -99,17 +99,36 @@ var myChart = new Chart(ctx, {
     type: 'bar',
     data:
      {
-        labels: ['Produto 00', 'Produto 01', 'Produto 02', 'Produto 03', 'Produto 04', 'Produto 05'],
+        labels: ['Produto 01', 'Produto 02', 'Produto 03', 'Produto 04', 'Produto 05' , 'Produto 06' , 'Produto 07' , 'Produto 08' , 'Produto 09' , 'Produto 10'],
         datasets: [{
             label: '',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [10, 09, 08, 07, 06, 05, 04, 03, 02, 01],
             backgroundColor: [
                 '#ff595e',
                 '#ffca3a',
                 '#8ac926',
                 '#1982c4',
                 '#1982c4',
-                '#6a4c93'
+                '#6a4c93',
+                '#f72585',
+                '#b5179e',
+                '#7209b7',
+                '#560bad',
+                '#480ca8',
+                '#3a0ca3',
+                '#3f37c9',
+                '#4361ee',
+                '#4895ef',
+                '#b7094c',
+                '#723c70',
+                '#455e89',
+                '#1780a1',
+                '#1d4e89',
+                '#3fc1c0',
+                '#6a00f4',
+                '#54478c',
+                '#048ba8',
+                '#b9e769'
             ],
             
             borderWidth: 1
