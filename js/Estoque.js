@@ -165,7 +165,7 @@ function dadosProdutos() {
     document.getElementById('quantProduto').innerHTML = quantProduto
     document.getElementById('quantEstoque').innerHTML = quantEstoque
     document.getElementById('valorEstoque').innerHTML = "R$ "+valorTotal.toFixed(2)
-    document.getElementById('ProdutoRetirado').innerHTML = "R$ "+ dados.ValorVendido.toFixed(2)
+    document.getElementById('ProdutoRetirado').innerHTML = "R$ "+ dados.ValorVendido
     selectHtml.innerHTML = txt
 }
 
@@ -185,7 +185,7 @@ function valorEstoque(){
             }
         }
     }
-    document.getElementById('ProdutoRetirado').innerHTML = "R$ "+ dados.ValorVendido.toFixed(2)
+    document.getElementById('ProdutoRetirado').innerHTML = "R$ "+ dados.ValorVendido
     localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
 }
 
@@ -233,6 +233,7 @@ window.onload = () => {
 
 
 document.getElementById('busca_item').onclick = () => {
+    itemModal()
     myChart.update()
     dadosProdutos()
     graficoEstoque()
@@ -240,7 +241,6 @@ document.getElementById('busca_item').onclick = () => {
 
 
 document.getElementById('Adicionar_venda_produto').onclick = () => {
-    itemModal()
     valorEstoque()
     myChart.update()
     dadosProdutos()
