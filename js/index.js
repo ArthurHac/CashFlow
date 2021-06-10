@@ -31,7 +31,8 @@ const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) 
             email: campoCadastro[4].value,
             produto: [],
             fornecedor: [],
-            categoria: []
+            categoria: [],
+            ValorVendido: ''
         }
         localStorage.setItem(campoCadastro[4].value, JSON.stringify(obj))
         location.href = "html/dashboard.html"
