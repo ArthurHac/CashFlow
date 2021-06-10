@@ -153,7 +153,7 @@ function dadosProdutos() {
                 <td>${dados.produto[i].preco}</td>
                 <td>${dados.produto[i].fornecedor}</td>
                 <td>${dados.produto[i].categoria}</td>
-                <td>${dados.produto[i].cadastroEAN}</td>
+                <td>${dados.produto[i].codEAN}</td>
                 <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${dados.produto[i].nome})"><i class="far fa-times-circle"></i></button></td>
             </tr>
             </table>
