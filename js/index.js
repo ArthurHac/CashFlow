@@ -1,9 +1,4 @@
-// // reCHAPT
-// function onSubmit(token) {
-    //     document.getElementById("demo-form").submit();
-//   }
 
-// selecionando o form-login
 
 const button = document.getElementById('btn_login')
 const email = document.getElementsByName('email')[0]

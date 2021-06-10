@@ -19,7 +19,7 @@
 
   <header class="cabecalho">
     <nav class="imgLogo">
-      <a href="/Dashboard.html"><img src="/img/dashbords/logo.png" alt="logo"></a>
+      <a href="/html/Dashboard.html"><img src="/img/dashbords/logo.png" alt="logo"></a>
 
       <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
         aria-controls="offcanvasExample">
@@ -70,7 +70,7 @@
         <div class="card text-white bg-success">
           <div class="card-body">
             <h5 class="card-title">Valor em estoque</h5>
-            <h6 class="card-text">0,00</h6>
+            <h6 class="card-text" id="valorEstoque">0,00</h6>
           </div>
         </div>
 
@@ -81,7 +81,7 @@
         <div class="card text-white bg-warning">
           <div class="card-body">
             <h5 class="card-title">Itens em estoque </h5>
-            <h6 class="card-text">0</h6>
+            <h6 class="card-text" id="quantEstoque">0</h6>
           </div>
         </div>
 
@@ -91,8 +91,8 @@
 
         <div class="card text-white bg-info">
           <div class="card-body">
-            <h5 class="card-title">Produtos cadastrados</h5>
-            <h6 class="card-text">0</h6>
+            <h5 class="card-title" >Produtos cadastrados</h5>
+            <h6 class="card-text" id="quantProduto">0</h6>
           </div>
         </div>
 
@@ -102,8 +102,8 @@
 
         <div class="card text-white bg-danger">
           <div class="card-body">
-            <h5 class="card-title">Produtos Retirados</h5>
-            <h6 class="card-text">0</h6>
+            <h5 class="card-title">Produtos Vendidos</h5>
+            <h6 class="card-text" id="ProdutoRetirado">0</h6>
           </div>
         </div>
 
@@ -113,13 +113,13 @@
 
       <section class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mt-3">
         <div class="graficoDoEstoquecss">
-          <canvas id="graficoDoEstoque" style="width: 100%; height: 750px;"></canvas>
+          <canvas id="graficoDoEstoque" "></canvas>
         </div>
       </section>
 
       <!-- Lista -->
 
-      <section class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mt-3 pr-3">
+      <section class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mt-3 pr-3" >
 
         <ul class="list-group listaCadastro" id="prod_lista">
           <li class="list-group-item active" aria-current="true">
@@ -127,16 +127,21 @@
               <h5 class="text-left col-9 m-0 p-0 pl-3">Cadastra Produtos</h5>
               <button type="button" class="btn btn-primary d-block ml-auto col-1 m-0 p-0" data-bs-toggle="modal"
                 data-bs-target="#exampleModal"><i class="fas fa-file-upload"></i></button>
-              <button type="button" class="btn btn-primary d-block col-1 m-0 p-0" id="busca_item"><i class="fas fa-sync-alt"></i></button>
+                <button type="button" class="btn btn-primary d-block ml-auto col-1 m-0 p-0" data-bs-toggle="modal"
+                data-bs-target="#vendaProduto"><i class="fas fa-shopping-cart"></i></button>
             </div>
           </li>
-          
+          <div id="produtos" style="overflow: auto; height: 350px;">
+
+          </div>
         </ul>
       </section>
 
 
       <!-- Modal -->
-
+      
+      
+      
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -144,25 +149,29 @@
               <h5 class="modal-title" id="exampleModalLabel">Cadastra Produtos:</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-              <div class="mb-3">
+            <div class="modal-body row">
+              <div class="mb-3 col-7">
                 <label for="cadastroProduto" class="form-label">Produto:</label>
                 <input type="text" class="form-control" id="cadastroProduto" placeholder="Nome do produto">
               </div>
-              <div class="mb-3">
+              <div class="mb-3 col-5">
                 <label for="cadastroEAN" class="form-label">Código EAN:</label>
-                <input type="text" class="form-control" id="cadastroEAN" placeholder="Digite o número do EAN">
+                <input type="text" class="form-control" id="cadastroEAN" placeholder="EAN">
               </div>
-              <div class="mb-3">
+              <div class="mb-3 col-6 ">
                 <label for="cadastroQuantidade" class="form-label">Quantidade:</label>
                 <input type="text" class="form-control" id="cadastroQuantidade" placeholder="Número da quantidade">
+              </div>
+              <div class="mb-3 col-6">
+                <label for="cadastroValor" class="form-label">Preço:</label>
+                <input type="text" class="form-control" id="cadastroValor" placeholder="Número da quantidade">
               </div>
               <div class="mb-3">
                 <label for="cadastroCategoria" class="form-label">Categoria:</label>
                 <select class="form-select" aria-label="Default select example" id="cadastroCategoria">
                   <option selected>Selecione a Categoria</option>
-                  <option value="1">Categoria 01</option>
-                  <option value="2">Categoria 02</option>
+                  <option value="Eletro">Eletro</option>
+                  <option value="2"></option>
                   <option value="3">Categoria 03</option>
                 </select>
               </div>
@@ -177,16 +186,48 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="busca_item">Fechar</button>
               <button id="button_salvar_produto" type="button" class="btn btn-primary">Salvar</button>
             </div>
           </div>
         </div>
       </div>
-
+      
+      <div class="modal fade" id="vendaProduto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Informa Venda</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body row">
+              <div class="mb-3 col-7">
+                <label for="cadastroProduto" class="form-label">Nome Produto</label>
+                <input type="text" class="form-control" id="vendaProduto" placeholder="">    
+                <button id="Adicionar_venda_produto" type="button" class="btn btn-primary">Salvar</button>
+              </div>
+              <div class="mb-3 col-5">
+                <label for="cadastroProduto" class="form-label">Quatidade:</label>
+                <input type="text" class="form-control" id="vendaQuantidade" placeholder="">
+              </div>
+          </div>   
+        </div>
+      </div>
     </section>
-
+    
   </section>
+
+  <button type="button" id="click" class="btn btn-primary d-none" data-bs-toggle="modal"
+            data-bs-target="#exampleModal"></button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4>senha ou email incorretos</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
   <!-- JavaScript -->

@@ -1,24 +1,38 @@
-<html>
-  <head>
-    <title>reCAPTCHA demo: Simple page</title>
-    <script>
-      let a = 5;
-      let b = ++a/2;
-      console.log(--b);
+<div class="accordion" id="accordionPanelsStayOpenExample">
+        
+  <div class="accordion-item">
 
-      window.onload = () => {
-        document.getElementById('bt').onclick =  () => alert("teste");
-      };
+      <h2 class="accordion-header" id="TESTE-AR">
+
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+
+              data-bs-target="#${prodPropriedade[i].nome}" aria-expanded="false"
+
+              aria-controls="${prodPropriedade[i].nome}">
+
+              ${prodPropriedade[i].nome}
+
+          </button>
+
+      </h2>
+
+      <div id="${prodPropriedade[i].nome}" class="accordion-collapse collapse"
+
+          aria-labelledby="TESTE-AR">
+
+          <div class="accordion-body">
+
+          <p>${prodPropriedade[i].quantidade}</p>
+          <p>${prodPropriedade[i].fornecedor}</p>
+          <p>${prodPropriedade[i].categoria}</p>
+          <p>${prodPropriedade[i].cadastroEAN}</p>
+
+          </div>
+
+      </div>
+
+  </div>
+
+</div>
 
 
-    </script>
-  </head>
-  <body>
-    <form action="?" method="POST">
-      <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-      <br/>
-      <input type="submit" value="Submit">
-    </form>
-    <button id="bt">teste</button>
-  </body>
-</html>

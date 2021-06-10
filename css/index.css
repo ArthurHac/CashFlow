@@ -5,6 +5,10 @@ body {
     background-color: aliceblue;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+}
+
 .display-none {
     display: none;
 }
@@ -20,6 +24,19 @@ body {
 
 .graficoTeste{
     width: 50%;
+}
+
+.graficoDoEstoquecss{
+    height: 80% !important;
+}
+
+#graficoDoEstoque {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.button_excluir {
+    float: right;
 }
 
 /* header CSS */
