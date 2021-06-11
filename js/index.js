@@ -9,18 +9,21 @@ let campoLogin = document.querySelectorAll('#form input')
 const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) => {
     e.preventDefault()
     const campoCadastro = document.querySelectorAll('#form_cadastro input')
+    let confirm_email = false
+    let confirm_senha = false
     let confirm_campo = false
-    if(campoCadastro[2].value != campoCadastro[3].value){
-        document.querySelector('#DOM_erro label').textContent = "senha incorreta"
-    }else {
+
+    if(campoCadastro[2].value == campoCadastro[3].value){
         document.querySelector('#DOM_erro label').textContent = ""
-        confirm_campo = true
+        confirm_senha = true
     }
-    
-    if(campoCadastro[4].value != campoCadastro[5].value){
-        document.querySelector('#DOM_erro label').textContent = "Emails diferentes"
-    }else {
+
+    if(campoCadastro[4].value == campoCadastro[5].value){
         document.querySelector('#DOM_erro label').textContent = ""
+        confirm_email = true
+    }
+
+    if(confirm_email && confirm_senha){
         confirm_campo = true
     }
     
@@ -31,14 +34,15 @@ const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) 
             email: campoCadastro[4].value,
             produto: [],
             fornecedor: [],
-            categoria: []
+            categoria: [],
+            ValorVendido: 0
         }
         localStorage.setItem(campoCadastro[4].value, JSON.stringify(obj))
         location.href = "html/dashboard.html"
         sessionStorage.setItem(0,campoCadastro[4].value)
         console.log(campoCadastro[4].value)
     }else{
-        document.querySelector('#DOM_erro label').textContent = "Valores incorretos"
+        document.querySelector('#DOM_erro label').textContent = "Verifique os dados"
     }
 }
 
@@ -52,7 +56,7 @@ const buttonLogin = document.getElementById('form').onsubmit = (e) => {
         if(dadosSenha == campoLogin[1].value){
             console.log('show')
             console.log(localStorage.getItem(campoLogin[0].value))
-            sessionStorage.setItem(0,localStorage.getItem(campoLogin[0].value))
+            sessionStorage.setItem(0,campoLogin[0].value)
             location.href = "html/dashboard.html"
         }else{
             document.getElementById('click').click()
@@ -63,6 +67,6 @@ const buttonLogin = document.getElementById('form').onsubmit = (e) => {
     }
 }
 
-document.getElementById('btn_login').onchange = buttonLogin
-document.getElementById('button_submit').onchange = buttonCadastros
+document.getElementById('btn_login').onclick = buttonLogin
+document.getElementById('button_submit').onclick = buttonCadastros
 

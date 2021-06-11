@@ -21,7 +21,7 @@ const salvarProduto = document.getElementById('button_salvar_produto').onclick =
         categoria: cadastroQuantidade,
         quantidade: cadastroCategoria,
         fornecedor: cadastroFornecedor,
-        preco: cadastroValor
+        preco: cadastroValor.replace(',','.')
     }
 
     dadoProduto.produto[0] = getId
@@ -123,70 +123,70 @@ function dadosProdutos() {
     let valorTotal = 0 
 
     for (i = 1; i < dados.produto.length; i++) {
-        quantEstoque = quantEstoque + Number.parseInt(dados.produto[i].quantidade)
         quantProduto++
-        valorTotal = valorTotal + Number.parseInt(dados.produto[i].preco)
+        quantEstoque = quantEstoque + Number.parseInt(dados.produto[i].quantidade)
+        valorTotal = valorTotal + Number.parseFloat( dados.produto[i].preco) * quantEstoque
         txt = txt + `
         <div class="accordion" id="accordionPanelsStayOpenExample">
-        
   <div class="accordion-item">
-
       <h2 class="accordion-header" id="TESTE-AR">
-
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-
               data-bs-target="#${dados.produto[i].nome}" aria-expanded="false"
-
               aria-controls="${dados.produto[i].nome}">
-
               ${dados.produto[i].nome}
-
           </button>
-
       </h2>
-
       <div id="${dados.produto[i].nome}" class="accordion-collapse collapse"
 
           aria-labelledby="TESTE-AR">
 
-          <div class="accordion-body">
-          <button class="btn-primary button_excluir" style="border: none; border-radius: 20px" onclick="excluirProduto(${dados.produto[i].nome})"><i class="far fa-times-circle"></i></button>
-
-          <p>${dados.produto[i].quantidade}</p>
-          <p>${dados.produto[i].preco}</p>
-          <p>${dados.produto[i].fornecedor}</p>
-          <p>${dados.produto[i].categoria}</p>
-          <p>${dados.produto[i].cadastroEAN}</p>
-          </div>
+          <table>
+            <tr>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Fornecedor</th>
+                <th>Categoria</th>
+                <th>EAN</th>
+            </tr>
+            <tr>
+                <td>${dados.produto[i].quantidade}</td>
+                <td>${dados.produto[i].preco}</td>
+                <td>${dados.produto[i].fornecedor}</td>
+                <td>${dados.produto[i].categoria}</td>
+                <td>${dados.produto[i].codEAN}</td>
+                <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${dados.produto[i].nome})"><i class="far fa-times-circle"></i></button></td>
+            </tr>
+            </table>
       </div>
-
   </div>
-
 </div>
         `
     }
     document.getElementById('quantProduto').innerHTML = quantProduto
     document.getElementById('quantEstoque').innerHTML = quantEstoque
-    document.getElementById('valorEstoque').innerHTML = "R$ "+valorTotal
+    document.getElementById('valorEstoque').innerHTML = "R$ "+valorTotal.toFixed(2)
+    document.getElementById('ProdutoRetirado').innerHTML = "R$ "+ dados.ValorVendido
     selectHtml.innerHTML = txt
 }
 
 
 function valorEstoque(){
-    let vendaProduto = document.getElementById('vendaProduto').value
-    let vendaQuantidade = document.getElementById('vendaQuantidade').value
-    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    let vendaProduto = document.getElementById('informaVendaProduto').value
+    let vendaQuantidade = document.getElementById('informaQuantidade').value
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0))) 
 
     for(i = 1; i < dados.produto.length; i++){
         if(dados.produto[i].nome == vendaProduto){
-            console.log(dados.produto[i].nome)
+            if(Number.parseInt(dados.produto[i].quantidade) >= vendaQuantidade){
             dados.produto[i].quantidade = Number.parseInt(dados.produto[i].quantidade) - vendaQuantidade
-            
+            dados.ValorVendido = dados.ValorVendido + Number.parseFloat(dados.produto[i].preco.replace(',','.')) * vendaQuantidade
+            }else{
+                alert('quantidade insuficiente')
+            }
         }
     }
+    document.getElementById('ProdutoRetirado').innerHTML = "R$ "+ dados.ValorVendido
     localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
-
-
 }
 
 function excluirProduto(dadosExcluir) {
@@ -205,20 +205,40 @@ function excluirProduto(dadosExcluir) {
 
 }
 
+function itemModal(){
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0))) 
+    let html = document.getElementById('informaVendaProduto')
+    let txt = ``
+
+    for(i=1;i < dados.produto.length; i++){
+        console.log(1)
+        txt = txt + `
+            <option value="${dados.produto[i].nome}">${dados.produto[i].nome}</option>
+        ` 
+    }
+
+    html.innerHTML = txt
+
+}
+
+
 
 window.onload = () => { 
     dadosProdutos()
     graficoEstoque()
+    itemModal()
 }
 
 
 
 
 document.getElementById('busca_item').onclick = () => {
+    itemModal()
     myChart.update()
     dadosProdutos()
     graficoEstoque()
 }
+
 
 document.getElementById('Adicionar_venda_produto').onclick = () => {
     valorEstoque()
