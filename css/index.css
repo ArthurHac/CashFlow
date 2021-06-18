@@ -193,6 +193,8 @@ table {
     background-color: white;
     padding: 20px;
     padding-top: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .card {
@@ -204,7 +206,7 @@ table {
 
 .card-box {
     width: 100%;
-    height: 500px;
+    height: 550px;
     padding: 20px;
     text-align: center;
 }
@@ -219,6 +221,7 @@ table {
 .card-title {
     margin-bottom:30px !important;
 }
+
 
 /* final card */
 
