@@ -163,6 +163,8 @@ function dadosProdutos() {
                 <td>${dados.produto[i].categoria}</td>
                 <td>${dados.produto[i].codEAN}</td>
                 <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${dados.produto[i].nome})"><i class="far fa-times-circle"></i></button></td>
+                <td><button type="button" id="clickEditar" onclick="editarProduto(${dados.produto[i].codEAN})" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModalwe">editar</button></tr>
             </tr>
             </table>
       </div>
@@ -211,6 +213,71 @@ function excluirProduto(dadosExcluir) {
     graficoEstoque()
 
 }
+
+function editarProduto(codEAN){
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    for(i = 1; i < dados.produto.length;i++){
+        if(dados.produto[i].codEAN == codEAN){
+            let dadosModal = dados.produto[i]
+
+            let txt = `<div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastra Produtos:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body row">
+                <div class="mb-3 col-7">
+                  <label for="cadastroProduto" class="form-label">Produto:</label>
+                  <input type="text" class="form-control" id="cadastroProduto" placeholder="${dadosModal.nome}" autocomplete="off">
+                </div>
+                <div class="mb-3 col-5">
+                  <label for="cadastroEAN" class="form-label">Código EAN:</label>
+                  <input type="text" class="form-control" id="cadastroEAN" placeholder="${dadosModal.codEAN}">
+                </div>
+                <div class="mb-3 col-6 ">
+                  <label for="cadastroQuantidade" class="form-label">Quantidade:</label>
+                  <input type="text" class="form-control" id="cadastroQuantidade" placeholder="${dadosModal.quantidade}" autocomplete="off">
+                </div>
+                <div class="mb-3 col-6">
+                  <label for="cadastroValor" class="form-label">Preço:</label>
+                  <input type="text" class="form-control" id="cadastroValor" placeholder="${dadosModal.preco}" autocomplete="off">
+                </div>
+                <div class="mb-3">
+                  <label for="cadastroCategoria" class="form-label">Categoria:</label>
+                  <select class="form-select" aria-label="Default select example" id="cadastroCategoria" autocomplete="off">
+                    <option selected>Selecione a Categoria</option>
+                    <option value="Eletro">Eletro</option>
+                    <option value="2"></option>
+                    <option value="3">Categoria 03</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="cadastroFornecedor" class="form-label">Fornecedor</label>
+                  <select class="form-select" aria-label="Default select example" id="cadastroFornecedor">
+                    <option selected>Selecione o Fornecedor</option>
+                    <option value="1">Fornecedor 01</option>
+                    <option value="2">Fornecedor 02</option>
+                    <option value="3">Fornecedor 03</option>
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="busca_item">Fechar</button>
+                <button id="button_salvar_produto" type="button" class="btn btn-primary">Salvar</button>
+              </div>
+            </div>
+          </div>`
+        
+          document.getElementById('modalEditar').innerHTML = txt
+        }
+    }
+
+   
+  document.getElementById('clickEditarActive').click()
+
+}
+
 
 function itemModal() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
