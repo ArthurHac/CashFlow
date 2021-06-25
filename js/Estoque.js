@@ -110,7 +110,7 @@ function graficoEstoque() {
     document.getElementById('cadastroCategoria').value = ""
     document.getElementById('cadastroQuantidade').value = ""
     document.getElementById('cadastroFornecedor').value = ""
-    document.getElementById('cadastroValor').value= ""
+    document.getElementById('cadastroValor').value = ""
 
 }
 
@@ -214,10 +214,10 @@ function excluirProduto(dadosExcluir) {
 
 }
 
-function editarProduto(codEAN){
+function editarProduto(codEAN) {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    for(i = 1; i < dados.produto.length;i++){
-        if(dados.produto[i].codEAN == codEAN){
+    for (i = 1; i < dados.produto.length; i++) {
+        if (dados.produto[i].codEAN == codEAN) {
             let dadosModal = dados.produto[i]
 
             let txt = `<div class="modal-dialog">
@@ -229,23 +229,23 @@ function editarProduto(codEAN){
               <div class="modal-body row">
                 <div class="mb-3 col-7">
                   <label for="cadastroProduto" class="form-label">Produto:</label>
-                  <input type="text" class="form-control" id="cadastroProduto" placeholder="${dadosModal.nome}" autocomplete="off">
+                  <input type="text" class="form-control" id="cadastroProdutoEdita" value="${dadosModal.nome}" autocomplete="off">
                 </div>
                 <div class="mb-3 col-5">
                   <label for="cadastroEAN" class="form-label">Código EAN:</label>
-                  <input type="text" class="form-control" id="cadastroEAN" placeholder="${dadosModal.codEAN}">
+                  <input type="text" class="form-control" id="cadastroEANEdita" disabled="" value="${dadosModal.codEAN}">
                 </div>
                 <div class="mb-3 col-6 ">
                   <label for="cadastroQuantidade" class="form-label">Quantidade:</label>
-                  <input type="text" class="form-control" id="cadastroQuantidade" placeholder="${dadosModal.quantidade}" autocomplete="off">
+                  <input type="text" class="form-control" id="cadastroQuantidadeEdita" value="${dadosModal.quantidade}" autocomplete="off">
                 </div>
                 <div class="mb-3 col-6">
                   <label for="cadastroValor" class="form-label">Preço:</label>
-                  <input type="text" class="form-control" id="cadastroValor" placeholder="${dadosModal.preco}" autocomplete="off">
+                  <input type="text" class="form-control" id="cadastroValorEdita" value="${dadosModal.preco}" autocomplete="off">
                 </div>
                 <div class="mb-3">
                   <label for="cadastroCategoria" class="form-label">Categoria:</label>
-                  <select class="form-select" aria-label="Default select example" id="cadastroCategoria" autocomplete="off">
+                  <select class="form-select" aria-label="Default select example" id="cadastroCategoriaEdita" autocomplete="off">
                     <option selected>Selecione a Categoria</option>
                     <option value="Eletro">Eletro</option>
                     <option value="2"></option>
@@ -254,7 +254,7 @@ function editarProduto(codEAN){
                 </div>
                 <div class="mb-3">
                   <label for="cadastroFornecedor" class="form-label">Fornecedor</label>
-                  <select class="form-select" aria-label="Default select example" id="cadastroFornecedor">
+                  <select class="form-select" aria-label="Default select example" id="cadastroFornecedorEdita">
                     <option selected>Selecione o Fornecedor</option>
                     <option value="1">Fornecedor 01</option>
                     <option value="2">Fornecedor 02</option>
@@ -263,19 +263,38 @@ function editarProduto(codEAN){
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="busca_item">Fechar</button>
-                <button id="button_salvar_produto" type="button" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button id="button_salvar_produto_edital" type="button" class="btn btn-primary" onclick="salvarProdutoEdita()">Salvar</button>
               </div>
             </div>
           </div>`
-        
-          document.getElementById('modalEditar').innerHTML = txt
+
+            document.getElementById('modalEditar').innerHTML = txt
+
         }
     }
 
-   
-  document.getElementById('clickEditarActive').click()
+    document.getElementById('clickEditarActive').click()
 
+}
+
+function salvarProdutoEdita() {
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    for(i = 1; i < dados.produto.length; i++){
+        if (dados.produto[i].codEAN == document.getElementById('cadastroEANEdita').value) {
+            dados.produto[i].nome = document.getElementById('cadastroProdutoEdita').value;
+            dados.produto[i].codEAN = document.getElementById('cadastroEANEdita').value;
+            dados.produto[i].categoria = document.getElementById('cadastroCategoriaEdita').value;
+            dados.produto[i].quantidade = document.getElementById('cadastroQuantidadeEdita').value;
+            dados.produto[i].fornecedor = document.getElementById('cadastroFornecedorEdita').value;
+            dados.produto[i].preco = document.getElementById('cadastroValorEdita').value
+        }
+    }
+
+    localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
+    dadosProdutos()
+    myChart.update()
+    graficoEstoque()
 }
 
 
@@ -321,6 +340,6 @@ document.getElementById('Adicionar_venda_produto').onclick = () => {
     graficoEstoque()
 
 
-    
+
 }
 

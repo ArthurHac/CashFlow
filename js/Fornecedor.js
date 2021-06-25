@@ -38,7 +38,7 @@ function dadosFornecedor() {
               data-bs-target="#editarFornecedor">
               <i class="fas fa-edit"></i>
             </button>
-            <button class="excluirFornecedores btn btn-danger onclick="excluirFornecedor(${dados.fornecedor[i].nomeFant})">
+            <button class="btn btn-danger excluirFornecedores" onclick="excluirFornecedor('${dados.fornecedor[i].nomeFant}')">
             <i class="fas fa-trash"></i>
           </button>
           </div>
@@ -102,14 +102,15 @@ document.getElementById('cadastroDoFornecedor').onclick = () => {
 }
 
 function excluirFornecedor(excluirDados) {
-  console.log(excluirDados.getAttribute('id'))
+  // console.log(excluirDados.getAttribute('id'))
   let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
   for (i = 1; i < dados.fornecedor.length; i++) {
-      if (dados.fornecedor[i].nome == excluirDados.getAttribute('id')) {
+      if (dados.fornecedor[i].nomeFant == excluirDados) {
           dados.fornecedor.splice(i, 1)
           localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
       }
   }
+
   dadosFornecedor()
 }
 
@@ -117,5 +118,4 @@ function excluirFornecedor(excluirDados) {
 window.onload = () => {
   dadosFornecedor()
 }
-
 
