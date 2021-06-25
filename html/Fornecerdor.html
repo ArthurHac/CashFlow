@@ -30,7 +30,7 @@
         aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title imgLogo" id="offcanvasExampleLabel"><img src="/img/Logo-removebg-preview.png"
-              alt=""></h5>
+              alt="Logo"></h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -39,7 +39,6 @@
             <a href="#"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
             <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
             <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
-            <a href="#"><i class="fas fa-funnel-dollar"></i><span>DDA</span></a>
             <a href="#"><i class="fas fa-bullseye"></i><span>Metas</span></a>
             <a href="#"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
           </div>
@@ -54,7 +53,6 @@
     <a href="#"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
     <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
     <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
-    <a href="#"><i class="fas fa-funnel-dollar"></i><span>DDA</span></a>
     <a href="#"><i class="fas fa-bullseye"></i><span>Metas</span></a>
     <a href="#"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
 
@@ -71,7 +69,7 @@
 
       </section>
 
-      <section class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
+      <section class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
 
         <ul class="list-group listaCadastro" id="listaFornecedores">
@@ -85,7 +83,7 @@
 
           <div class="adcionarFornecedor" id="adcionarFornecedor">
 
-            
+
 
           </div>
 
@@ -95,7 +93,7 @@
     </section>
 
 
-    <!-- Modal -->
+    <!-- Modal de Cadastro -->
     <div class="modal fade" id="cadstrarFornecedores" tabindex="-1" aria-labelledby="cadstrarFornecedores"
       aria-hidden="true">
       <div class="modal-dialog modal-xl">
@@ -177,16 +175,73 @@
 
 
 
-    <!-- Modal -->
-    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal de Edição-->
+    <div class="modal fade " id="editarFornecedor" tabindex="-1" aria-labelledby="editarFornecedor" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="editarFornecedor">Modal title</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ...
+            <form class="row g-3">
+              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <label for="razaoSocial" class="form-label">Razão Social</label>
+                <input type="razaoSocial" class="form-control" id="razaoSocial">
+              </div>
+              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <label for="nomeFantasia" class="form-label">Nome Fantasia</label>
+                <input type="nomeFantasia" class="form-control" id="nomeFantasia">
+              </div>
+              <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <label for="CNPJ" class="form-label">CNPJ</label>
+                <input type="CNPJ" class="form-control" id="CNPJ">
+              </div>
+              <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                <label for="cep" class="form-label">Cep</label>
+                <input type="cep" class="form-control" id="cep">
+              </div>
+              <div class="col-sm-12 col-md-4 col-lg-7 col-xl-7">
+                <label for="endereco" class="form-label">Endereço</label>
+                <input type="endereco" class="form-control" id="endereco">
+              </div>
+              <div class="col-sm-12 col-md-4 col-lg-2 col-xl-2">
+                <label for="numero" class="form-label">Número</label>
+                <input type="numero" class="form-control" id="numero">
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5">
+                <label for="bairro" class="form-label">Bairro</label>
+                <input type="bairro" class="form-control" id="bairro">
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5">
+                <label for="cidade" class="form-label">Cidade</label>
+                <input type="cidade" class="form-control" id="cidade">
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-2 col-xl-2">
+                <label for="estado" class="form-label">Estado</label>
+                <input type="estado" class="form-control" id="estado">
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <label for="nomeResponsavel" class="form-label">Nome Responsável</label>
+                <input type="nomeResponsavel" class="form-control" id="nomeResponsavel">
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
+                <label for="contato" class="form-label">Contato</label>
+                <input type="contato" class="form-control" id="contato">
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email">
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <label for="campoDeAtuacao" class="form-label">Campo de Atuação</label>
+                <input type="campoDeAtuacao" class="form-control" id="campoDeAtuacao">
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <label for="categoria" class="form-label">Categoria</label>
+                <input type="categoria" class="form-control" id="categoria">
+              </div>
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

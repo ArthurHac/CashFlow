@@ -35,7 +35,7 @@ function dadosFornecedor() {
 
           <div class="col-1 listFor">
             <button type="button" class="btn btn-primary editarFornecedor" data-bs-toggle="modal"
-              data-bs-target="#exampleModal">
+              data-bs-target="#editarFornecedor">
               <i class="fas fa-edit"></i>
             </button>
             <button class="excluirFornecedores btn btn-danger onclick="excluirFornecedor(${dados.fornecedor[i].nomeFant})">
@@ -44,8 +44,6 @@ function dadosFornecedor() {
           </div>
 
         </section>
-
-          
         
           </div>
         </div>
