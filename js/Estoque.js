@@ -214,6 +214,77 @@ function excluirProduto(dadosExcluir) {
 
 }
 
+
+
+
+
+
+function itemFornecedor(){
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    let html = document.getElementById('cadastroFornecedorEdita')
+    let txt = ""
+
+    for(i = 1; i < dados.fornecedor.length; i++){
+        txt = txt + `
+        <option value="${dados.fornecedor[i].nomeFant}">${dados.fornecedor[i].nomeFant}</option>
+        `
+    }
+
+    html.innerHTML = txt
+}
+
+
+
+function itemCategoria() {
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    let html = document.getElementById('cadastroCategoriaEdita')
+    let txt = ""
+
+    for(i = 1; i < dados.categoria.length; i++){
+        txt = txt + `
+        <option value="${dados.categoria[i]}">${dados.categoria[i]}</option>
+        `
+    }
+
+    html.innerHTML = txt
+}
+
+
+function itemFornecedorPrincipal(){
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    let html = document.getElementById('cadastroFornecedor')
+    let txt = ""
+
+    for(i = 1; i < dados.fornecedor.length; i++){
+        txt = txt + `
+        <option value="${dados.fornecedor[i].nomeFant}">${dados.fornecedor[i].nomeFant}</option>
+        `
+    }
+
+    html.innerHTML = txt
+}
+
+
+
+function itemCategoriaPrincipal() {
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    let html = document.getElementById('cadastroCategoria')
+    let txt = ""
+
+    for(i = 1; i < dados.categoria.length; i++){
+        txt = txt + `
+        <option value="${dados.categoria[i]}">${dados.categoria[i]}</option>
+        `
+    }
+
+    html.innerHTML = txt
+}
+
+
+
+
+
+
 function editarProduto(codEAN) {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     for (i = 1; i < dados.produto.length; i++) {
@@ -245,20 +316,16 @@ function editarProduto(codEAN) {
                 </div>
                 <div class="mb-3">
                   <label for="cadastroCategoria" class="form-label">Categoria:</label>
-                  <select class="form-select" aria-label="Default select example" id="cadastroCategoriaEdita" autocomplete="off">
-                    <option selected>Selecione a Categoria</option>
-                    <option value="Eletro">Eletro</option>
-                    <option value="2"></option>
-                    <option value="3">Categoria 03</option>
+                  <select class="form-select" aria-label="Default select example" id="cadastroCategoriaEdita" autocomplete="off" placeholder="Seleção de fornecedor">
+                    
+                    
+                    
                   </select>
                 </div>
                 <div class="mb-3">
                   <label for="cadastroFornecedor" class="form-label">Fornecedor</label>
                   <select class="form-select" aria-label="Default select example" id="cadastroFornecedorEdita">
-                    <option selected>Selecione o Fornecedor</option>
-                    <option value="1">Fornecedor 01</option>
-                    <option value="2">Fornecedor 02</option>
-                    <option value="3">Fornecedor 03</option>
+                    
                   </select>
                 </div>
               </div>
@@ -273,7 +340,8 @@ function editarProduto(codEAN) {
 
         }
     }
-
+    itemFornecedor()
+    itemCategoria()
     document.getElementById('clickEditarActive').click()
 
 }
@@ -296,6 +364,8 @@ function salvarProdutoEdita() {
     myChart.update()
     graficoEstoque()
 }
+
+
 
 
 function itemModal() {
@@ -338,8 +408,6 @@ document.getElementById('Adicionar_venda_produto').onclick = () => {
     myChart.update()
     dadosProdutos()
     graficoEstoque()
-
-
 
 }
 

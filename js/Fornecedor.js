@@ -57,7 +57,8 @@ function dadosFornecedor() {
   selectHtml.innerHTML = txt
 }
 
-document.getElementById('cadastroDoFornecedor').onclick = () => {
+
+function salvaFornecedor () {
   console.log("show")
 
   let nomeFantasia = document.getElementById('nomeFantasia').value;
@@ -98,7 +99,6 @@ document.getElementById('cadastroDoFornecedor').onclick = () => {
   dadosFornecedor.fornecedor.push(componente)
   localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dadosFornecedor))
 
-  dadosFornecedor()
 }
 
 function excluirFornecedor(excluirDados) {
@@ -110,7 +110,7 @@ function excluirFornecedor(excluirDados) {
           localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
       }
   }
-
+  
   dadosFornecedor()
 }
 
@@ -119,3 +119,8 @@ window.onload = () => {
   dadosFornecedor()
 }
 
+
+document.getElementById('cadastroDoFornecedor').onclick = () => {
+  salvaFornecedor()
+  dadosFornecedor()
+}

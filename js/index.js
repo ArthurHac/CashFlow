@@ -35,6 +35,7 @@ const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) 
             produto: [],
             fornecedor: [],
             categoria: [],
+            despesa:[],
             ValorVendido: 0
         }
         localStorage.setItem(campoCadastro[4].value, JSON.stringify(obj))

@@ -1,6 +1,36 @@
 
 
+/* despesas */
 
+.personaDespesaForm {
+    margin: 10px;
+
+    box-shadow: 3px 9px 20px 0px #8888888f;
+}
+
+.tituloDespesa {
+    background-color: rgb(67, 77, 77);
+    height: 30px;
+    margin-bottom: 5px;
+
+    color: white;
+    font-size: larger;
+    line-height: 30px;
+
+}
+
+#graficoDoDespesa {
+    width: 300px !important;
+    height: 300px !important;
+    margin-left: auto;
+    margin-right: auto ;
+}
+
+.buttom_despesa {
+    float: right;
+}
+
+/* fim; */
 body {
     background-color: aliceblue;
 }

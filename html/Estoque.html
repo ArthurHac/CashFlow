@@ -39,6 +39,7 @@
             <a href="#"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
             <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
             <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
+            <a href="#"><i class="fas fa-funnel-dollar"></i><span>DDA</span></a>
             <a href="#"><i class="fas fa-bullseye"></i><span>Metas</span></a>
             <a href="#"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
           </div>
@@ -53,6 +54,7 @@
     <a href="#"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
     <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
     <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
+    <a href="#"><i class="fas fa-funnel-dollar"></i><span>DDA</span></a>
     <a href="#"><i class="fas fa-bullseye"></i><span>Metas</span></a>
     <a href="#"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
 
@@ -124,7 +126,7 @@
             <div class="row">
               <h5 class="text-left col-9 m-0 p-0 pl-3">Cadastra Produtos</h5>
               <button type="button" class="btn btn-primary d-block ml-auto col-1 m-0 p-0" data-bs-toggle="modal"
-                data-bs-target="#exampleModal"><i class="fas fa-file-upload"></i></button>
+                data-bs-target="#exampleModal" onclick="itemFornecedorPrincipal(); itemCategoriaPrincipal()"><i class="fas fa-file-upload"></i></button>
                 <button type="button" class="btn btn-primary d-block ml-auto col-1 m-0 p-0" data-bs-toggle="modal"
                 data-bs-target="#vendaProduto"><i class="fas fa-shopping-cart"></i></button>
             </div>
@@ -171,19 +173,13 @@
               <div class="mb-3">
                 <label for="cadastroCategoria" class="form-label">Categoria:</label>
                 <select class="form-select" aria-label="Default select example" id="cadastroCategoria" autocomplete="off">
-                  <option selected>Selecione a Categoria</option>
-                  <option value="Eletro">Eletro</option>
-                  <option value="2"></option>
-                  <option value="3">Categoria 03</option>
+                  
                 </select>
               </div>
               <div class="mb-3">
                 <label for="cadastroFornecedor" class="form-label">Fornecedor</label>
                 <select class="form-select" aria-label="Default select example" id="cadastroFornecedor">
-                  <option selected>Selecione o Fornecedor</option>
-                  <option value="1">Fornecedor 01</option>
-                  <option value="2">Fornecedor 02</option>
-                  <option value="3">Fornecedor 03</option>
+                 
                 </select>
               </div>
             </div>
