@@ -2,7 +2,7 @@ var ctx = document.getElementById('grafico01');
 var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ['Entrada','Saida'],
+        labels: ['Entrada', 'Saida'],
         datasets: [{
             label: 'Entrada x Saida',
             data: [50, 10,],
@@ -19,17 +19,17 @@ var myChart = new Chart(ctx, {
     },
     options: {
         plugins: {
-        title: {
-            display: true,
-            text: "Entrada x Saida"
-        },
-        scales: {
-            y: {
-                beginAtZero: true
+            title: {
+                display: true,
+                text: "Entrada x Saida"
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
             }
         }
     }
-}
 });
 
 
@@ -91,48 +91,48 @@ var myChart = new Chart(ctx, {
                 ],
                 borderWidth: 2
             },
-            
+
             {
-            
-            label: '2019',
-            data: [67, 84, 94, 37, 67, 84],
-            backgroundColor: [
-                'rgba(#d76b00)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)'
-            ],
-            borderWidth: 1
-        },
 
-        {
-            label: '2020',
-            data: [94, 97, 81, 79, 90, 98],
-            backgroundColor: [
-                'rgba(#0f4c81)'
-            ],
-            borderColor: [
-                'rgba(54, 162, 235, 1)'
-            ],
-            borderWidth: 1
-        },
-        {
-            label: '2021',
-            data: [100, 101, 95, 91, 107, 99],
-            backgroundColor: [
-                'rgba(#F5DF4D)'
-            ],
-            borderColor: [
-                'rgba(255, 206, 86, 1)'
-            ],
-            borderWidth: 1
-        }
+                label: '2019',
+                data: [67, 84, 94, 37, 67, 84],
+                backgroundColor: [
+                    'rgba(#d76b00)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            },
 
-        
-    
-    
-    ]
-        
+            {
+                label: '2020',
+                data: [94, 97, 81, 79, 90, 98],
+                backgroundColor: [
+                    'rgba(#0f4c81)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            },
+            {
+                label: '2021',
+                data: [100, 101, 95, 91, 107, 99],
+                backgroundColor: [
+                    'rgba(#F5DF4D)'
+                ],
+                borderColor: [
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }
+
+
+
+
+        ]
+
     },
     options: {
         scales: {
@@ -151,15 +151,15 @@ sessionStorage.key(1)
 
 const salvarProduto = document.getElementById('button_salvar_produto').onclick = () => {
     console.log("show")
-    var cadastroProdutos = document.getElementById ('cadastroProduto').value;
-    var cadastroEAN = document.getElementById ('cadastroEAN').value;
-    var cadastroCategoria = document.getElementById ('cadastroQuantidade').value;
-    var cadastroQuantidade = document.getElementById ('cadastroCategoria').value;
-    var cadastroFornecerdor = document.getElementById ('cadastroFornecedor').value;
-    
+    var cadastroProdutos = document.getElementById('cadastroProduto').value;
+    var cadastroEAN = document.getElementById('cadastroEAN').value;
+    var cadastroCategoria = document.getElementById('cadastroQuantidade').value;
+    var cadastroQuantidade = document.getElementById('cadastroCategoria').value;
+    var cadastroFornecerdor = document.getElementById('cadastroFornecedor').value;
+
     const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     const getId = dadoProduto.produto.length
-    const componente = { 
+    const componente = {
         nome: cadastroProdutos,
         codEAN: cadastroEAN,
         categoria: cadastroCategoria,
@@ -170,7 +170,7 @@ const salvarProduto = document.getElementById('button_salvar_produto').onclick =
 
     dadoProduto.produto[0] = getId
     dadoProduto.produto.push(componente)
-    localStorage.setItem(sessionStorage.getItem(0),JSON.stringify(dadoProduto))
+    localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dadoProduto))
 }
 
 

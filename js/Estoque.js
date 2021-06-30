@@ -219,12 +219,12 @@ function excluirProduto(dadosExcluir) {
 
 
 
-function itemFornecedor(){
+function itemFornecedor() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     let html = document.getElementById('cadastroFornecedorEdita')
     let txt = ""
 
-    for(i = 1; i < dados.fornecedor.length; i++){
+    for (i = 1; i < dados.fornecedor.length; i++) {
         txt = txt + `
         <option value="${dados.fornecedor[i].nomeFant}">${dados.fornecedor[i].nomeFant}</option>
         `
@@ -240,7 +240,7 @@ function itemCategoria() {
     let html = document.getElementById('cadastroCategoriaEdita')
     let txt = ""
 
-    for(i = 1; i < dados.categoria.length; i++){
+    for (i = 1; i < dados.categoria.length; i++) {
         txt = txt + `
         <option value="${dados.categoria[i]}">${dados.categoria[i]}</option>
         `
@@ -250,12 +250,12 @@ function itemCategoria() {
 }
 
 
-function itemFornecedorPrincipal(){
+function itemFornecedorPrincipal() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     let html = document.getElementById('cadastroFornecedor')
     let txt = ""
 
-    for(i = 1; i < dados.fornecedor.length; i++){
+    for (i = 1; i < dados.fornecedor.length; i++) {
         txt = txt + `
         <option value="${dados.fornecedor[i].nomeFant}">${dados.fornecedor[i].nomeFant}</option>
         `
@@ -271,7 +271,7 @@ function itemCategoriaPrincipal() {
     let html = document.getElementById('cadastroCategoria')
     let txt = ""
 
-    for(i = 1; i < dados.categoria.length; i++){
+    for (i = 1; i < dados.categoria.length; i++) {
         txt = txt + `
         <option value="${dados.categoria[i]}">${dados.categoria[i]}</option>
         `
@@ -348,7 +348,7 @@ function editarProduto(codEAN) {
 
 function salvarProdutoEdita() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    for(i = 1; i < dados.produto.length; i++){
+    for (i = 1; i < dados.produto.length; i++) {
         if (dados.produto[i].codEAN == document.getElementById('cadastroEANEdita').value) {
             dados.produto[i].nome = document.getElementById('cadastroProdutoEdita').value;
             dados.produto[i].codEAN = document.getElementById('cadastroEANEdita').value;

@@ -1,12 +1,14 @@
 sessionStorage.key(1)
 
+// cadastro de FORNECEDOR
+
 function dadosFornecedor() {
 
   let selectHtml = document.getElementById('adcionarFornecedor')
   let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
   let txt = ""
   let quant = "a"
-  for (i = 1; i <dados.fornecedor.length; i++) {
+  for (i = 1; i < dados.fornecedor.length; i++) {
     txt = txt +
 
       `
@@ -58,7 +60,7 @@ function dadosFornecedor() {
 }
 
 
-function salvaFornecedor () {
+function salvaFornecedor() {
   console.log("show")
 
   let nomeFantasia = document.getElementById('nomeFantasia').value
@@ -105,12 +107,12 @@ function excluirFornecedor(excluirDados) {
   // console.log(excluirDados.getAttribute('id'))
   let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
   for (i = 1; i < dados.fornecedor.length; i++) {
-      if (dados.fornecedor[i].nomeFant == excluirDados) {
-          dados.fornecedor.splice(i, 1)
-          localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
-      }
+    if (dados.fornecedor[i].nomeFant == excluirDados) {
+      dados.fornecedor.splice(i, 1)
+      localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
+    }
   }
-  
+
   dadosFornecedor()
 }
 
@@ -127,22 +129,7 @@ document.getElementById('cadastroDoFornecedor').onclick = () => {
 
 
 
-
-
-
-function mascaraCNPJ(cnpj) {
-
-  if (mascaraInteiro(cnpj) == false) {
-
-      event.returnValue = false
-
-  }
-
-  return formataCampo(cnpj, '00.000.000/0000-00', event)
-
-}
-
-//valida o CNPJ digitado
+//validar CNPJ
 
 function validarCNPJ(ObjCnpj) {
 
@@ -156,8 +143,8 @@ function validarCNPJ(ObjCnpj) {
 
   let digito = new Number(eval(cnpj.charAt(12) + cnpj.charAt(13)))
   for (i = 0; i < valida.length; i++) {
-      dig1 += (i > 0 ? (cnpj.charAt(i - 1) * valida[i]) : 0)
-      dig2 += cnpj.charAt(i) * valida[i]
+    dig1 += (i > 0 ? (cnpj.charAt(i - 1) * valida[i]) : 0)
+    dig2 += cnpj.charAt(i) * valida[i]
 
   }
 
@@ -166,155 +153,75 @@ function validarCNPJ(ObjCnpj) {
 
   if (((dig1 * 10) + dig2) != digito) {
 
-      alert('CNPJ Invalido!')
+    alert('CNPJ Invalido!')
 
   }
 
 }
 
+// mascara CNPJ
 
-document.getElementById('CNPJ').addEventListener('input', function(e) {
+document.getElementById('CNPJ').addEventListener('input', function (e) {
   let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/)
   e.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '')
 })
 
 
-//valida o CONTATO digitado
 
-function mascaraContato(contato){ 
-  if(contato.value.length == 0)
-      contato.value = '(' + contato.value
-  if(contato.value.length == 3)
-      contato.value = contato.value + ') '
+//validar CONTATO
 
-  if(contato.value.length == 9)
-      contato.value = contato.value + '-'
+function mascaraContato(contato) {
+  if (contato.value.length == 0)
+    contato.value = '(' + contato.value
+  if (contato.value.length == 3)
+    contato.value = contato.value + ') '
+
+  if (contato.value.length == 9)
+    contato.value = contato.value + '-'
 }
 
 
-//valida o API CEP digitado
 
+//validar API CEP
 
 function cont(retorno) {
-if (!("erro" in retorno)) {
-  document.getElementById('endereco').value=(retorno.logradouro)
-  document.getElementById('bairro').value=(retorno.bairro)
-  document.getElementById('cidade').value=(retorno.localidade)
-  document.getElementById('uf').value=(retorno.uf)
-}
-
-else {
-  limpaFormularioCep()
-  alert("CEP não encontrado.")
-}
-}
-
-function pesquisaCep(valor) {
-let cep = valor.replace(/\D/g, '')
-
-if (cep != "") {
-  let validacep = /^[0-9]{8}$/
-  if(validacep.test(cep)) {
-      document.getElementById('cep').value = cep.substring(0,5)
-      +"-"
-      +cep.substring(5)
-      document.getElementById('endereco').value="..."
-      document.getElementById('bairro').value="..."
-      document.getElementById('cidade').value="..."
-      document.getElementById('uf').value="..."
-      let script = document.createElement('script')
-      script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=cont'
-      document.body.appendChild(script)
+  if (!("erro" in retorno)) {
+    document.getElementById('endereco').value = (retorno.logradouro)
+    document.getElementById('bairro').value = (retorno.bairro)
+    document.getElementById('cidade').value = (retorno.localidade)
+    document.getElementById('uf').value = (retorno.uf)
   }
 
   else {
-      limpaFormularioCep()
-      alert("Formato de CEP inválido.")
+    limpaFormularioCep()
+    alert("CEP não encontrado.")
   }
 }
-else {
-  limpaFormularioCep()
-}
-}
 
+function pesquisaCep(valor) {
+  let cep = valor.replace(/\D/g, '')
 
-
-function editarProduto(codEAN) {
-    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    for (i = 1; i < dados.produto.length; i++) {
-        if (dados.produto[i].codEAN == codEAN) {
-            let dadosModal = dados.produto[i]
-
-            let txt = `<div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cadastra Produtos:</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body row">
-                <div class="mb-3 col-7">
-                  <label for="cadastroProduto" class="form-label">Produto:</label>
-                  <input type="text" class="form-control" id="cadastroProdutoEdita" value="${dadosModal.nome}" autocomplete="off">
-                </div>
-                <div class="mb-3 col-5">
-                  <label for="cadastroEAN" class="form-label">Código EAN:</label>
-                  <input type="text" class="form-control" id="cadastroEANEdita" disabled="" value="${dadosModal.codEAN}">
-                </div>
-                <div class="mb-3 col-6 ">
-                  <label for="cadastroQuantidade" class="form-label">Quantidade:</label>
-                  <input type="text" class="form-control" id="cadastroQuantidadeEdita" value="${dadosModal.quantidade}" autocomplete="off">
-                </div>
-                <div class="mb-3 col-6">
-                  <label for="cadastroValor" class="form-label">Preço:</label>
-                  <input type="text" class="form-control" id="cadastroValorEdita" value="${dadosModal.preco}" autocomplete="off">
-                </div>
-                <div class="mb-3">
-                  <label for="cadastroCategoria" class="form-label">Categoria:</label>
-                  <select class="form-select" aria-label="Default select example" id="cadastroCategoriaEdita" autocomplete="off" placeholder="Seleção de fornecedor">
-                    
-                    
-                    
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label for="cadastroFornecedor" class="form-label">Fornecedor</label>
-                  <select class="form-select" aria-label="Default select example" id="cadastroFornecedorEdita">
-                    
-                  </select>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button id="button_salvar_produto_edital" type="button" class="btn btn-primary" onclick="salvarProdutoEdita()">Salvar</button>
-              </div>
-            </div>
-          </div>`
-
-            document.getElementById('modalEditar').innerHTML = txt
-
-        }
-    }
-    itemFornecedor()
-    itemCategoria()
-    document.getElementById('clickEditarActive').click()
-
-}
-
-function salvarProdutoEdita() {
-    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    for(i = 1; i < dados.produto.length; i++){
-        if (dados.produto[i].codEAN == document.getElementById('cadastroEANEdita').value) {
-            dados.produto[i].nome = document.getElementById('cadastroProdutoEdita').value;
-            dados.produto[i].codEAN = document.getElementById('cadastroEANEdita').value;
-            dados.produto[i].categoria = document.getElementById('cadastroCategoriaEdita').value;
-            dados.produto[i].quantidade = document.getElementById('cadastroQuantidadeEdita').value;
-            dados.produto[i].fornecedor = document.getElementById('cadastroFornecedorEdita').value;
-            dados.produto[i].preco = document.getElementById('cadastroValorEdita').value
-        }
+  if (cep != "") {
+    let validacep = /^[0-9]{8}$/
+    if (validacep.test(cep)) {
+      document.getElementById('cep').value = cep.substring(0, 5)
+        + "-"
+        + cep.substring(5)
+      document.getElementById('endereco').value = "..."
+      document.getElementById('bairro').value = "..."
+      document.getElementById('cidade').value = "..."
+      document.getElementById('uf').value = "..."
+      let script = document.createElement('script')
+      script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=cont'
+      document.body.appendChild(script)
     }
 
-    localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
-    dadosProdutos()
-    myChart.update()
-    graficoEstoque()
+    else {
+      limpaFormularioCep()
+      alert("Formato de CEP inválido.")
+    }
+  }
+  else {
+    limpaFormularioCep()
+  }
 }
