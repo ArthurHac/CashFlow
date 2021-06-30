@@ -1,5 +1,3 @@
-
-
 /* despesas */
 
 .personaDespesaForm {
@@ -23,7 +21,7 @@
     width: 300px !important;
     height: 300px !important;
     margin-left: auto;
-    margin-right: auto ;
+    margin-right: auto;
 }
 
 .buttom_despesa {
@@ -44,19 +42,20 @@ body {
 }
 
 /* CSS ANDERSON  */
-.conteudoMenu{
+.conteudoMenu {
     width: 100%;
 }
-.Fornecedores{
+
+.Fornecedores {
     overflow: auto;
     height: 79vh;
 }
 
-.graficoTeste{
+.graficoTeste {
     width: 50%;
 }
 
-.graficoDoEstoquecss{
+.graficoDoEstoquecss {
     height: 80% !important;
 }
 
@@ -65,22 +64,23 @@ body {
     height: 100% !important;
 }
 
-.listFor{
-    margin:0 !important; 
+.listFor {
+    margin: 0 !important;
     padding: 1px !important;
 
-} 
+}
 
-.editarFornecedor{
+.editarFornecedor {
     width: 89%;
     height: 80%;
 }
-.excluirFornecedores{
+
+.excluirFornecedores {
     width: 89%;
     height: 20%;
 }
 
-.adcionarFornecedor li{
+.adcionarFornecedor li {
     border-right: 1;
     border-left: 1;
     border-bottom: none;
@@ -95,17 +95,18 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-  }
-  
-  td, th {
+}
+
+td,
+th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-  }
-  
-  tr:nth-child(even) {
+}
+
+tr:nth-child(even) {
     background-color: #dddddd;
-  }
+}
 
 /* header CSS */
 
@@ -152,7 +153,7 @@ table {
     text-align: center;
     margin-top: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color:rgb(128, 132, 136);
+    color: rgb(128, 132, 136);
 }
 
 .banner-section {
@@ -166,11 +167,11 @@ table {
 }
 
 .banner-p {
-    padding-top: 50px ;
+    padding-top: 50px;
     font-size: 4em;
-    font-family:  'Arial Narrow';
+    font-family: 'Arial Narrow';
     font-variant: small-caps;
-    color:aliceblue;
+    color: aliceblue;
 }
 
 .banner-login {
@@ -180,38 +181,38 @@ table {
     width: 100%;
     padding-bottom: 150px;
     padding: 0px !important;
-    
-   
+
+
 }
 
 .banner-login form {
-    
+
     background-color: rgb(202, 202, 207);
     width: 100%;
     height: 100%;
     border-radius: 0px 0px;
-    
+
     padding-top: 20px;
 }
 
 
 
 .banner-login input {
-    width:90%;
+    width: 90%;
     border-radius: 10px;
-    padding:20px;
+    padding: 20px;
     margin: 20px;
     margin: auto;
-    
+
 }
 
-.form-login form{
+.form-login form {
     width: 50%;
     min-width: 250px;
     float: right;
     margin-top: 50px;
     border-radius: 20px 0px 0px 20px;
-    
+
 }
 
 
@@ -227,15 +228,16 @@ table {
     margin-bottom: 20px !important;
 }
 
-.footer-login button{
+.footer-login button {
     width: 100%;
     border: none;
-    background-color:rgb(57, 66, 53);
+    background-color: rgb(57, 66, 53);
     color: aliceblue;
-    padding:10px;
+    padding: 10px;
     font-size: 2em;
     border-radius: 0px 0px 0px 10px;
 }
+
 /* fim login */
 
 /* CSS card */
@@ -251,7 +253,7 @@ table {
 
 .card {
     width: 100%;
-    margin-top: 20px; 
+    margin-top: 20px;
     padding-top: 0px;
     background-color: #f8f8f8 !important;
 }
@@ -262,16 +264,19 @@ table {
     padding: 20px;
     text-align: center;
 }
+
 .card-box i {
     font-size: 70px;
-    padding: 15%;   
+    padding: 15%;
 }
+
 .card-box h5 p {
     text-align: center;
-    font-size:small;
+    font-size: small;
 }
+
 .card-title {
-    margin-bottom:30px !important;
+    margin-bottom: 30px !important;
 }
 
 
@@ -283,10 +288,10 @@ table {
 }
 
 
- /* tag chamadas pelo javaScript */
+/* tag chamadas pelo javaScript */
 
 .modal_control {
-    float:right;
+    float: right;
 }
 
 .modal_control i {
@@ -304,20 +309,20 @@ table {
 
 /* Formato Geral da Pagina */
 
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
 }
 
-.conteudoDashboard{
+.conteudoDashboard {
     overflow: hidden !important;
 }
 
 
 /* Cabeçalho SideBar Mobile */
 
-.offcanvas-header{
+.offcanvas-header {
     background: rgb(0 46 33);
 }
 
@@ -327,7 +332,8 @@ body{
 .offcanvas-body {
     background: rgb(0 83 62 / 85%);
 }
-.offcanvas-body a{
+
+.offcanvas-body a {
     color: white;
     display: block;
     line-height: 60px;
@@ -335,10 +341,12 @@ body{
     padding-left: 30px;
     box-sizing: border-box;
 }
-.offcanvas-body i{
+
+.offcanvas-body i {
     margin-right: 10px;
 }
-.offcanvas-body a:hover{
+
+.offcanvas-body a:hover {
     background: rgba(0, 60, 47, 0.597);
     text-decoration: none;
     color: white;
@@ -347,25 +355,25 @@ body{
 
 /* Button SideBar Mobile */
 
-.imgLogo button{
-    display:block;
+.imgLogo button {
+    display: block;
     margin-left: auto;
     margin-top: -33px;
     margin-right: 23px;
     background: rgb(21, 140, 140);
-    border:0
+    border: 0
 }
 
 
 /* Cabeçalho Desktop */
 
-.cabecalho{
+.cabecalho {
     background: rgb(0 46 33);
     width: 100%;
     height: 70px;
 }
 
-.imgLogo img{
+.imgLogo img {
     width: 150px;
     margin-left: 2%;
     margin-top: 17px;
@@ -374,7 +382,7 @@ body{
 
 /* Menu SideBar Desktop */
 
-.sideBar{
+.sideBar {
     background: rgb(0 83 62 / 85%);
     padding-top: 30px;
     position: fixed;
@@ -382,7 +390,7 @@ body{
     height: 100%;
 }
 
-.sideBar a{
+.sideBar a {
     color: white;
     display: block;
     line-height: 60px;
@@ -391,13 +399,13 @@ body{
     box-sizing: border-box;
 }
 
-.sideBar a:hover{
+.sideBar a:hover {
     background: rgba(0, 60, 47, 0.597);
     text-decoration: none;
     color: white;
 }
 
-.sideBar i{
+.sideBar i {
     padding-right: 10px;
     font-size: 17px;
 }
@@ -405,14 +413,14 @@ body{
 
 /* Deixar o valor do Faturamento centralizado no Desktop */
 
-.faturamentoCentral{
+.faturamentoCentral {
     padding-top: 80px;
 }
 
 
 /* Barra de Rolagem da Lista de Cadastro Desktop */
 
-.listaCadastro{
+.listaCadastro {
     overflow: auto;
     height: 79vh;
 }
@@ -420,24 +428,25 @@ body{
 
 /* Graficos */
 
-.graficoEntradaSaidacss{
+.graficoEntradaSaidacss {
     position: relative;
     margin: auto;
     width: 70%;
 }
 
-.graficoEstoqueAtualcss{
+.graficoEstoqueAtualcss {
     position: relative;
     margin: auto;
     width: 70%;
 }
 
-.graficoMetaAnualcss{
+.graficoMetaAnualcss {
     position: relative;
     margin: auto;
     width: 60%;
 }
-.graficoDoEstoquecss{
+
+.graficoDoEstoquecss {
     position: relative;
     margin: auto;
     width: 100%;
@@ -449,7 +458,7 @@ body{
 /* GAMBIARRA? TALVEZ?! */
 
 
-.ajustarContainer{
+.ajustarContainer {
     margin-left: 14.5% !important;
 }
 
@@ -457,29 +466,29 @@ body{
     .sideBar a {
         padding-left: 10px;
     }
-  }
+}
 
 @media screen and (max-width:900px) {
     .sideBar {
-     display: none;
+        display: none;
     }
-  }
+}
 
 @media screen and (max-width:900px) {
-    .ajustarContainer{
-       margin-left: -15px !important;
+    .ajustarContainer {
+        margin-left: -15px !important;
     }
-  }
+}
 
 @media screen and (min-width:900px) {
-    .imgLogo button{
-       display: none;
+    .imgLogo button {
+        display: none;
     }
-  }
+}
 
 @media screen and (max-width:900px) {
     body {
         overflow: auto;
     }
 
-  }
+}

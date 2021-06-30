@@ -1,12 +1,14 @@
 sessionStorage.key(1)
 
+// cadastro de FORNECEDOR
+
 function dadosFornecedor() {
 
   let selectHtml = document.getElementById('adcionarFornecedor')
   let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
   let txt = ""
   let quant = "a"
-  for (i = 1; i <dados.fornecedor.length; i++) {
+  for (i = 1; i < dados.fornecedor.length; i++) {
     txt = txt +
 
       `
@@ -58,18 +60,18 @@ function dadosFornecedor() {
 }
 
 
-function salvaFornecedor () {
+function salvaFornecedor() {
   console.log("show")
 
-  let nomeFantasia = document.getElementById('nomeFantasia').value;
-  let razaoSocial = document.getElementById('razaoSocial').value;
-  let CNPJ = document.getElementById('CNPJ').value;
-  let cep = document.getElementById('cep').value;
+  let nomeFantasia = document.getElementById('nomeFantasia').value
+  let razaoSocial = document.getElementById('razaoSocial').value
+  let CNPJ = document.getElementById('CNPJ').value
+  let cep = document.getElementById('cep').value
   let endereco = document.getElementById('endereco').value
   let numero = document.getElementById('numero').value
   let bairro = document.getElementById('bairro').value
   let cidade = document.getElementById('cidade').value
-  let estado = document.getElementById('estado').value
+  let uf = document.getElementById('uf').value
   let nomeResponsavel = document.getElementById('nomeResponsavel').value
   let contato = document.getElementById('contato').value
   let email = document.getElementById('email').value
@@ -87,7 +89,7 @@ function salvaFornecedor () {
     num: numero,
     bair: bairro,
     cid: cidade,
-    est: estado,
+    est: uf,
     nomeRespon: nomeResponsavel,
     cont: contato,
     mail: email,
@@ -105,12 +107,12 @@ function excluirFornecedor(excluirDados) {
   // console.log(excluirDados.getAttribute('id'))
   let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
   for (i = 1; i < dados.fornecedor.length; i++) {
-      if (dados.fornecedor[i].nomeFant == excluirDados) {
-          dados.fornecedor.splice(i, 1)
-          localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
-      }
+    if (dados.fornecedor[i].nomeFant == excluirDados) {
+      dados.fornecedor.splice(i, 1)
+      localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
+    }
   }
-  
+
   dadosFornecedor()
 }
 
@@ -123,4 +125,103 @@ window.onload = () => {
 document.getElementById('cadastroDoFornecedor').onclick = () => {
   salvaFornecedor()
   dadosFornecedor()
+}
+
+
+
+//validar CNPJ
+
+function validarCNPJ(ObjCnpj) {
+
+  let cnpj = ObjCnpj.value
+  let valida = new Array(6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2)
+  let dig1 = new Number
+  let dig2 = new Number
+
+  exp = /\.|\-|\//g
+  cnpj = cnpj.toString().replace(exp, "")
+
+  let digito = new Number(eval(cnpj.charAt(12) + cnpj.charAt(13)))
+  for (i = 0; i < valida.length; i++) {
+    dig1 += (i > 0 ? (cnpj.charAt(i - 1) * valida[i]) : 0)
+    dig2 += cnpj.charAt(i) * valida[i]
+
+  }
+
+  dig1 = (((dig1 % 11) < 2) ? 0 : (11 - (dig1 % 11)))
+  dig2 = (((dig2 % 11) < 2) ? 0 : (11 - (dig2 % 11)))
+
+  if (((dig1 * 10) + dig2) != digito) {
+
+    alert('CNPJ Invalido!')
+
+  }
+
+}
+
+// mascara CNPJ
+
+document.getElementById('CNPJ').addEventListener('input', function (e) {
+  let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/)
+  e.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '')
+})
+
+
+
+//validar CONTATO
+
+function mascaraContato(contato) {
+  if (contato.value.length == 0)
+    contato.value = '(' + contato.value
+  if (contato.value.length == 3)
+    contato.value = contato.value + ') '
+
+  if (contato.value.length == 9)
+    contato.value = contato.value + '-'
+}
+
+
+
+//validar API CEP
+
+function cont(retorno) {
+  if (!("erro" in retorno)) {
+    document.getElementById('endereco').value = (retorno.logradouro)
+    document.getElementById('bairro').value = (retorno.bairro)
+    document.getElementById('cidade').value = (retorno.localidade)
+    document.getElementById('uf').value = (retorno.uf)
+  }
+
+  else {
+    limpaFormularioCep()
+    alert("CEP não encontrado.")
+  }
+}
+
+function pesquisaCep(valor) {
+  let cep = valor.replace(/\D/g, '')
+
+  if (cep != "") {
+    let validacep = /^[0-9]{8}$/
+    if (validacep.test(cep)) {
+      document.getElementById('cep').value = cep.substring(0, 5)
+        + "-"
+        + cep.substring(5)
+      document.getElementById('endereco').value = "..."
+      document.getElementById('bairro').value = "..."
+      document.getElementById('cidade').value = "..."
+      document.getElementById('uf').value = "..."
+      let script = document.createElement('script')
+      script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=cont'
+      document.body.appendChild(script)
+    }
+
+    else {
+      limpaFormularioCep()
+      alert("Formato de CEP inválido.")
+    }
+  }
+  else {
+    limpaFormularioCep()
+  }
 }

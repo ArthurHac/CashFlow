@@ -91,7 +91,7 @@
 
         <div class="card text-white bg-info">
           <div class="card-body">
-            <h5 class="card-title" >Produtos cadastrados</h5>
+            <h5 class="card-title">Produtos cadastrados</h5>
             <h6 class="card-text" id="quantProduto">0</h6>
           </div>
         </div>
@@ -119,15 +119,16 @@
 
       <!-- Lista -->
 
-      <section class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mt-3 pr-3" >
+      <section class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mt-3 pr-3">
 
         <ul class="list-group listaCadastro" id="prod_lista">
           <li class="list-group-item active" aria-current="true">
             <div class="row">
               <h5 class="text-left col-9 m-0 p-0 pl-3">Cadastra Produtos</h5>
               <button type="button" class="btn btn-primary d-block ml-auto col-1 m-0 p-0" data-bs-toggle="modal"
-                data-bs-target="#exampleModal" onclick="itemFornecedorPrincipal(); itemCategoriaPrincipal()"><i class="fas fa-file-upload"></i></button>
-                <button type="button" class="btn btn-primary d-block ml-auto col-1 m-0 p-0" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" onclick="itemFornecedorPrincipal(); itemCategoriaPrincipal()"><i
+                  class="fas fa-file-upload"></i></button>
+              <button type="button" class="btn btn-primary d-block ml-auto col-1 m-0 p-0" data-bs-toggle="modal"
                 data-bs-target="#vendaProduto"><i class="fas fa-shopping-cart"></i></button>
             </div>
           </li>
@@ -140,9 +141,9 @@
 
       <!-- Modal -->
       <button type="button" id="clickEditarActive" class="btn btn-primary d-none" data-bs-toggle="modal"
-            data-bs-target="#modalEditar"></button> 
+        data-bs-target="#modalEditar"></button>
       <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        
+
       </div>
 
 
@@ -156,7 +157,8 @@
             <div class="modal-body row">
               <div class="mb-3 col-7">
                 <label for="cadastroProduto" class="form-label">Produto:</label>
-                <input type="text" class="form-control" id="cadastroProduto" placeholder="Nome do produto" autocomplete="off">
+                <input type="text" class="form-control" id="cadastroProduto" placeholder="Nome do produto"
+                  autocomplete="off">
               </div>
               <div class="mb-3 col-5">
                 <label for="cadastroEAN" class="form-label">Código EAN:</label>
@@ -164,22 +166,25 @@
               </div>
               <div class="mb-3 col-6 ">
                 <label for="cadastroQuantidade" class="form-label">Quantidade:</label>
-                <input type="text" class="form-control" id="cadastroQuantidade" placeholder="Número da quantidade" autocomplete="off">
+                <input type="text" class="form-control" id="cadastroQuantidade" placeholder="Número da quantidade"
+                  autocomplete="off">
               </div>
               <div class="mb-3 col-6">
                 <label for="cadastroValor" class="form-label">Preço:</label>
-                <input type="text" class="form-control" id="cadastroValor" placeholder="Número da quantidade" autocomplete="off">
+                <input type="text" class="form-control" id="cadastroValor" placeholder="Número da quantidade"
+                  autocomplete="off">
               </div>
               <div class="mb-3">
                 <label for="cadastroCategoria" class="form-label">Categoria:</label>
-                <select class="form-select" aria-label="Default select example" id="cadastroCategoria" autocomplete="off">
-                  
+                <select class="form-select" aria-label="Default select example" id="cadastroCategoria"
+                  autocomplete="off">
+
                 </select>
               </div>
               <div class="mb-3">
                 <label for="cadastroFornecedor" class="form-label">Fornecedor</label>
                 <select class="form-select" aria-label="Default select example" id="cadastroFornecedor">
-                 
+
                 </select>
               </div>
             </div>
@@ -190,7 +195,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="modal fade" id="vendaProduto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -202,7 +207,7 @@
               <div class="mb-3 col-7">
                 <label for="informaVendaProduto" class="form-label">Nome Produto</label>
                 <select class="form-select" aria-label="Default select example" id="informaVendaProduto">
-                  
+
                 </select>
               </div>
               <div class="mb-3 col-5">
@@ -210,26 +215,26 @@
                 <input type="text" class="form-control" id="informaQuantidade" placeholder="">
               </div>
               <div class="modal-footer">
-              <button id="Adicionar_venda_produto" type="button" class="btn btn-primary">Salvar</button>
+                <button id="Adicionar_venda_produto" type="button" class="btn btn-primary">Salvar</button>
               </div>
-          </div>   
+            </div>
+          </div>
         </div>
-      </div>
     </section>
-    
+
   </section>
 
   <button type="button" id="click" class="btn btn-primary d-none" data-bs-toggle="modal"
-            data-bs-target="#exampleModal"></button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h4>senha ou email incorretos</h4>
-                    </div>
-                </div>
-            </div>
+    data-bs-target="#exampleModal"></button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4>senha ou email incorretos</h4>
         </div>
+      </div>
+    </div>
+  </div>
 
 
   <!-- JavaScript -->
