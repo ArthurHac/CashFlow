@@ -63,9 +63,9 @@ function graficoDespesa() {
     });
 
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    for (i = 1; i < dados.despesa.length; i++) {
+    for (i = 1; i < dados.despesa.length ; i++) {
         myChart.data.labels.push(dados.despesa[i].descricao)
-        myChart.data.datasets[0].data[i] = dados.despesa[i].valor
+        myChart.data.datasets[0].data[i - 1] = dados.despesa[i].valor
     }
 
     myChart.update()
@@ -101,7 +101,7 @@ function dadosDespesa() {
             <td>${dados.despesa[i].vencimento}</td>
             <td>R$${dados.despesa[i].valor}</td>
             <td>${dados.despesa[i].categoria}</td>
-            <td> <button class="button_excluir" onclick="excluirDespesa('${dados.despesa[i].descricao}')" style="border: none;"><i class="far fa-times-circle"></i></button></td>
+            <td> <button class="button_excluir" onclick="excluirDespesa('${dados.despesa[i].descricao}')" style="border: none; background-color: red; color: white; font-size: 1em; width: 30px; height: 30px; border-radius: 5px;"><i class="far fa-trash-alt"></i></button></td>
             <td><button type="button" id="clickEditarDespesa" class="btn btn-primary" data-bs-toggle="modal"
             data-bs-target="#exampleModalwe">editar</button></tr>
         </tr>

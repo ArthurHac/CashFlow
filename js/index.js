@@ -39,7 +39,7 @@ const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) 
             ValorVendido: 0
         }
         localStorage.setItem(campoCadastro[4].value, JSON.stringify(obj))
-        location.href = "html/dashboard.html"
+        location.href = "html/perfil.html"
         sessionStorage.setItem(0,campoCadastro[4].value)
         console.log(campoCadastro[4].value)
     }else{

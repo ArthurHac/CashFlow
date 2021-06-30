@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cash Flow</title>
+  <!-- CSS only -->
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body class="conteudoDashboard">
+
+  <header class="cabecalho">
+    <nav class="imgLogo">
+      <a href="/Dashboard.html"><img src="/img/dashbords/logo.png" alt="logo"></a>
+
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title imgLogo" id="offcanvasExampleLabel"><img src="/img/Logo-removebg-preview.png"
+              alt=""></h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            <a href="/html/Dashboard.html"><i class="fas fa-chart-bar"></i><span>Dashboard</span></a>
+            <a href="/html/Despesas.html"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
+            <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
+            <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
+            <a href="#"><i class="fas fa-bullseye"></i><span>Metas</span></a>
+            <a href="#"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-6 " style="border: red solid 1px; height: 550px;">
+
+        
+        <label for="filePerfil" id="labelFilePerfil" style="width: 100%;">
+          <div id="imgPerfil"
+            style="background-size: 100% 100%; background-repeat: no-repeat; background-position: center; width: 250px; height: 250px; border-radius: 100%; background-color: rgba(53, 153, 95, 0.226); margin-left: auto; margin-right: auto; margin-top: 20px;">
+          </div>
+        </label>
+        <input type="file" id="filePerfil" style="display: none;">
+        <div style="margin-left: auto; margin-right: auto">
+          <div class="mb-3 mt-3">
+
+            <input type="text" id="NomePerfil" class="form-control"
+              style="width: 40%; margin-left: auto; margin-right: auto" placeholder="Nome" id="descricaoDespesa"
+              placeholder="" autocomplete="off">
+          </div>
+          <div class="mb-3">
+
+            <input type="text" id="EmailPerfil" class="form-control"
+              style="width: 40%; margin-left: auto; margin-right: auto" placeholder="E-mail" id="descricaoVencimento"
+              placeholder="">
+          </div>
+          <div class="mb-3">
+
+            <input type="text" id="ConfirmaEmailPerfil" class="form-control"
+              style="width: 40%; margin-left: auto; margin-right: auto" placeholder="Confirme o E-mail"
+              id="descricaoValor" placeholder="" autocomplete="off">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-6 col-lg-6 " style="border: red solid 1px; height: 550px;">
+        <div class="row">
+          <div class="mb-3 col-4">
+            
+            <input type="text" class="form-control" style="width: 100%; height: 60%; font-size: 1.5em;" id="descricaoDespesa" placeholder="CPF" autocomplete="off">
+          </div>
+
+          <div class="mb-3 col-2 ">
+        
+            <input type="text" class="form-control" style="width: 100% ;height: 60%; font-size: 1.5em;" id="descricaoValor" placeholder="idade"
+              autocomplete="off">
+          </div>
+
+          <div class="mb-3 col-6 ">
+            <form action="">
+              <input type="radio" id="descricaoValorM" name="sexoDescricao" value="masculino" autocomplete="off">
+              <label for="descricaoValorM">Masculino</label><br>
+              <input type="radio" id="descricaoValorF" name="sexoDescricao" value="feminino" autocomplete="off">
+              <label for="descricaoValorF">Feminino</label><br> 
+              <input type="radio" id="descricaoValorF" name="sexoDescricao" value="Outros" autocomplete="off">
+              <label for="descricaoValorF">Outros</label><br> 
+              <input type="radio" id="descricaoValorF" name="sexoDescricao" value="Nao_declarar" autocomplete="off">
+              <label for="descricaoValorF">Não declarar</label><br> 
+            </form>
+          </div>
+
+          <div class="mb-3 col-4 ">
+          
+            <input type="text" class="form-control" id="descricaoValor" style="width: 100%; height: 60%; font-size: 1.5em;" placeholder="Contato" autocomplete="off">
+          </div>
+
+          <div class="mb-3 col-6 ">
+          
+            <div class="input-group mb-3" style="height: 60%;">
+              <span class="input-group-text" style="height: 100%;">$</span>
+              <input type="text" class="form-control" style="height: 100%;" placeholder="Renda">
+              <span class="input-group-text" style="height: 100%;">.00</span>
+            </div>
+          </div>
+
+
+          <div class="mb-3 col-6 ">
+           
+            <input type="text" class="form-control" id="descricaoValor" style="width: 100%; height: 60%; font-size: 1.5em;" placeholder="Nacionalidade" autocomplete="off">
+          </div>
+
+
+          <div class="mb-3 col-6 ">
+  
+            <input type="text" class="form-control" id="descricaoValor" style="width: 100%; height: 60%; font-size: 1.5em;" placeholder="Endereço" autocomplete="off">
+          </div>
+
+
+          <div class="mb-3 col-6 ">
+
+            <input type="text" class="form-control" id="descricaoValor" style="width: 100%; height: 60%; font-size: 1.5em;" placeholder="Categoria" autocomplete="off">
+          </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3/dist/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+    crossorigin="anonymous"></script>
+  <script src="/js/perfil.js"></script>
+</body>
+
+</html>
