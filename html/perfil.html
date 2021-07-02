@@ -31,6 +31,7 @@
         <div class="offcanvas-header">
           <h5 class="offcanvas-title imgLogo" id="offcanvasExampleLabel"><img src="/img/Logo-removebg-preview.png"
               alt=""></h5>
+          
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -47,11 +48,11 @@
     </nav>
   </header>
 
-  <main>
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-6 col-lg-6 " style="border: red solid 1px; height: 550px;">
+  <main >
+    <div class="row" style="width: 100%; margin: 0px;">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-6 " style=" height: 550px;">
 
-        
+
         <label for="filePerfil" id="labelFilePerfil" style="width: 100%;">
           <div id="imgPerfil"
             style="background-size: 100% 100%; background-repeat: no-repeat; background-position: center; width: 250px; height: 250px; border-radius: 100%; background-color: rgba(53, 153, 95, 0.226); margin-left: auto; margin-right: auto; margin-top: 20px;">
@@ -80,71 +81,93 @@
         </div>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-6 col-lg-6 " style="border: red solid 1px; height: 550px;">
-        <div class="row">
-          <div class="mb-3 col-4">
-            
-            <input type="text" class="form-control" style="width: 100%; height: 60%; font-size: 1.5em;" id="descricaoDespesa" placeholder="CPF" autocomplete="off">
-          </div>
-
-          <div class="mb-3 col-2 ">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-6 " style="width: 100% ;height: 550px; ">
         
-            <input type="text" class="form-control" style="width: 100% ;height: 60%; font-size: 1.5em;" id="descricaoValor" placeholder="idade"
-              autocomplete="off">
+        <div style="box-shadow: 3px 9px 20px 0px #8888888f;width: 100%; margin-left: auto;margin-right: auto; margin-top: 30px;">
+          <div style="width: 100%;background-color: rgb(91, 100, 100);padding: 10px; color:aliceblue">
+            <i class="fas fa-question-circle"></i> Informações adicionais
           </div>
+          <div class="row" style="padding: 20px;">
+            
+            <div class="mb-3 col-4">
 
-          <div class="mb-3 col-6 ">
-            <form action="">
-              <input type="radio" id="descricaoValorM" name="sexoDescricao" value="masculino" autocomplete="off">
-              <label for="descricaoValorM">Masculino</label><br>
-              <input type="radio" id="descricaoValorF" name="sexoDescricao" value="feminino" autocomplete="off">
-              <label for="descricaoValorF">Feminino</label><br> 
-              <input type="radio" id="descricaoValorF" name="sexoDescricao" value="Outros" autocomplete="off">
-              <label for="descricaoValorF">Outros</label><br> 
-              <input type="radio" id="descricaoValorF" name="sexoDescricao" value="Nao_declarar" autocomplete="off">
-              <label for="descricaoValorF">Não declarar</label><br> 
-            </form>
-          </div>
+              <input type="text" class="form-control" style="width: 100%; height: 40px; font-size: 1em;"
+                id="cpfPerfil" placeholder="CPF" autocomplete="off">
+            </div>
 
-          <div class="mb-3 col-4 ">
-          
-            <input type="text" class="form-control" id="descricaoValor" style="width: 100%; height: 60%; font-size: 1.5em;" placeholder="Contato" autocomplete="off">
-          </div>
+            <div class="mb-3 col-2 ">
 
-          <div class="mb-3 col-6 ">
-          
-            <div class="input-group mb-3" style="height: 60%;">
-              <span class="input-group-text" style="height: 100%;">$</span>
-              <input type="text" class="form-control" style="height: 100%;" placeholder="Renda">
-              <span class="input-group-text" style="height: 100%;">.00</span>
+              <input type="text" class="form-control" style="width: 100% ;height:40px; font-size: 1em;"
+                id="idadePerfil" placeholder="idade" autocomplete="off">
+            </div>
+
+            
+
+            <div class="mb-3 col-6 ">
+
+              <input type="text" class="form-control" id="contatoPerfil"
+                style="width: 100%; height: 40px; font-size: 1em;" placeholder="Contato" autocomplete="off">
+            </div>
+
+            <div class="mb-3 col-6 ">
+
+              <div class="input-group mb-3" style="height: 40px;">
+                <span class="input-group-text" style="height: 100%;">$</span>
+                <input type="text" id="rendaPerfil" class="form-control" style="height: 100%;" placeholder="Renda">
+                <span class="input-group-text" style="height: 100%;">.00</span>
+              </div>
+            </div>
+
+
+            <div class="mb-3 col-6 ">
+
+              <input type="text" class="form-control" 
+                style="width: 100%; height: 40px; font-size: 1em;" id="nacionalidadePerfil" placeholder="Nacionalidade" autocomplete="off">
+            </div>
+
+
+            <div class="mb-3 col-6 ">
+
+              <input type="text" class="form-control" id="enderecoPerfil"
+                style="width: 100%; height: 40px; font-size: 1em;" placeholder="Endereço" autocomplete="off">
+            </div>
+
+
+            <div class="mb-3 col-6 ">
+
+              <input type="text" class="form-control" id="categoriaPerfil"
+                style="width: 100%; height: 40px; font-size: 1em;" placeholder="Categoria" autocomplete="off">
+            </div>
+
+            <div class="mb-3 col-6 ">
+              <select class="form-select" aria-label="Default select example" id="sexoPerfil" autocomplete="off">
+                <option value="Masculino">-- Selecione o Sexo --</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Masculino">Feminino</option>
+                <option value="Masculino">Outros</option>
+                <option value="Masculino">Não informar</option>
+              </select>
             </div>
           </div>
 
-
-          <div class="mb-3 col-6 ">
-           
-            <input type="text" class="form-control" id="descricaoValor" style="width: 100%; height: 60%; font-size: 1.5em;" placeholder="Nacionalidade" autocomplete="off">
-          </div>
-
-
-          <div class="mb-3 col-6 ">
-  
-            <input type="text" class="form-control" id="descricaoValor" style="width: 100%; height: 60%; font-size: 1.5em;" placeholder="Endereço" autocomplete="off">
-          </div>
-
-
-          <div class="mb-3 col-6 ">
-
-            <input type="text" class="form-control" id="descricaoValor" style="width: 100%; height: 60%; font-size: 1.5em;" placeholder="Categoria" autocomplete="off">
-          </div>
-
+          <button onclick="informacaoAdicional()" id="salvarPerfil" type="button"
+            class="btn btn-primary col-2 m-3 mt-0">Começar</button>
+        </div>
       </div>
 
-    </div>
-
   </main>
-
-
+  <!-- modal -->
+  <button type="button" id="modalIncompleto" class="btn btn-primary d-none" data-bs-toggle="modal"
+            data-bs-target="#exampleModal"></button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h4>Complete as Informações</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
   <!-- JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>

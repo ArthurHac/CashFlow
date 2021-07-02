@@ -1,3 +1,10 @@
+// fto perfil
+
+function perfil(){
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    document.getElementById('ftoPerfilid').setAttribute('href',dados.infoUsuario.ftoPerfil)
+}
+
 
 // Entrada X Saida
 var ctx = document.getElementById('graficoEntradaSaida');
@@ -121,3 +128,7 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+window.onload = () => {
+    perfil()
+}

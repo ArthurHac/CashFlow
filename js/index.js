@@ -32,11 +32,13 @@ const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) 
             nome: campoCadastro[0].value,
             senha: campoCadastro[2].value,
             email: campoCadastro[4].value,
+            infoUsuario: [],
             produto: [],
             fornecedor: [],
             categoria: [],
             despesa:[],
             ValorVendido: 0
+
         }
         localStorage.setItem(campoCadastro[4].value, JSON.stringify(obj))
         location.href = "html/perfil.html"

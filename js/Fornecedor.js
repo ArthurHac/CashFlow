@@ -76,7 +76,7 @@ function salvaFornecedor() {
   let contato = document.getElementById('contato').value
   let email = document.getElementById('email').value
   let campoDeAtuacao = document.getElementById('campoDeAtuacao').value
-  let categoria = document.getElementById('categoria').value
+
 
   const dadosFornecedor = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
   const getId = dadosFornecedor.fornecedor.length
@@ -93,8 +93,7 @@ function salvaFornecedor() {
     nomeRespon: nomeResponsavel,
     cont: contato,
     mail: email,
-    atuaca: campoDeAtuacao,
-    cat: categoria
+    atuaca: campoDeAtuacao
   }
 
   dadosFornecedor.fornecedor[0] = getId
