@@ -21,6 +21,9 @@
     <nav class="imgLogo">
       <a href="/Dashboard.html"><img src="/img/dashbords/logo.png" alt="logo"></a>
 
+      <div class="ftoPerfil" id="ftoPerfilid">
+      </div>
+
       <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
         aria-controls="offcanvasExample">
         <i class="fas fa-bars"></i>
@@ -29,6 +32,8 @@
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
         aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
+          <div class="ftoPerfilside" id="ftoPerfilidside">
+          </div>
           <h5 class="offcanvas-title imgLogo" id="offcanvasExampleLabel"><img src="/img/Logo-removebg-preview.png"
               alt="Logo"></h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -245,6 +250,18 @@
     </div>
   </section>
 
+
+  <button type="button" id="modalPerfil" class="btn btn-primary d-none" data-bs-toggle="modal"
+    data-bs-target="#exampleModal"></button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body" id="infoModalPerfil">
+         
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

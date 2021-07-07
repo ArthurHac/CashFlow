@@ -21,6 +21,9 @@
         <nav class="imgLogo">
             <a href="/html/Dashboard.html"><img src="/img/dashbords/logo.png" alt="logo"></a>
 
+            <div class="ftoPerfil" id="ftoPerfilid">
+            </div>
+
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
                 aria-controls="offcanvasExample">
                 <i class="fas fa-bars"></i>
@@ -29,6 +32,8 @@
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
                 aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
+                    <div class="ftoPerfilside" id="ftoPerfilidside">
+                    </div>
                     <h5 class="offcanvas-title imgLogo" id="offcanvasExampleLabel"><img
                             src="/img/Logo-removebg-preview.png" alt=""></h5>
                     <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas"
@@ -72,25 +77,38 @@
                     </h1>
                 </div>
 
-                <a href="javascript:demoFromHTML()" class="button"> <button type="button" class="btn btn-primary"><i class="far fa-file-pdf" style="font-size: 100px;"></i></button></a>
+                <a href="javascript:demoFromHTML()" class="button"> <button type="button" class="btn btn-primary"><i
+                            class="far fa-file-pdf" style="font-size: 100px;"></i></button></a>
 
             </section>
 
         </section>
 
+        <button type="button" id="modalPerfil" class="btn btn-primary d-none" data-bs-toggle="modal"
+            data-bs-target="#exampleModal"></button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body" id="infoModalPerfil">
 
-            <!-- JavaScript -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js@3/dist/chart.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
-                integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
-                crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
-                crossorigin="anonymous"></script>
-            <script src="/js/Relatorio.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3/dist/chart.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+            crossorigin="anonymous"></script>
+        <script src="/js/Relatorio.js"></script>
 </body>
 
 </html>

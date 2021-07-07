@@ -1,3 +1,28 @@
+function perfil(){
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    document.getElementById('ftoPerfilid').style.backgroundImage = `url('${dados.infoUsuario.ftoPerfil}')`
+    document.getElementById('ftoPerfilidside').style.backgroundImage = `url('${dados.infoUsuario.ftoPerfil}')`
+}
+
+document.getElementById('ftoPerfilid').onclick = () => {
+    document.getElementById('modalPerfil').click()
+}
+
+document.getElementById('ftoPerfilidside').onclick = () => {
+    document.getElementById('modalPerfil').click()
+}
+
+
+function infoPerfil(){
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    document.getElementById('infoModalPerfil').innerHTML = `
+    
+    <p>Nome: ${dados.nome}</p>
+    <p>Email: ${dados.email}</p>
+    <p>contato: ${dados.infoUsuario.contato}</p>
+    <p>cpf:${dados.infoUsuario.cpj}</p>
+    `
+}
 
 // Estoque
 
@@ -5,7 +30,16 @@ sessionStorage.key(1)
 
 const salvarProduto = document.getElementById('button_salvar_produto').onclick = () => {
     console.log("show")
-
+    if(
+        document.getElementById('cadastroProduto').value != "" &&
+        document.getElementById('cadastroEAN').value != "" &&
+        document.getElementById('cadastroCategoria').value != "" &&
+        document.getElementById('cadastroQuantidade').value != "" &&
+        document.getElementById('cadastroValor').value != "" &&
+        typeof parseFloat(document.getElementById('cadastroValor').value) == typeof 0 &&
+        typeof parseInt(document.getElementById('cadastroQuantidade').value) == typeof 0 &&
+        typeof parseInt(document.getElementById('cadastroEAN').value) == typeof 0 
+    ){
     var cadastroProduto = document.getElementById('cadastroProduto').value;
     var cadastroEAN = document.getElementById('cadastroEAN').value;
     var cadastroQuantidade = document.getElementById('cadastroCategoria').value;
@@ -16,6 +50,7 @@ const salvarProduto = document.getElementById('button_salvar_produto').onclick =
     const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     const getId = dadoProduto.produto.length
     const componente = {
+        cod: getId + 1,
         nome: cadastroProduto,
         codEAN: cadastroEAN,
         categoria: cadastroQuantidade,
@@ -27,11 +62,13 @@ const salvarProduto = document.getElementById('button_salvar_produto').onclick =
     dadoProduto.produto[0] = getId
     dadoProduto.produto.push(componente)
     localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dadoProduto))
+    }else {
+        document.getElementById('click').click()
+        
+    }
 }
 
 var quant = 0
-
-
 document.getElementById('button_salvar_produto').onclick = salvarProduto;
 
 
@@ -163,7 +200,7 @@ function dadosProdutos() {
                 <td>${dados.produto[i].categoria}</td>
                 <td>${dados.produto[i].codEAN}</td>
                 <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${dados.produto[i].nome})"><i class="far fa-times-circle"></i></button></td>
-                <td><button type="button" id="clickEditar" onclick="editarProduto(${dados.produto[i].codEAN})" class="btn btn-primary" data-bs-toggle="modal"
+                <td><button type="button" id="clickEditar" onclick="editarProduto(${dados.produto[i].cod})" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#exampleModalwe">editar</button></tr>
             </tr>
             </table>
@@ -271,7 +308,7 @@ function itemCategoriaPrincipal() {
     let html = document.getElementById('cadastroCategoria')
     let txt = ""
 
-    for (i = 1; i < dados.categoria.length; i++) {
+    for (i = 0; i < dados.categoria.length; i++) {
         txt = txt + `
         <option value="${dados.categoria[i]}">${dados.categoria[i]}</option>
         `
@@ -285,10 +322,10 @@ function itemCategoriaPrincipal() {
 
 
 
-function editarProduto(codEAN) {
+function editarProduto(cod) {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     for (i = 1; i < dados.produto.length; i++) {
-        if (dados.produto[i].codEAN == codEAN) {
+        if (dados.produto[i].cod == cod) {
             let dadosModal = dados.produto[i]
 
             let txt = `<div class="modal-dialog">
@@ -390,6 +427,9 @@ window.onload = () => {
     dadosProdutos()
     graficoEstoque()
     itemModal()
+
+    perfil()
+    infoPerfil()
 }
 
 

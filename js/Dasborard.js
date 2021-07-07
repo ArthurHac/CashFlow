@@ -2,7 +2,28 @@
 
 function perfil(){
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    document.getElementById('ftoPerfilid').setAttribute('href',dados.infoUsuario.ftoPerfil)
+    document.getElementById('ftoPerfilid').style.backgroundImage = `url('${dados.infoUsuario.ftoPerfil}')`
+    document.getElementById('ftoPerfilidside').style.backgroundImage = `url('${dados.infoUsuario.ftoPerfil}')`
+}
+
+document.getElementById('ftoPerfilid').onclick = () => {
+    document.getElementById('modalPerfil').click()
+}
+
+document.getElementById('ftoPerfilidside').onclick = () => {
+    document.getElementById('modalPerfil').click()
+}
+
+
+function infoPerfil(){
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    document.getElementById('infoModalPerfil').innerHTML = `
+    
+    <p>Nome: ${dados.nome}</p>
+    <p>Email: ${dados.email}</p>
+    <p>contato: ${dados.infoUsuario.contato}</p>
+    <p>cpf:${dados.infoUsuario.cpj}</p>
+    `
 }
 
 
@@ -131,4 +152,5 @@ var myChart = new Chart(ctx, {
 
 window.onload = () => {
     perfil()
+    infoPerfil()
 }
