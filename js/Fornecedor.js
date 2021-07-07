@@ -396,7 +396,7 @@ function salvarFornecedorEdita() {
 
     }
   }
-
+}
   localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
   dadosFornecedor()
 }
