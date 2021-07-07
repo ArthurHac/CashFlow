@@ -63,7 +63,7 @@ function dadosFornecedor() {
 
           <div class="col-1 listFor">
             <button type="button" class="btn btn-primary editarFornecedor" data-bs-toggle="modal"
-              data-bs-target="#editarFornecedor">
+              data-bs-target="#editarFornecedor" onclick="dadosFornecedorEdita('${dados.fornecedor[i].cnpj}')">
               <i class="fas fa-edit"></i>
             </button>
             <button class="btn btn-danger excluirFornecedores" onclick="excluirFornecedor('${dados.fornecedor[i].nomeFant}')">
@@ -254,4 +254,149 @@ function pesquisaCep(valor) {
 window.onload = () => {
   perfil()
     infoPerfil()
+}
+
+
+
+function editarFornecedor(CNPJ) {
+  let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+  for (i = 1; i < dados.fornecedor.length; i++) {
+    if (dados.fornecedor[i].CNPJ == CNPJ) {
+      let dadosModal = dados.fornecedor[i]
+
+      let txt = `
+          
+          <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editarFornecedor">Edição de Fornecedor</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="row g-3">
+                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                  <label for="razaoSocial" class="form-label">Razão Social</label>
+                  <input type="razaoSocial" class="form-control" id="razaoSocialEditar" value="${dadosModal.razaoSoc}">
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                  <label for="nomeFantasia" class="form-label">Nome Fantasia</label>
+                  <input type="nomeFantasia" class="form-control" id="nomeFantasiaEditar value="${dadosModal.nomeFant}"">
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                  <label for="CNPJ" class="form-label">CNPJ</label>
+                  <input type="CNPJ" class="form-control" id="CNPJEditar" maxlength="18" name="CNPJ" onblur="ValidarCNPJ(this);"
+                    onkeypress="return event.charCode >= 48 && event.charCode <= 57" disabled="" value="${dadosModal.cnpj}">
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+                  <label for="cep" class="form-label">Cep</label>
+                  <input type="cep" class="form-control" id="cepEditar" maxlength="9" onblur="pesquisaCep(this.value)" value="${dadosModal.cp}">
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-7 col-xl-7">
+                  <label for="endereco" class="form-label">Endereço</label>
+                  <input type="endereco" class="form-control" id="enderecoEditar" value="${dadosModal.end}">
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-2 col-xl-2">
+                  <label for="numero" class="form-label">Número</label>
+                  <input type="numero" class="form-control" id="numeroEditar" value="${dadosModal.num}">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5">
+                  <label for="bairro" class="form-label">Bairro</label>
+                  <input type="bairro" class="form-control" id="bairroEditar" value="${dadosModal.bair}">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5">
+                  <label for="cidade" class="form-label">Cidade</label>
+                  <input type="cidade" class="form-control" id="cidadeEditar" value="${dadosModal.cid}">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-2 col-xl-2">
+                  <label for="estado" class="form-label">Estado</label>
+                  <input type="estado" class="form-control" id="estadoEditar" maxlength="2" value="${dadosModal.est}">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                  <label for="nomeResponsavel" class="form-label">Nome Responsável</label>
+                  <input type="nomeResponsavel" class="form-control" id="nomeResponsavelEditar" value="${dadosModal.nomeRespon}">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
+                  <label for="contato" class="form-label">Contato</label>
+                  <input type="contato" class="form-control" id="contatoEditar" maxlength="15"
+                    onkeypress="mascaraContato(this)" value="${dadosModal.cont}">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5">
+                  <label for="email" class="form-label">E-mail</label>
+                  <input type="email" class="form-control" id="emailEditar" value="${dadosModal.mail}">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <label for="campoDeAtuacao" class="form-label">Campo de Atuação</label>
+                  <input type="campoDeAtuacao" class="form-control" id="campoDeAtuacaoEditar" value="${dadosModal.atuaca}">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary" onclick="salvarFornecedorEdita()">Editar Alterações</button>
+            </div>
+          </div>
+        </div>
+          
+          `
+
+      document.getElementById('modalEditar').innerHTML = txt
+
+    }
+  }
+  itemFornecedor()
+  document.getElementById('clickEditarActive').click()
+
+}
+
+function dadosFornecedorEdita(cnpj) {
+  let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    for (i = 1; i < dados.fornecedor.length; i++) {
+      if (cnpj == dados.fornecedor[i].cnpj) {
+        document.getElementById('nomeFantasiaEditar').value = dados.fornecedor[i].nomeFant
+        document.getElementById('razaoSocialEditar').value = dados.fornecedor[i].razaoSoc
+        document.getElementById('CNPJEditar').value = dados.fornecedor[i].cnpj
+        document.getElementById('cepEditar').value = dados.fornecedor[i].cp
+        document.getElementById('enderecoEditar').value = dados.fornecedor[i].end
+        document.getElementById('numeroEditar').value = dados.fornecedor[i].num
+        document.getElementById('bairroEditar').value = dados.fornecedor[i].bair
+        document.getElementById('cidadeEditar').value = dados.fornecedor[i].cid
+        document.getElementById('ufEditar').value = dados.fornecedor[i].est
+        document.getElementById('nomeResponsavelEditar').value = dados.fornecedor[i].nomeRespon
+        document.getElementById('contatoEditar').value = dados.fornecedor[i].cont
+        document.getElementById('emailEditar').value = dados.fornecedor[i].mail
+        document.getElementById('campoDeAtuacaoEditar').value = dados.fornecedor[i].atuaca
+
+    
+      }
+    }
+
+
+
+
+function salvarFornecedorEdita() {
+  let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+  for (i = 1; i < dados.fornecedor.length; i++) {
+    if (dados.fornecedor[i].cnpj == document.getElementById('CNPJEditar').value) {
+
+      dados.fornecedor[i].nomeFant = document.getElementById('nomeFantasiaEditar').value
+      dados.fornecedor[i].razaoSoc = document.getElementById('razaoSocialEditar').value
+      dados.fornecedor[i].cnpj = document.getElementById('CNPJEditar').value
+      dados.fornecedor[i].cp = document.getElementById('cepEditar').value
+      dados.fornecedor[i].end = document.getElementById('enderecoEditar').value
+      dados.fornecedor[i].num = document.getElementById('numeroEditar').value
+      dados.fornecedor[i].bair = document.getElementById('bairroEditar').value
+      dados.fornecedor[i].cid = document.getElementById('cidadeEditar').value
+      dados.fornecedor[i].est = document.getElementById('ufEditar').value
+      dados.fornecedor[i].nomeRespon = document.getElementById('nomeResponsavelEditar').value
+      dados.fornecedor[i].cont = document.getElementById('contatoEditar').value
+      dados.fornecedor[i].mail = document.getElementById('emailEditar').value
+      dados.fornecedor[i].Atuaca = document.getElementById('campoDeAtuacaoEditar').value
+
+      
+
+    }
+  }
+
+  localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
+  dadosFornecedor()
 }
