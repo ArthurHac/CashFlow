@@ -57,7 +57,7 @@
 
 .tituloDespesa {
     background-color: rgb(67, 77, 77);
-    height: 30px;
+    height: auto;
     margin-bottom: 5px;
 
     color: white;

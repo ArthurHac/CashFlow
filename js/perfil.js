@@ -94,6 +94,7 @@ function informacaoAdicional() {
             endereco: document.getElementById('enderecoPerfil').value,
             categoria: document.getElementById('categoriaPerfil').value,
             sexo: document.getElementById('sexoPerfil').value,
+            renda: document.getElementById('rendaPerfil').value
         }
         dados.infoUsuario = infoUser;
         localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
