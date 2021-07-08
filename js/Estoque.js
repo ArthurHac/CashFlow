@@ -402,9 +402,6 @@ function salvarProdutoEdita() {
     graficoEstoque()
 }
 
-
-
-
 function itemModal() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     let html = document.getElementById('informaVendaProduto')
