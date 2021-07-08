@@ -125,7 +125,43 @@
       </div>
     </div>
   </div>
-    <!-- conteudo -->
+  
+  <button type="button" id="modalDespesas" class="btn btn-primary d-none" data-bs-toggle="modal"
+    data-bs-target="#exampleModal2"></button>
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body" id="infoModalPerfil">
+          <div class="row">
+           
+            <div class="mb-3 col-7">
+              <label for="cadastroProduto" class="form-label">Descrição</label>
+              <input type="text" class="form-control" id="descricaoDespesaEdita" placeholder="" autocomplete="off">
+            </div>
+            <div class="mb-3 col-5">
+              <label for="cadastroEAN" class="form-label">Data de Vencimento:</label>
+              <input type="date" class="form-control" id="descricaoVencimentoEdita" placeholder="">
+            </div>
+            <div class="mb-3 col-6 ">
+              <label for="cadastroQuantidade" class="form-label">Valor:</label>
+              <input type="text" class="form-control" id="descricaoValorEdita" placeholder="" autocomplete="off">
+            </div>
+            <div class="mb-0 col-6">
+              <label for="cadastroCategoria" class="form-label">Categoria:</label>
+              <select class="form-select" aria-label="Default select example" id="descricaoCategoria" autocomplete="off">
+  
+              </select>
+            </div>
+  
+            <button  onclick="" id="salvarDespesaEdita" type="button"
+              class="btn btn-primary col-2 m-3 mt-0">Salvar</button>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- conteudo -->
 
 
 

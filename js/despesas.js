@@ -129,8 +129,7 @@ function dadosDespesa() {
             <td>R$${dados.despesa[i].valor}</td>
             <td>${dados.despesa[i].categoria}</td>
             <td> <button class="button_excluir" onclick="excluirDespesa('${dados.despesa[i].descricao}')" style="border: none; background-color: red; color: white; font-size: 1em; width: 30px; height: 30px; border-radius: 5px;"><i class="far fa-trash-alt"></i></button></td>
-            <td><button type="button" id="clickEditarDespesa" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#exampleModalwe">editar</button></tr>
+            
         </tr>
         </table>
         </div>
@@ -154,6 +153,7 @@ function salvarDespesas() {
         let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
         let getId = dados.despesa.length - 1
         let despesa = {
+            cod: getId + 1,
             descricao: descricao,
             vencimento: vencimento,
             valor: valor,
@@ -183,15 +183,83 @@ function excluirDespesa(dadosExcluir) {
     graficoDespesa()
 }
 
-window.onload = () => {
+function itemCategoriaPrincipal() {
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+
+    let txt = '<option value="">Informe a categoria</option>'
+
+    for (i = 0; i < dados.categoria.length; i++) {
+        txt = txt + `
+        <option value="${dados.categoria[i]}">${dados.categoria[i]}</option>
+        `
+    }
+
+    document.getElementById('descricaoCategoria').innerHTML = txt
+}
+
+
+
+function excluirDespesa(dadosExcluir) {
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    for (i = 1; i < dados.despesa.length; i++) {
+        if (dados.despesa[i].descricao == dadosExcluir) {
+            dados.despesa.splice(i, 1)
+            localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
+        }
+    }
+
     dadosDespesa()
+    myChart.update()
     graficoDespesa()
+}
+
+function despesasEditar(cod) {
+    document.getElementById('modalDespesas').click()
+
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    for(i = 1; i < dados.despesa.length; i++ ){
+        if(dados.despesa[i].cod == cod){
+            document.getElementById('descricaoDespesaEdita').value = dados.despesa[i].descricao
+            document.getElementById('descricaoVencimentoEdita').value = dados.despesa[i].vencimento
+            document.getElementById('descricaoValorEdita').value = dados.despesa[i].valor
+        }
+
+    }
+}
+
+function DespesaEdita(cod) {
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    for (i = 1; i < dados.produto.length; i++) {
+        if (dados.despesa[i].cod = cod) {
+            dados.despesa[i].vencimento = document.getElementById('descricaoVencimentoEdita').value;
+            dados.despesa[i].valor = document.getElementById('descricaoValorEdita').value;
+            
+        }
+    }
+
+    localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
+    dadosProdutos()
+    myChart.update()
+    graficoEstoque()
+}
+
+
+window.onload = () => {
+    graficoDespesa()
+    dadosDespesa()
     perfil()
     infoPerfil()
+    itemCategoriaPrincipal()
 }
 
 document.getElementById('salvarDespesa').onclick = () => {
-    dadosDespesa()
     salvarDespesas()
+    dadosDespesa()
     graficoDespesa()
+
+    document.getElementById('descricaoDespesa').value = ""
+    document.getElementById('descricaoVencimento').value = ""
+    document.getElementById('descricaoValor').value = ""
+    document.getElementById('descricaoCategoria').value = ""
+
 }
