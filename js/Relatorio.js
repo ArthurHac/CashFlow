@@ -46,25 +46,11 @@ jQuery(function ($) {
                 author: "PrepBootstrap",
                 created: new Date()
             });
+// html documento
 
-            pdf.addPage("a4", "portrait");
 
-            pdf.table(
-                50,
-                50,
-                data,
-                [
-                    { field: "Name", title: "Person Name", width: 200 },
-                    { field: "Age", title: "Age", width: 50 },
-                    { field: "Email", title: "Email Address", width: 200 }
-                ],
-                {
-                    margins: {
-                        top: 50,
-                        left: 50
-                    }
-                }
-            );
+
+// fim
 
             pdf.saveAs({
                 fileName: "Relatório"
@@ -123,4 +109,41 @@ const componente = {
     responsavelRelat: responsavelRelatorio,
     contatoRelat: contatoRelatorio,
     mailRelat: mailRelatorio,
+}
+
+function demoFromHTML() {
+    let pdf = new jsPDF('p', 'pt', 'A4');
+
+    source = $('#content')[0];
+    specialElementHandlers = {
+        '#bypassme': function (element, renderer) {
+            return true
+        }
+    };
+    margins = {
+        top: 20,
+        bottom: 60,
+        left: 20
+    };
+
+    pdf.fromHTML(
+        source,
+        margins.left,
+        margins.top, {
+        'width': 500,
+        'elementHandlers': specialElementHandlers
+    },
+
+        function (dispose) {
+            pdf.save('relatorio.pdf');
+        }, margins
+    );
+}
+
+
+window.onload = () => {
+   
+    perfil()
+    infoPerfil()
+    
 }

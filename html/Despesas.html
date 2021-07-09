@@ -44,7 +44,7 @@
             <a href="#"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
             <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
             <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
-            <a href="#"><i class="fas fa-bullseye"></i><span>Metas</span></a>
+            
             <a href="#"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
           </div>
         </div>
@@ -58,8 +58,8 @@
     <a href="/html/Despesas.html"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
     <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
     <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
-    <a href="#"><i class="fas fa-bullseye"></i><span>Metas</span></a>
-    <a href="#"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
+    
+    <a href="/html/Relatorio.html"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
 
   </section>
 
@@ -70,8 +70,10 @@
 
       <section class="col-sm-12 col-md-12 col-lg-6 col-xl-6 p-5">
         <div class="row personaDespesaForm">
-          <div class="col-12 tituloDespesa">
-            <i class="fa fa-database" aria-hidden="true"></i> Adicionar Despesa
+          <div class="col-12 tituloDespesa" style="padding-right: 0px;">
+            <i class="fa fa-database" aria-hidden="true"></i> Adicionar Despesa  
+            <button id="activeModalSaldo" style="float: right;width: 30px; height: 100%; margin: 0px;background-color: rgba(255, 255, 255, 0); color: white; border: none"><i class="fas fa-plus" ></i></button>
+            <input type="text" class="" disabled id="saldoDespesas" style="margin: 0px; float: right;border: none; color: white;" placeholder="" autocomplete="off">
           </div>
           <div class="mb-3 col-7">
             <label for="cadastroProduto" class="form-label">Descrição</label>
@@ -82,8 +84,12 @@
             <input type="date" class="form-control" id="descricaoVencimento" placeholder="">
           </div>
           <div class="mb-3 col-6 ">
-            <label for="cadastroQuantidade" class="form-label">Valor:</label>
-            <input type="text" class="form-control" id="descricaoValor" placeholder="" autocomplete="off">
+            <label for="descricaoValor" class="form-label">valor:</label>
+            <div class="input-group mb-3" style="height: 30px;">
+              <span class="input-group-text" style="height: 100%;">$</span>
+              <input type="text" id="descricaoValor" class="form-control" style="height: 100%;" placeholder="">
+              
+            </div>
           </div>
           <div class="mb-0 col-6">
             <label for="cadastroCategoria" class="form-label">Categoria:</label>
@@ -91,10 +97,11 @@
 
             </select>
           </div>
-
-          <button onclick="cadastroDoFornecedor()" id="salvarDespesa" type="button"
+          <div class="row">
+            <button onclick="cadastroDoFornecedor()" id="salvarDespesa" type="button"
             class="btn btn-primary col-2 m-3 mt-0">Salvar</button>
-
+          </div>
+          
         </div>
 
         <div class="graficoDoDespesacss">
@@ -152,11 +159,25 @@
   
               </select>
             </div>
-  
+            
             <button  onclick="" id="salvarDespesaEdita" type="button"
               class="btn btn-primary col-2 m-3 mt-0">Salvar</button>
   
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" id="modalPerfilSaldo" class="btn btn-primary d-none" data-bs-toggle="modal"
+    data-bs-target="#exampleModal3"></button>
+  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body" id="infoModalPerfil">
+          <input type="text" class="form-control" style="width: 50%;" id="saldoValorEdita" placeholder="Adicionar Saldo" autocomplete="off">
+          <button  onclick="AdicionarSaldo()" id="salvarDespesaEdita" type="button"
+              >Salvar</button>
         </div>
       </div>
     </div>
