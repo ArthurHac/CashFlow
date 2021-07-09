@@ -4,7 +4,6 @@ function perfil(){
     document.getElementById('ftoPerfilidside').style.backgroundImage = `url('${dados.infoUsuario.ftoPerfil}')`
 }
 
-<<<<<<< Updated upstream
 document.getElementById('ftoPerfilid').onclick = () => {
     document.getElementById('modalPerfil').click()
 }
@@ -26,56 +25,15 @@ function infoPerfil(){
 }
 //
 
-jQuery(function ($) {
-    $("#exportButton").click(function () {
-        // parse the HTML table element having an id=exportTable
-        var dataSource = shield.DataSource.create({
-            data: "#exportTable",
-            schema: {
-                type: "table",
-                fields: {
-                    Name: { type: String },
-                    Age: { type: Number },
-                    Email: { type: String }
-                }
-            }
-        });
+// html documento
 
-        // when parsing is done, export the data to PDF
-        dataSource.read().then(function (data) {
-            var pdf = new shield.exp.PDFDocument({
-                author: "PrepBootstrap",
-                created: new Date()
-            });
 
-            pdf.addPage("a4", "portrait");
 
-            pdf.table(
-                50,
-                50,
-                data,
-                [
-                    { field: "Name", title: "Person Name", width: 200 },
-                    { field: "Age", title: "Age", width: 50 },
-                    { field: "Email", title: "Email Address", width: 200 }
-                ],
-                {
-                    margins: {
-                        top: 50,
-                        left: 50
-                    }
-                }
-            );
+// fim
 
-            pdf.saveAs({
-                fileName: "PrepBootstrapPDF"
-            });
-        });
-    });
-});
-=======
+
 function demoFromHTML() {
-    let pdf = new jsPDF('p', 'pt', 'letter');
+    let pdf = new jsPDF('p', 'pt', 'A4');
 
     source = $('#content')[0];
     specialElementHandlers = {
@@ -84,17 +42,16 @@ function demoFromHTML() {
         }
     };
     margins = {
-        top: 80,
+        top: 20,
         bottom: 60,
-        left: 40,
-        width: 522
+        left: 20
     };
 
     pdf.fromHTML(
         source,
         margins.left,
         margins.top, {
-        'width': margins.width,
+        'width': 500,
         'elementHandlers': specialElementHandlers
     },
 
@@ -105,14 +62,9 @@ function demoFromHTML() {
 }
 
 
-function getProducts(){
-    
-    var array = JSON.parse(localStorage.getItem('Clientes'));
-
-    $.each(array,function(i, item){
-
-    });
-
+window.onload = () => {
+   
+    perfil()
+    infoPerfil()
     
 }
->>>>>>> Stashed changes

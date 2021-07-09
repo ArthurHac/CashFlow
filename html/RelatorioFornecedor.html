@@ -21,6 +21,9 @@
         <nav class="imgLogo">
             <a href="/html/Dashboard.html"><img src="/img/dashbords/logo.png" alt="logo"></a>
 
+            <div class="ftoPerfil" id="ftoPerfilid">
+            </div>
+
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
                 aria-controls="offcanvasExample">
                 <i class="fas fa-bars"></i>
@@ -29,6 +32,8 @@
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
                 aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
+                    <div class="ftoPerfilside" id="ftoPerfilidside">
+                    </div>
                     <h5 class="offcanvas-title imgLogo" id="offcanvasExampleLabel"><img
                             src="/img/Logo-removebg-preview.png" alt=""></h5>
                     <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas"
@@ -40,7 +45,7 @@
                         <a href="#"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
                         <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
                         <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
-                        <a href="#"><i class="fas fa-bullseye"></i><span>Metas</span></a>
+                     
                         <a href="/html/Relatorio.html"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
                     </div>
                 </div>
@@ -54,46 +59,25 @@
         <a href="#"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
         <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
         <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
-        <a href="#"><i class="fas fa-bullseye"></i><span>Metas</span></a>
+        
         <a href="/html/Relatorio.html"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
 
     </section>
 
     <section class="container-fluid conteudo">
         <section class="row ajustarContainer">
-            <section id="content">
-            <table class="table table-striped">               
+            <section id="content" >
+            <table class="table table-striped" >               
                 <thead>
                   <tr>
-                    <th scope="col">Produto</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Código EAN</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">Preço</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Contato</th>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">CEP</th>
+                    <th scope="col">Email</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Produto 1</th>
-                    <td>Categoria 1</td>
-                    <td>546918</td>
-                    <td>7</td>
-                    <td>40</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Produto 2</th>
-                    <td>Categoria 2</td>
-                    <td>456123</td>
-                    <td>8</td>
-                    <td>50</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Produto 3</th>
-                    <td>Categoria 3</td>
-                    <td>516487</td>
-                    <td>2</td>
-                    <td>60</td>
-                  </tr>
+                <tbody id="DownloadFornecedor">
                 </tbody>
               </table>
             </section>
@@ -102,6 +86,18 @@
         </section>
     </section>
     
+    <!-- modaa -->
+    <button type="button" id="modalPerfil" class="btn btn-primary d-none" data-bs-toggle="modal"
+    data-bs-target="#exampleModal"></button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body" id="infoModalPerfil">
+         
+        </div>
+      </div>
+    </div>
+  </div>
 
 
     <!-- JavaScript -->
@@ -118,6 +114,7 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.debug.js"></script>
     <script src="/js/Relatorio.js"></script>
+    <script src="/js/RelatorioFornecedor.js"></script>
    
 </body>
 

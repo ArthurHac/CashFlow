@@ -253,7 +253,8 @@ function pesquisaCep(valor) {
 
 window.onload = () => {
   perfil()
-    infoPerfil()
+  infoPerfil()
+  dadosFornecedor()
 }
 
 
