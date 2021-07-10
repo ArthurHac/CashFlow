@@ -552,6 +552,10 @@ body {
        display: none;
     }
 
+    .conteudoDashboard {
+        overflow: auto;
+    }
+
 }
 
 @media screen and (max-width:900px) {
@@ -566,8 +570,8 @@ body {
     }
 }
 
-@media screen and (max-width:900px) {
-    body {
+@media screen and (min-width:800px) {
+    .conteudoDashboard {
         overflow: auto;
     }
 }

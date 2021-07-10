@@ -58,7 +58,7 @@ function dadosFornecedor() {
             <li class="list-group-item ml-3"><strong>Contato: </strong> ${dados.fornecedor[i].cont}</li>
             <li class="list-group-item ml-3"><strong>E-mail: </strong> ${dados.fornecedor[i].mail}</li>
             <li class="list-group-item ml-3"><strong>Campo de Atuação: </strong> ${dados.fornecedor[i].atuaca}</li>
-            <li class="list-group-item ml-3 border-bottom"><strong>Categoria: </strong> ${dados.fornecedor[i].cat}</li>
+           
           </ul>
 
           <div class="col-1 listFor">
