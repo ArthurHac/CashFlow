@@ -282,7 +282,7 @@ function excluirProduto(dadosExcluir) {
 
 
 
-function itemFornecedor() {
+function itemFornecedorPrincipalAdicionar() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     let txt = ""
 
@@ -297,12 +297,12 @@ function itemFornecedor() {
 
 
 
-function itemCategoria() {
+function itemCategoriaPrincipalEdita() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     let html = document.getElementById('cadastroCategoriaEdita')
     let txt = ""
 
-    for (i = 1; i < dados.categoria.length; i++) {
+    for (i = 0; i < dados.categoria.length; i++) {
         txt = txt + `
         <option value="${dados.categoria[i]}">${dados.categoria[i]}</option>
         `
@@ -312,7 +312,7 @@ function itemCategoria() {
 }
 
 
-function itemFornecedorPrincipalAdicionar() {
+function itemFornecedorPrincipalEdita() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     let html = document.getElementById('cadastroFornecedorEdita')
     let txt = ""
@@ -399,12 +399,11 @@ function editarProduto(cod) {
           </div>`
 
             document.getElementById('modalEditar').innerHTML = txt
-
+            itemCategoriaPrincipalEdita()
+            itemFornecedorPrincipalEdita()
         }
     }
-    itemFornecedorPrincipalAdicionar()
-    itemFornecedor()
-    itemCategoria()
+    
     document.getElementById('clickEditarActive').click()
 
 }
@@ -449,6 +448,7 @@ function itemModal() {
 
 document.getElementById('categoriaPerfilButton').onclick = () => {
     document.getElementById('modalcategoria').click()
+    itemCategoriaPrincipal()
 }
 
 function itemCategoriaPrincipal() {
@@ -495,8 +495,9 @@ function adicionarCategoria() {
         document.getElementById('selectCategorias').innerHTML = text
     }
 
+    itemFornecedorPrincipalAdicionar()
+    itemCategoriaPrincipalAdicionar()
 
-    itemCategoriaPrincipal()
 
 }
 
@@ -518,9 +519,8 @@ window.onload = () => {
     itemModal()
     perfil()
     infoPerfil()
-    itemFornecedor()
-    itemCategoriaPrincipalAdicionar()
     itemFornecedorPrincipalAdicionar()
+    itemCategoriaPrincipalAdicionar()
     
 
 }
