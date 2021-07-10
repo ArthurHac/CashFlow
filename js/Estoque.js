@@ -185,12 +185,12 @@ function dadosProdutos() {
   <div class="accordion-item">
       <h2 class="accordion-header" id="TESTE-AR">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#${(dados.produto[i].nome).replace(" ","")}" aria-expanded="false"
-              aria-controls="${(dados.produto[i].nome).replace(" ","")}">
+              data-bs-target="#${(dados.produto[i].nome).replaceAll(" ","")}" aria-expanded="false"
+              aria-controls="${(dados.produto[i].nome).replaceAll(" ","")}">
               ${dados.produto[i].nome}
           </button>
       </h2>
-      <div id="${(dados.produto[i].nome).replace(" ","")}" class="accordion-collapse collapse"
+      <div id="${(dados.produto[i].nome).replaceAll(" ","")}" class="accordion-collapse collapse"
 
           aria-labelledby="TESTE-AR">
 
@@ -208,7 +208,7 @@ function dadosProdutos() {
                 <td>${dados.produto[i].fornecedor}</td>
                 <td>${dados.produto[i].categoria}</td>
                 <td>${dados.produto[i].codEAN}</td>
-                <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${(dados.produto[i].nome).replace(" ","")})"><i class="far fa-times-circle"></i></button></td>
+                <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${(dados.produto[i].nome).replaceAll(" ","")})"><i class="far fa-times-circle"></i></button></td>
                 <td><button type="button" id="clickEditar" onclick="editarProduto(${dados.produto[i].cod})" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#exampleModalwe">editar</button></tr>
             </tr>
