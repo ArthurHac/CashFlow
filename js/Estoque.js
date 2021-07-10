@@ -208,7 +208,7 @@ function dadosProdutos() {
                 <td>${dados.produto[i].fornecedor}</td>
                 <td>${dados.produto[i].categoria}</td>
                 <td>${dados.produto[i].codEAN}</td>
-                <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${dados.produto[i].nome})"><i class="far fa-times-circle"></i></button></td>
+                <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${(dados.produto[i].nome).replace(" ","")})"><i class="far fa-times-circle"></i></button></td>
                 <td><button type="button" id="clickEditar" onclick="editarProduto(${dados.produto[i].cod})" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#exampleModalwe">editar</button></tr>
             </tr>
