@@ -284,7 +284,6 @@ function excluirProduto(dadosExcluir) {
 
 function itemFornecedor() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    let html = document.getElementById('cadastroFornecedorEdita')
     let txt = ""
 
     for (i = 1; i < dados.fornecedor.length; i++) {
@@ -293,7 +292,7 @@ function itemFornecedor() {
         `
     }
 
-    html.innerHTML = txt
+    document.getElementById('cadastroFornecedor').innerHTML = txt
 }
 
 
@@ -313,7 +312,7 @@ function itemCategoria() {
 }
 
 
-function itemFornecedorPrincipal() {
+function itemFornecedorPrincipalAdicionar() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     let html = document.getElementById('cadastroFornecedor')
     let txt = ""
@@ -329,7 +328,7 @@ function itemFornecedorPrincipal() {
 
 
 
-function itemCategoriaPrincipal() {
+function itemCategoriaPrincipalAdicionar() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     let html = document.getElementById('cadastroCategoria')
     let txt = ""
@@ -445,14 +444,83 @@ function itemModal() {
 }
 
 
+// adicionar categoria
+
+document.getElementById('categoriaPerfilButton').onclick = () => {
+    document.getElementById('modalcategoria').click()
+}
+
+function itemCategoriaPrincipal() {
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    let html = document.getElementById('selectCategorias').innerHTML = ""
+    let txt = '<option value="">Insira a Categoria --</option>'
+
+    for (i = 0; i < dados.categoria.length; i++) {
+        txt = txt + `
+        <option value="${dados.categoria[i]}">${dados.categoria[i]}</option>
+        `
+    }
+
+    html.innerHTML = txt
+
+    let text = ''
+    for (i = 0; i < dados.categoria.length; i++) {
+        text = text + `
+        <div class="option"> ${dados.categoria[i]}<button onclick="excluirCategoria('${dados.categoria[i]}')" style="float: right;  border: none; background-color: white;"><i class="fas fa-times-circle" ></i></button></div>
+        `
+    }
+
+    document.getElementById('categoriaPerfil').innerHTML = txt
+    document.getElementById('selectCategorias').innerHTML = text
+    document.getElementById('CampoAdicionarCategoria').value = ""
+
+}
+
+
+function adicionarCategoria() {
+    if (document.getElementById('CampoAdicionarCategoria').value != "") {
+        let categoria = document.getElementById('CampoAdicionarCategoria').value
+        let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+        dados.categoria.push(categoria)
+        localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
+        document.getElementById('CampoAdicionarCategoria').value = ""
+        let text = ''
+        for (i = 0; i < dados.categoria.length; i++) {
+            text = text + `
+            <div class="option"> ${dados.categoria[i]}<button id="excluirCategoria"><i class="fas fa-times-circle" style="float: right ;padding: 4px"></i></button></div>
+            `
+        }
+
+        document.getElementById('selectCategorias').innerHTML = text
+    }
+
+
+    itemCategoriaPrincipal()
+
+}
+
+function excluirCategoria(categoria) {
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    let index = dados.categoria.indexOf(categoria)
+    dados.categoria.splice(index, 1)
+    localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
+
+    itemCategoriaPrincipal()
+
+}
+
+
 
 window.onload = () => {
     dadosProdutos()
     graficoEstoque()
     itemModal()
-
     perfil()
     infoPerfil()
+    itemFornecedor()
+    itemCategoriaPrincipalAdicionar()
+    itemFornecedorPrincipalAdicionar()
+
 }
 
 
