@@ -21,8 +21,7 @@
         <nav class="imgLogo">
             <a href="/html/Dashboard.html"><img src="/img/dashbords/logo.png" alt="logo"></a>
 
-            <div class="ftoPerfil" id="ftoPerfilid">
-            </div>
+            
 
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
                 aria-controls="offcanvasExample">
@@ -32,8 +31,7 @@
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
                 aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
-                    <div class="ftoPerfilside" id="ftoPerfilidside">
-                    </div>
+                    
                     <h5 class="offcanvas-title imgLogo" id="offcanvasExampleLabel"><img
                             src="/img/Logo-removebg-preview.png" alt=""></h5>
                     <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas"
@@ -42,11 +40,12 @@
                 <div class="offcanvas-body">
                     <div>
                         <a href="/html/Dashboard.html"><i class="fas fa-chart-bar"></i><span>Dashboard</span></a>
-                        <a href="#"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
+                        <a href="/html/Despesas.html"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
                         <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
                         <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
                      
                         <a href="/html/Relatorio.html"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
+                        <<a href="javascript:demoFromHTML()" class="button"><i class="fas fa-file"></i> <span>Gerar PDF</span></a>
                     </div>
                 </div>
             </div>
@@ -56,17 +55,18 @@
     <section class="sideBar">
 
         <a href="/html/Dashboard.html"><i class="fas fa-chart-bar"></i><span>Dashboard</span></a>
-        <a href="#"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
+        <a href="/html/Despesas.html"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
         <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
         <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
         
         <a href="/html/Relatorio.html"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
-
+        <a href="javascript:demoFromHTML()" class="button"><i class="fas fa-file"></i> <span>Gerar PDF</span></a>
     </section>
 
+    
     <section class="container-fluid conteudo">
         <section class="row ajustarContainer">
-            <section id="content" >
+            <section id="content" style="overflow: auto; height: 500px" >
             <table class="table table-striped" >               
                 <thead>
                   <tr>
@@ -81,7 +81,7 @@
                 </tbody>
               </table>
             </section>
-        <a href="javascript:demoFromHTML()" class="button"> <button type="button" class="btn btn-sucess" style="background-color:  #266d5b; color: white;">Gerar PDF</button></a>
+        
     </section>
         </section>
     </section>

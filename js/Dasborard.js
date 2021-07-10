@@ -85,7 +85,13 @@ function graficoEstoque() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Quantidade de produtos por categorias'
+                    text: 'Quantidade de produtos'
+                },
+                legend: {
+                    display: false,
+                    labels: {
+                        color: 'rgb(255, 99, 132)'
+                    }
                 }
             },
             scales: {
@@ -106,7 +112,10 @@ function graficoEstoque() {
 
 }
 
-
+function sairSistema() {
+    sessionStorage.setItem(0,"")
+    location.href = "../index.html"
+}
 
 // pesquisas
 

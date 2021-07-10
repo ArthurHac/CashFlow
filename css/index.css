@@ -131,6 +131,14 @@ body {
     height: 100% !important;
 }
 
+#graficoDoDespesa {
+    width: 300px !important;
+    height: 300px !important;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .listFor {
     margin: 0 !important;
     padding: 1px !important;

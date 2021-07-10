@@ -22,6 +22,22 @@ function infoPerfil(){
     <p>contato: ${dados.infoUsuario.contato}</p>
     <p>cpf:${dados.infoUsuario.cpj}</p>
     `
+
+    document.getElementById('infoModalRendaP').value = dados.infoUsuario.renda
+}
+
+document.getElementById('salvarSaldo').onclick = () => {
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+    if(typeof parseFloat(document.getElementById('infoModalRendaP').value) == typeof 0){
+        dados.infoUsuario.renda = document.getElementById('infoModalRendaP').value
+        localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
+        saldoDespesa()
+    } 
+}
+
+function sairSistema() {
+    sessionStorage.setItem(0,"")
+    location.href = "../index.html"
 }
 
 //
@@ -48,7 +64,6 @@ function graficoDespesa() {
                     '#ff595e',
                     '#ffca3a',
                     '#8ac926',
-                    '#1982c4',
                     '#1982c4',
                     '#6a4c93',
                     '#f72585',
@@ -80,6 +95,12 @@ function graficoDespesa() {
                 title: {
                     display: true,
                 },
+                legend: {
+                    display: false,
+                    labels: {
+                        color: 'rgb(255, 99, 132)'
+                    }
+                }
             },
             scales: {
                 y: {

@@ -129,6 +129,12 @@ function graficoEstoque() {
                 title: {
                     display: true,
                     text: 'Quantidade de produtos por categorias'
+                },
+                legend: {
+                    display: false,
+                    labels: {
+                        color: 'rgb(255, 99, 132)'
+                    }
                 }
             }
         }
@@ -152,7 +158,10 @@ function graficoEstoque() {
 }
 
 
-
+function sairSistema() {
+    sessionStorage.setItem(0,"")
+    location.href = "../index.html"
+}
 
 
 

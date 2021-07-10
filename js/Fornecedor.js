@@ -152,6 +152,10 @@ document.getElementById('cadastroDoFornecedor').onclick = () => {
   dadosFornecedor()
 }
 
+function sairSistema() {
+  sessionStorage.setItem(0,"")
+  location.href = "../index.html"
+}
 
 
 //validar CNPJ

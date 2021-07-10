@@ -101,14 +101,9 @@ function dadosRelatorio() {
     dadosRelatorio()
 }
 
-const dadosFornecedor = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-const getId = dadosFornecedor.fornecedor.length
-const componente = {
-    nomeFantasiaRelat: nomeFantasiaRelatorio,
-    cnpjFornecedorRelat: cnpjFornecedorRelat,
-    responsavelRelat: responsavelRelatorio,
-    contatoRelat: contatoRelatorio,
-    mailRelat: mailRelatorio,
+function sairSistema() {
+    sessionStorage.setItem(0,"")
+    location.href = "../index.html"
 }
 
 function demoFromHTML() {
