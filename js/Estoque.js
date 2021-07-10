@@ -314,7 +314,7 @@ function itemCategoria() {
 
 function itemFornecedorPrincipalAdicionar() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    let html = document.getElementById('cadastroFornecedor')
+    let html = document.getElementById('cadastroFornecedorEdita')
     let txt = ""
 
     for (i = 1; i < dados.fornecedor.length; i++) {
@@ -402,6 +402,7 @@ function editarProduto(cod) {
 
         }
     }
+    itemFornecedorPrincipalAdicionar()
     itemFornecedor()
     itemCategoria()
     document.getElementById('clickEditarActive').click()
@@ -520,6 +521,7 @@ window.onload = () => {
     itemFornecedor()
     itemCategoriaPrincipalAdicionar()
     itemFornecedorPrincipalAdicionar()
+    
 
 }
 
