@@ -50,7 +50,7 @@ const salvarProduto = document.getElementById('button_salvar_produto').onclick =
         const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
         const getId = dadoProduto.produto.length
         const componente = {
-            cod: getId + 1,
+            cod: dadoProduto.produto[0],
             nome: cadastroProduto,
             codEAN: cadastroEAN,
             categoria: cadastroQuantidade,
@@ -59,7 +59,7 @@ const salvarProduto = document.getElementById('button_salvar_produto').onclick =
             preco: cadastroValor.replace(',', '.')
         }
 
-        dadoProduto.produto[0] = getId
+        dadoProduto.produto[0] = dadoProduto.produto[0] + 1
         dadoProduto.produto.push(componente)
         localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dadoProduto))
     } else {
