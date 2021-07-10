@@ -153,7 +153,7 @@ document.getElementById('cadastroDoFornecedor').onclick = () => {
 }
 
 function sairSistema() {
-  sessionStorage.setItem(0,"")
+  sessionStorage.setItem(0, "")
   location.href = "../index.html"
 }
 
@@ -263,7 +263,7 @@ window.onload = () => {
 
 
 
-function editarFornecedor(CNPJ) {
+function salvarFornecedorEdita(CNPJ) {
   let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
   for (i = 1; i < dados.fornecedor.length; i++) {
     if (dados.fornecedor[i].CNPJ == CNPJ) {
@@ -344,12 +344,11 @@ function editarFornecedor(CNPJ) {
           
           `
 
-      document.getElementById('modalEditar').innerHTML = txt
+      document.getElementById('editarFornecedor').innerHTML = txt
 
     }
   }
-  itemFornecedor()
-  document.getElementById('clickEditarActive').click()
+
 
 }
 
@@ -357,6 +356,7 @@ function dadosFornecedorEdita(cnpj) {
   let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
   for (i = 1; i < dados.fornecedor.length; i++) {
     if (cnpj == dados.fornecedor[i].cnpj) {
+      console.log('asdf')
       document.getElementById('nomeFantasiaEditar').value = dados.fornecedor[i].nomeFant
       document.getElementById('razaoSocialEditar').value = dados.fornecedor[i].razaoSoc
       document.getElementById('CNPJEditar').value = dados.fornecedor[i].cnpj
@@ -371,37 +371,35 @@ function dadosFornecedorEdita(cnpj) {
       document.getElementById('emailEditar').value = dados.fornecedor[i].mail
       document.getElementById('campoDeAtuacaoEditar').value = dados.fornecedor[i].atuaca
 
-
     }
   }
-
-
-
-
-  function salvarFornecedorEdita() {
-    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    for (i = 1; i < dados.fornecedor.length; i++) {
-      if (dados.fornecedor[i].cnpj == document.getElementById('CNPJEditar').value) {
-
-        dados.fornecedor[i].nomeFant = document.getElementById('nomeFantasiaEditar').value
-        dados.fornecedor[i].razaoSoc = document.getElementById('razaoSocialEditar').value
-        dados.fornecedor[i].cnpj = document.getElementById('CNPJEditar').value
-        dados.fornecedor[i].cp = document.getElementById('cepEditar').value
-        dados.fornecedor[i].end = document.getElementById('enderecoEditar').value
-        dados.fornecedor[i].num = document.getElementById('numeroEditar').value
-        dados.fornecedor[i].bair = document.getElementById('bairroEditar').value
-        dados.fornecedor[i].cid = document.getElementById('cidadeEditar').value
-        dados.fornecedor[i].est = document.getElementById('ufEditar').value
-        dados.fornecedor[i].nomeRespon = document.getElementById('nomeResponsavelEditar').value
-        dados.fornecedor[i].cont = document.getElementById('contatoEditar').value
-        dados.fornecedor[i].mail = document.getElementById('emailEditar').value
-        dados.fornecedor[i].Atuaca = document.getElementById('campoDeAtuacaoEditar').value
-
-
-
-      }
-    }
-  }
-  localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
-  dadosFornecedor()
 }
+
+
+
+function FornecedorEdita() {
+  let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+  for (i = 1; i < dados.fornecedor.length; i++) {
+    if (dados.fornecedor[i].cnpj == document.getElementById('CNPJEditar').value) {
+
+      dados.fornecedor[i].nomeFant = document.getElementById('nomeFantasiaEditar').value
+      dados.fornecedor[i].razaoSoc = document.getElementById('razaoSocialEditar').value
+      dados.fornecedor[i].cnpj = document.getElementById('CNPJEditar').value
+      dados.fornecedor[i].cp = document.getElementById('cepEditar').value
+      dados.fornecedor[i].end = document.getElementById('enderecoEditar').value
+      dados.fornecedor[i].num = document.getElementById('numeroEditar').value
+      dados.fornecedor[i].bair = document.getElementById('bairroEditar').value
+      dados.fornecedor[i].cid = document.getElementById('cidadeEditar').value
+      dados.fornecedor[i].est = document.getElementById('ufEditar').value
+      dados.fornecedor[i].nomeRespon = document.getElementById('nomeResponsavelEditar').value
+      dados.fornecedor[i].cont = document.getElementById('contatoEditar').value
+      dados.fornecedor[i].mail = document.getElementById('emailEditar').value
+      dados.fornecedor[i].Atuaca = document.getElementById('campoDeAtuacaoEditar').value
+
+
+      localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
+      dadosFornecedor()
+    }
+  }
+}
+
