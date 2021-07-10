@@ -226,7 +226,7 @@ function dadosProdutos() {
                 <td>${dados.produto[i].fornecedor}</td>
                 <td>${dados.produto[i].categoria}</td>
                 <td>${dados.produto[i].codEAN}</td>
-                <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${(dados.produto[i].nome).replaceAll(" ", "")})"><i class="far fa-times-circle"></i></button></td>
+                <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${dados.produto[i].cod})"><i class="far fa-times-circle"></i></button></td>
                 <td><button type="button" id="clickEditar" onclick="editarProduto(${dados.produto[i].cod})" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#exampleModalwe">editar</button></tr>
             </tr>
@@ -264,10 +264,9 @@ function valorEstoque() {
 }
 
 function excluirProduto(dadosExcluir) {
-    console.log(dadosExcluir.getAttribute('id'))
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     for (i = 1; i < dados.produto.length; i++) {
-        if (dados.produto[i].nome == dadosExcluir.getAttribute('id')) {
+        if (dados.produto[i].cod == dadosExcluir) {
             dados.produto.splice(i, 1)
             localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
         }
