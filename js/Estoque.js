@@ -30,42 +30,60 @@ sessionStorage.key(1)
 
 const salvarProduto = document.getElementById('button_salvar_produto').onclick = () => {
     console.log("show")
-    if (
-        document.getElementById('cadastroProduto').value != "" &&
-        document.getElementById('cadastroEAN').value != "" &&
-        document.getElementById('cadastroCategoria').value != "" &&
-        document.getElementById('cadastroQuantidade').value != "" &&
-        document.getElementById('cadastroValor').value != "" &&
-        typeof parseFloat(document.getElementById('cadastroValor').value) == typeof 0 &&
-        typeof parseInt(document.getElementById('cadastroQuantidade').value) == typeof 0 &&
-        typeof parseInt(document.getElementById('cadastroEAN').value) == typeof 0
-    ) {
-        var cadastroProduto = document.getElementById('cadastroProduto').value;
-        var cadastroEAN = document.getElementById('cadastroEAN').value;
-        var cadastroQuantidade = document.getElementById('cadastroCategoria').value;
-        var cadastroCategoria = document.getElementById('cadastroQuantidade').value;
-        var cadastroFornecedor = document.getElementById('cadastroFornecedor').value;
-        var cadastroValor = document.getElementById('cadastroValor').value
+    let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
 
-        const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-        const getId = dadoProduto.produto.length
-        const componente = {
-            cod: dadoProduto.produto[0],
-            nome: cadastroProduto,
-            codEAN: cadastroEAN,
-            categoria: cadastroQuantidade,
-            quantidade: cadastroCategoria,
-            fornecedor: cadastroFornecedor,
-            preco: cadastroValor.replace(',', '.')
+
+    var matrizConfirma = true
+    for (i = 1; i < dados.produto.length; i++) {
+        if (dados.produto[i].codEAN == document.getElementById('cadastroEAN').value) {
+            var matrizConfirma = false
+        } else {
+            var matrizConfirma = true
+        }
+    }
+
+    if (matrizConfirma) {
+        console.log('a')
+        if (
+            document.getElementById('cadastroProduto').value != "" &&
+            document.getElementById('cadastroEAN').value != "" &&
+            document.getElementById('cadastroCategoria').value != "" &&
+            document.getElementById('cadastroQuantidade').value != "" &&
+            document.getElementById('cadastroValor').value != "" &&
+            typeof parseFloat(document.getElementById('cadastroValor').value) == typeof 0 &&
+            typeof parseInt(document.getElementById('cadastroQuantidade').value) == typeof 0 &&
+            typeof parseInt(document.getElementById('cadastroEAN').value) == typeof 0
+        ) {
+            var cadastroProduto = document.getElementById('cadastroProduto').value;
+            var cadastroEAN = document.getElementById('cadastroEAN').value;
+            var cadastroQuantidade = document.getElementById('cadastroCategoria').value;
+            var cadastroCategoria = document.getElementById('cadastroQuantidade').value;
+            var cadastroFornecedor = document.getElementById('cadastroFornecedor').value;
+            var cadastroValor = document.getElementById('cadastroValor').value
+
+            const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+            const getId = dadoProduto.produto.length
+            const componente = {
+                cod: dadoProduto.produto[0],
+                nome: cadastroProduto,
+                codEAN: cadastroEAN,
+                categoria: cadastroQuantidade,
+                quantidade: cadastroCategoria,
+                fornecedor: cadastroFornecedor,
+                preco: cadastroValor.replace(',', '.')
+            }
+
+            dadoProduto.produto[0] = dadoProduto.produto[0] + 1
+            dadoProduto.produto.push(componente)
+            localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dadoProduto))
         }
 
-        dadoProduto.produto[0] = dadoProduto.produto[0] + 1
-        dadoProduto.produto.push(componente)
-        localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dadoProduto))
+
     } else {
         document.getElementById('click').click()
 
     }
+
 }
 
 var quant = 0
@@ -159,7 +177,7 @@ function graficoEstoque() {
 
 
 function sairSistema() {
-    sessionStorage.setItem(0,"")
+    sessionStorage.setItem(0, "")
     location.href = "../index.html"
 }
 
@@ -185,12 +203,12 @@ function dadosProdutos() {
   <div class="accordion-item">
       <h2 class="accordion-header" id="TESTE-AR">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#${(dados.produto[i].nome).replaceAll(" ","")}" aria-expanded="false"
-              aria-controls="${(dados.produto[i].nome).replaceAll(" ","")}">
+              data-bs-target="#${(dados.produto[i].nome).replaceAll(" ", "")}" aria-expanded="false"
+              aria-controls="${(dados.produto[i].nome).replaceAll(" ", "")}">
               ${dados.produto[i].nome}
           </button>
       </h2>
-      <div id="${(dados.produto[i].nome).replaceAll(" ","")}" class="accordion-collapse collapse"
+      <div id="${(dados.produto[i].nome).replaceAll(" ", "")}" class="accordion-collapse collapse"
 
           aria-labelledby="TESTE-AR">
 
@@ -208,7 +226,7 @@ function dadosProdutos() {
                 <td>${dados.produto[i].fornecedor}</td>
                 <td>${dados.produto[i].categoria}</td>
                 <td>${dados.produto[i].codEAN}</td>
-                <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${(dados.produto[i].nome).replaceAll(" ","")})"><i class="far fa-times-circle"></i></button></td>
+                <td> <button class="button_excluir" style="border: none;" onclick="excluirProduto(${(dados.produto[i].nome).replaceAll(" ", "")})"><i class="far fa-times-circle"></i></button></td>
                 <td><button type="button" id="clickEditar" onclick="editarProduto(${dados.produto[i].cod})" class="btn btn-primary" data-bs-toggle="modal"
                 data-bs-target="#exampleModalwe">editar</button></tr>
             </tr>
