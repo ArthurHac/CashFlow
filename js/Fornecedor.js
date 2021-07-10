@@ -65,7 +65,7 @@ function dadosFornecedor() {
             <button type="button" class="btn btn-primary editarFornecedor" data-bs-toggle="modal"
               data-bs-target="#editarFornecedor" onclick="dadosFornecedorEdita('${dados.fornecedor[i].cnpj}')">
               <i class="fas fa-edit"></i>
-            </button>
+            </button> 
             <button class="btn btn-danger excluirFornecedores" onclick="excluirFornecedor('${dados.fornecedor[i].nomeFant}')">
             <i class="fas fa-trash"></i>
           </button>
