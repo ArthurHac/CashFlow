@@ -1,4 +1,4 @@
-function perfil(){
+function perfil() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     document.getElementById('ftoPerfilid').style.backgroundImage = `url('${dados.infoUsuario.ftoPerfil}')`
     document.getElementById('ftoPerfilidside').style.backgroundImage = `url('${dados.infoUsuario.ftoPerfil}')`
@@ -13,7 +13,7 @@ document.getElementById('ftoPerfilidside').onclick = () => {
 }
 
 
-function infoPerfil(){
+function infoPerfil() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     document.getElementById('infoModalPerfil').innerHTML = `
     
@@ -90,7 +90,7 @@ function graficoDespesa() {
     });
 
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    for (i = 1; i < dados.despesa.length ; i++) {
+    for (i = 1; i < dados.despesa.length; i++) {
         myChart.data.labels.push(dados.despesa[i].descricao)
         myChart.data.datasets[0].data[i - 1] = dados.despesa[i].valor
     }
@@ -181,7 +181,7 @@ function excluirDespesa(dadosExcluir) {
     dadosDespesa()
     myChart.update()
     graficoDespesa()
-    
+
 }
 
 function itemCategoriaPrincipal() {
@@ -220,14 +220,14 @@ document.getElementById('activeModalSaldo').onclick = () => {
 }
 
 function AdicionarSaldo() {
-  
+
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    if(parseFloat(document.getElementById('saldoValorEdita').value) > 0 && typeof parseFloat(document.getElementById('saldoValorEdita').value) == typeof 0 ){
+    if (parseFloat(document.getElementById('saldoValorEdita').value) > 0 && typeof parseFloat(document.getElementById('saldoValorEdita').value) == typeof 0) {
         dados.infoUsuario.renda = parseFloat(dados.infoUsuario.renda) + parseFloat(document.getElementById('saldoValorEdita').value)
-    }else{
+    } else {
         alert('Informação incorreta')
     }
-    
+
     localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
 
     saldoDespesa()
@@ -238,8 +238,8 @@ function despesasEditar(cod) {
     document.getElementById('modalDespesas').click()
 
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    for(i = 1; i < dados.despesa.length; i++ ){
-        if(dados.despesa[i].cod == cod){
+    for (i = 1; i < dados.despesa.length; i++) {
+        if (dados.despesa[i].cod == cod) {
             document.getElementById('descricaoDespesaEdita').value = dados.despesa[i].descricao
             document.getElementById('descricaoVencimentoEdita').value = dados.despesa[i].vencimento
             document.getElementById('descricaoValorEdita').value = dados.despesa[i].valor
@@ -254,7 +254,7 @@ function DespesaEdita(cod) {
         if (dados.despesa[i].cod = cod) {
             dados.despesa[i].vencimento = document.getElementById('descricaoVencimentoEdita').value;
             dados.despesa[i].valor = document.getElementById('descricaoValorEdita').value;
-            
+
         }
     }
 
@@ -267,11 +267,11 @@ function DespesaEdita(cod) {
 function saldoDespesa() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     let soma = 0
-    for(i = 1; i < dados.despesa.length; i++){
+    for (i = 1; i < dados.despesa.length; i++) {
         soma = parseFloat(soma) + parseFloat(dados.despesa[i].valor)
     }
 
-    document.getElementById('saldoDespesas').value = 'R$ '+ (parseFloat(dados.infoUsuario.renda) - soma)
+    document.getElementById('saldoDespesas').value = 'R$ ' + (parseFloat(dados.infoUsuario.renda) - soma)
 }
 
 

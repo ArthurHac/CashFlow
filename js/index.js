@@ -13,21 +13,21 @@ const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) 
     let confirm_senha = false
     let confirm_campo = false
 
-    if(campoCadastro[2].value == campoCadastro[3].value){
+    if (campoCadastro[2].value == campoCadastro[3].value) {
         document.querySelector('#DOM_erro label').textContent = ""
         confirm_senha = true
     }
 
-    if(campoCadastro[4].value == campoCadastro[5].value){
+    if (campoCadastro[4].value == campoCadastro[5].value) {
         document.querySelector('#DOM_erro label').textContent = ""
         confirm_email = true
     }
 
-    if(confirm_email && confirm_senha){
+    if (confirm_email && confirm_senha) {
         confirm_campo = true
     }
-    
-    if(confirm_campo){
+
+    if (confirm_campo) {
         const obj = {
             nome: campoCadastro[0].value,
             senha: campoCadastro[2].value,
@@ -36,15 +36,15 @@ const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) 
             produto: [],
             fornecedor: [],
             categoria: [],
-            despesa:[],
+            despesa: [],
             ValorVendido: 0
 
         }
         localStorage.setItem(campoCadastro[4].value, JSON.stringify(obj))
         location.href = "html/perfil.html"
-        sessionStorage.setItem(0,campoCadastro[4].value)
+        sessionStorage.setItem(0, campoCadastro[4].value)
         console.log(campoCadastro[4].value)
-    }else{
+    } else {
         document.querySelector('#DOM_erro label').textContent = "Verifique os dados"
     }
 }
@@ -54,17 +54,17 @@ const buttonCadastros = document.getElementById('form_cadastro').onsubmit = (e) 
 
 const buttonLogin = document.getElementById('form').onsubmit = (e) => {
     e.preventDefault()
-    if(localStorage.getItem(campoLogin[0].value) != null){
+    if (localStorage.getItem(campoLogin[0].value) != null) {
         const dadosSenha = JSON.parse(localStorage.getItem(campoLogin[0].value)).senha
-        if(dadosSenha == campoLogin[1].value){
+        if (dadosSenha == campoLogin[1].value) {
             console.log('show')
             console.log(localStorage.getItem(campoLogin[0].value))
-            sessionStorage.setItem(0,campoLogin[0].value)
+            sessionStorage.setItem(0, campoLogin[0].value)
             location.href = "html/dashboard.html"
-        }else{
+        } else {
             document.getElementById('click').click()
         }
-    }else {
+    } else {
         console.log("sem retorno")
         document.getElementById('click').click()
     }

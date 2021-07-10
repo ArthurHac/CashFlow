@@ -1,6 +1,6 @@
 sessionStorage.key(1)
 
-function perfil(){
+function perfil() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     document.getElementById('ftoPerfilid').style.backgroundImage = `url('${dados.infoUsuario.ftoPerfil}')`
     document.getElementById('ftoPerfilidside').style.backgroundImage = `url('${dados.infoUsuario.ftoPerfil}')`
@@ -15,7 +15,7 @@ document.getElementById('ftoPerfilidside').onclick = () => {
 }
 
 
-function infoPerfil(){
+function infoPerfil() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     document.getElementById('infoModalPerfil').innerHTML = `
     
@@ -46,11 +46,11 @@ jQuery(function ($) {
                 author: "PrepBootstrap",
                 created: new Date()
             });
-// html documento
+            // html documento
 
 
 
-// fim
+            // fim
 
             pdf.saveAs({
                 fileName: "Relatório"
@@ -66,10 +66,10 @@ function dadosRelatorio() {
     let selectHtml = document.getElementById('relatorioFornecedor')
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     let txt = ""
-    for (i = 1; i <dados.relatorios.length; i++) {
-      txt = txt +
-  
-        `
+    for (i = 1; i < dados.relatorios.length; i++) {
+        txt = txt +
+
+            `
   
         <tr>
         <td id="nomeFantasiaRelatorio">${dados.relatorios[i].nomeFantasiaRelat}</td>
@@ -90,14 +90,14 @@ function dadosRelatorio() {
       
       `
     }
-  
+
     selectHtml.innerHTML = txt
-  }
-  
+}
 
 
 
-  window.onload = () => {
+
+window.onload = () => {
     dadosRelatorio()
 }
 
@@ -142,8 +142,8 @@ function demoFromHTML() {
 
 
 window.onload = () => {
-   
+
     perfil()
     infoPerfil()
-    
+
 }

@@ -1,4 +1,4 @@
-function perfil(){
+function perfil() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     document.getElementById('ftoPerfilid').style.backgroundImage = `url('${dados.infoUsuario.ftoPerfil}')`
     document.getElementById('ftoPerfilidside').style.backgroundImage = `url('${dados.infoUsuario.ftoPerfil}')`
@@ -13,7 +13,7 @@ document.getElementById('ftoPerfilidside').onclick = () => {
 }
 
 
-function infoPerfil(){
+function infoPerfil() {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
     document.getElementById('infoModalPerfil').innerHTML = `
     
@@ -30,7 +30,7 @@ sessionStorage.key(1)
 
 const salvarProduto = document.getElementById('button_salvar_produto').onclick = () => {
     console.log("show")
-    if(
+    if (
         document.getElementById('cadastroProduto').value != "" &&
         document.getElementById('cadastroEAN').value != "" &&
         document.getElementById('cadastroCategoria').value != "" &&
@@ -38,33 +38,33 @@ const salvarProduto = document.getElementById('button_salvar_produto').onclick =
         document.getElementById('cadastroValor').value != "" &&
         typeof parseFloat(document.getElementById('cadastroValor').value) == typeof 0 &&
         typeof parseInt(document.getElementById('cadastroQuantidade').value) == typeof 0 &&
-        typeof parseInt(document.getElementById('cadastroEAN').value) == typeof 0 
-    ){
-    var cadastroProduto = document.getElementById('cadastroProduto').value;
-    var cadastroEAN = document.getElementById('cadastroEAN').value;
-    var cadastroQuantidade = document.getElementById('cadastroCategoria').value;
-    var cadastroCategoria = document.getElementById('cadastroQuantidade').value;
-    var cadastroFornecedor = document.getElementById('cadastroFornecedor').value;
-    var cadastroValor = document.getElementById('cadastroValor').value
+        typeof parseInt(document.getElementById('cadastroEAN').value) == typeof 0
+    ) {
+        var cadastroProduto = document.getElementById('cadastroProduto').value;
+        var cadastroEAN = document.getElementById('cadastroEAN').value;
+        var cadastroQuantidade = document.getElementById('cadastroCategoria').value;
+        var cadastroCategoria = document.getElementById('cadastroQuantidade').value;
+        var cadastroFornecedor = document.getElementById('cadastroFornecedor').value;
+        var cadastroValor = document.getElementById('cadastroValor').value
 
-    const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    const getId = dadoProduto.produto.length
-    const componente = {
-        cod: getId + 1,
-        nome: cadastroProduto,
-        codEAN: cadastroEAN,
-        categoria: cadastroQuantidade,
-        quantidade: cadastroCategoria,
-        fornecedor: cadastroFornecedor,
-        preco: cadastroValor.replace(',', '.')
-    }
+        const dadoProduto = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
+        const getId = dadoProduto.produto.length
+        const componente = {
+            cod: getId + 1,
+            nome: cadastroProduto,
+            codEAN: cadastroEAN,
+            categoria: cadastroQuantidade,
+            quantidade: cadastroCategoria,
+            fornecedor: cadastroFornecedor,
+            preco: cadastroValor.replace(',', '.')
+        }
 
-    dadoProduto.produto[0] = getId
-    dadoProduto.produto.push(componente)
-    localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dadoProduto))
-    }else {
+        dadoProduto.produto[0] = getId
+        dadoProduto.produto.push(componente)
+        localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dadoProduto))
+    } else {
         document.getElementById('click').click()
-        
+
     }
 }
 
