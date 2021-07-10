@@ -174,6 +174,12 @@ function graficoDespesa() {
                 title: {
                     display: true,
                     text: 'Despesas'
+                },
+                legend: {
+                    display: false,
+                    labels: {
+                        color: 'rgb(255, 99, 132)'
+                    }
                 }
             },
             scales: {
@@ -261,6 +267,12 @@ function graficoDespesaSaldo() {
                 title: {
                     display: true,
                     text: 'Despesas X Renda'
+                },
+                legend: {
+                    display: false,
+                    labels: {
+                        color: 'rgb(255, 99, 132)'
+                    }
                 }
             },
             scales: {
@@ -354,12 +366,12 @@ function dadosProdutos() {
   <div class="accordion-item">
       <h2 class="accordion-header" id="TESTE-AR">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#${(dados.produto[i].nome).replace(" ","")}" aria-expanded="false"
-              aria-controls="${(dados.produto[i].nome).replace(" ","")}">
+              data-bs-target="#${(dados.produto[i].nome).replaceAll(" ","")}" aria-expanded="false"
+              aria-controls="${(dados.produto[i].nome).replaceAll(" ","")}">
               ${dados.produto[i].nome}
           </button>
       </h2>
-      <div id="${(dados.produto[i].nome).replace(" ","")}" class="accordion-collapse collapse"
+      <div id="${(dados.produto[i].nome).replaceAll(" ","")}" class="accordion-collapse collapse"
 
           aria-labelledby="TESTE-AR">
 

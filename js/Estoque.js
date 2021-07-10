@@ -488,13 +488,13 @@ function adicionarCategoria() {
         let text = ''
         for (i = 0; i < dados.categoria.length; i++) {
             text = text + `
-            <div class="option"> ${dados.categoria[i]}<button id="excluirCategoria"><i class="fas fa-times-circle" style="float: right ;padding: 4px"></i></button></div>
+            <div class="option"> ${dados.categoria[i]}<button onclick="excluirCategoria('${dados.categoria[i]}')" style="float: right;  border: none; background-color: white;"><i class="fas fa-times-circle" ></i></button></div>
             `
         }
 
         document.getElementById('selectCategorias').innerHTML = text
     }
-
+    itemCategoriaPrincipal()
     itemFornecedorPrincipalAdicionar()
     itemCategoriaPrincipalAdicionar()
 
