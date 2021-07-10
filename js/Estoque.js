@@ -521,7 +521,7 @@ window.onload = () => {
     infoPerfil()
     itemFornecedorPrincipalAdicionar()
     itemCategoriaPrincipalAdicionar()
-    
+    itemCategoriaPrincipal()
 
 }
 
