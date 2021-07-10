@@ -69,37 +69,45 @@
 
     <section class="row ajustarContainer">
 
-      <section class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
-
-        <div class="card text-white bg-success mb-3 h-100">
-          <div class="card-header text-center">
-            <h1>Faturamento</h1>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title faturamentoCentral position-absolute top-50 start-50 translate-middle">0,00</h1>
-          </div>
-        </div>
-
-      </section>
-
       <section class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3">
-        <div class="graficoEntradaSaidacss">
-          <canvas id="graficoEntradaSaida"></canvas>
+        <div class="graficoEntradaSaidacss  boxShadow" >
+          <canvas id="graficoDoDespesaSaldo"></canvas>
         </div>
       </section>
 
       <section class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3">
-        <div class="graficoEstoqueAtualcss">
-          <canvas id="graficoEstoqueAtual"></canvas>
+        <div class="graficoEntradaSaidacss  boxShadow">
+          <canvas id="graficoDoDespesaGraf"></canvas>
         </div>
       </section>
 
-      <section class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-3">
-        <div class="graficoMetaAnualcss">
-          <canvas id="graficoMetaAnual"></canvas>
+      <section class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3">
+        <div class="graficoEntradaSaidacss  boxShadow">
+          <canvas id="graficoDoEstoqueGraf"></canvas>
         </div>
       </section>
 
+     
+
+    </section>
+
+    <section class="row ajustarContainer" style="">
+
+      <section class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+        <span class="font" style="padding-left: 0px">PRODUTO</span>
+        <div id="produtosDash" style="overflow: auto; height: 210px;" class="boxShadow">
+
+        </div>
+      </section>
+
+      <section class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3" >
+        <span class="font" style="padding-left: 0px">DESPESAS</span>
+        <div class="boxShadow" id="localDespesasDash" style="overflow: auto; height: 210px;">
+          
+          
+           
+        </div>
+      </section>
     </section>
 
   </section>
