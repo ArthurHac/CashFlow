@@ -33,7 +33,7 @@ function adicionarCategoria() {
             `
         }
 
-        document.getElementById('selectCategorias').innerHTML= text
+        document.getElementById('selectCategorias').innerHTML = text
     }
 
 
@@ -81,7 +81,7 @@ function informacaoAdicional() {
         document.getElementById('contatoPerfil').value != "" &&
         document.getElementById('nacionalidadePerfil').value != "" &&
         document.getElementById('enderecoPerfil').value != "" &&
-        
+
         document.getElementById('sexoPerfil').value != ""
     ) {
         let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
@@ -104,10 +104,10 @@ function informacaoAdicional() {
     }
 }
 
-function excluirCategoria(categoria){
+function excluirCategoria(categoria) {
     let dados = JSON.parse(localStorage.getItem(sessionStorage.getItem(0)))
-    let index =  dados.categoria.indexOf(categoria)
-    dados.categoria.splice(index,1)
+    let index = dados.categoria.indexOf(categoria)
+    dados.categoria.splice(index, 1)
     localStorage.setItem(sessionStorage.getItem(0), JSON.stringify(dados))
 
     itemCategoriaPrincipal()
@@ -119,4 +119,52 @@ window.onload = () => {
     campoPerfil()
     adicionarCategoria()
     itemCategoriaPrincipal()
+}
+
+
+/* Mascara CPF */
+
+function fMasc(objeto, mascara) {
+    obj = objeto
+    masc = mascara
+    setTimeout("fMascEx()", 1)
+}
+
+function fMascEx() {
+    obj.value = masc(obj.value)
+}
+
+function mCPF(cpfPerfil) {
+    cpfPerfil = cpfPerfil.replace(/\D/g, "")
+    cpfPerfil = cpfPerfil.replace(/(\d{3})(\d)/, "$1.$2")
+    cpfPerfil = cpfPerfil.replace(/(\d{3})(\d)/, "$1.$2")
+    cpfPerfil = cpfPerfil.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
+    return cpfPerfil
+}
+
+
+
+/* Mascara Telefone */
+
+function mascara(o, f) {
+    v_obj = o
+    v_fun = f
+    setTimeout("execmascara()", 1)
+}
+function execmascara() {
+    v_obj.value = v_fun(v_obj.value)
+}
+function mtel(v) {
+    v = v.replace(/\D/g, "");
+    v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+    v = v.replace(/(\d)(\d{4})$/, "$1-$2");
+    return v;
+}
+function id(el) {
+    return document.getElementById(el);
+}
+window.onload = function () {
+    id('contatoPerfil').onkeyup = function () {
+        mascara(this, mtel);
+    }
 }

@@ -20,7 +20,6 @@
   <header class="cabecalho">
     <nav class="imgLogo">
       <a href="/Dashboard.html"><img src="/img/dashbords/logo.png" alt="logo"></a>
-
       <div class="ftoPerfil" id="ftoPerfilid">
       </div>
 
@@ -40,11 +39,10 @@
         </div>
         <div class="offcanvas-body">
           <div>
-            <a href="Dashboard.html"><i class="fas fa-chart-bar"></i><span>Dashboard</span></a>
-            <a href="#"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
-            <a href="Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
-            <a href="Fornecedor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
-        
+            <a href="/html/dashboard.html"><i class="fas fa-chart-bar"></i><span>Dashboard</span></a>
+            <a href="/html/Despesas.html"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
+            <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
+            <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
             <a href="/html/Relatorio.html"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
           </div>
         </div>
@@ -58,7 +56,6 @@
     <a href="/html/Despesas.html"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
     <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
     <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
-   
     <a href="/html/Relatorio.html"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
 
   </section>
@@ -195,8 +192,9 @@
               </div>
               <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
                 <label for="CNPJ" class="form-label">CNPJ</label>
-                <input type="CNPJ" class="form-control" id="CNPJEditar" maxlength="18" name="CNPJ" onblur="ValidarCNPJ(this);"
-                  onkeypress="return event.charCode >= 48 && event.charCode <= 57" disabled="">
+                <input type="CNPJ" class="form-control" id="CNPJEditar" maxlength="18" name="CNPJ"
+                  onblur="ValidarCNPJ(this);" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                  disabled="">
               </div>
               <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
                 <label for="cep" class="form-label">Cep</label>
@@ -257,7 +255,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body" id="infoModalPerfil">
-         
+
         </div>
         <div class="modal-footer">
           <div class="mb-1 col-12" style="padding: 0px; padding-left: 5px ;">

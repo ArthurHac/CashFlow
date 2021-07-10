@@ -44,6 +44,10 @@
                         <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
                         <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
                         
+                        <a href="/html/Despesas.html"><i
+                                class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
+                        <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
+                        <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
                         <a href="/html/Relatorio.html"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
                         <a href="javascript:demoFromHTML()" class="button"><i class="fas fa-file"></i> <span>Gerar PDF</span></a>
                     </div>
@@ -82,25 +86,43 @@
             </section>
         
     </section>
+            <section id="content">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" width="20%">Produto</th>
+                            <th scope="col" width="20%">Categoria</th>
+                            <th scope="col" width="20%">EAN</th>
+                            <th scope="col" width="20%">Preço</th>
+                            <th scope="col" width="20%">quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="DownloadEstoque">
+                    </tbody>
+                </table>
+            </section>
+            <a href="javascript:demoFromHTML()" class="button"> <button type="button" class="btn btn-sucess"
+                    style="background-color:  #266d5b; color: white;">Gerar PDF</button></a>
         </section>
     </section>
-    
+    </section>
+
     <!-- modaa -->
     <button type="button" id="modalPerfil" class="btn btn-primary d-none" data-bs-toggle="modal"
-    data-bs-target="#exampleModal"></button>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body" id="infoModalPerfil">
-         
+        data-bs-target="#exampleModal"></button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" id="infoModalPerfil">
+
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
 
     <!-- JavaScript -->
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3/dist/chart.min.js"></script>
@@ -114,7 +136,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.debug.js"></script>
     <script src="/js/Relatorio.js"></script>
     <script src="/js/RelatorioEstoque.js"></script>
-   
+
 </body>
 
 </html>

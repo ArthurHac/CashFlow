@@ -20,7 +20,6 @@
   <header class="cabecalho">
     <nav class="imgLogo">
       <a href="/Dashboard.html"><img src="/img/dashbords/logo.png" alt="logo"></a>
-
       <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
         aria-controls="offcanvasExample">
         <i class="fas fa-bars"></i>
@@ -40,8 +39,7 @@
             <a href="/html/Despesas.html"><i class="fas fa-file-invoice-dollar"></i><span>Despesas</span></a>
             <a href="/html/Estoque.html"><i class="fas fa-box"></i><span>Estoque</span></a>
             <a href="/html/Fornecerdor.html"><i class="fas fa-store"></i><span>Fornecedor</span></a>
-           
-            <a href="#"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
+            <a href="/html/Relatorio.html"><i class="fas fa-file-download"></i><span>Relatórios</span></a>
           </div>
         </div>
       </div>
@@ -93,13 +91,14 @@
             <div class="mb-3 col-4">
 
               <input type="text" class="form-control" style="width: 100%; height: 40px; font-size: 1em;" id="cpfPerfil"
-                placeholder="CPF" autocomplete="off">
+                placeholder="CPF" autocomplete="off" onkeyup="cpfCheck(this)" maxlength="18"
+                onkeydown="javascript: fMasc( this, mCPF );">
             </div>
 
             <div class="mb-3 col-2 ">
 
               <input type="text" class="form-control" style="width: 100% ;height:40px; font-size: 1em;" id="idadePerfil"
-                placeholder="idade" autocomplete="off">
+                placeholder="Idade" autocomplete="off">
             </div>
 
 
@@ -107,7 +106,8 @@
             <div class="mb-3 col-6 ">
 
               <input type="text" class="form-control" id="contatoPerfil"
-                style="width: 100%; height: 40px; font-size: 1em;" placeholder="Contato" autocomplete="off">
+                style="width: 100%; height: 40px; font-size: 1em;" placeholder="Contato" autocomplete="off"
+                maxlength="15">
             </div>
 
             <div class="mb-3 col-6">
@@ -178,14 +178,14 @@
 
   <button type="button" id="modalcategoria" class="btn btn-primary d-none" data-bs-toggle="modal"
     data-bs-target="#exampleModal1"></button>
-  <div class="modal fade"  id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content" style="width:300px;margin-left: auto; margin-right: auto;">
-        <div class="modal-body"  id="infoModalPerfil">
+        <div class="modal-body" id="infoModalPerfil">
           <div class="row">
             <div class=" col-6 ">
-              <input type="text" class="form-control" id="CampoAdicionarCategoria"
-                style="width: 100%; font-size: 1em;" placeholder="" autocomplete="off">
+              <input type="text" class="form-control" id="CampoAdicionarCategoria" style="width: 100%; font-size: 1em;"
+                placeholder="" autocomplete="off">
             </div>
             <div class=" col-3 ">
               <button id="adicionarCategoriaModalPerfil" onclick="adicionarCategoria()" type="button"
