@@ -203,12 +203,12 @@ function dadosProdutos() {
   <div class="accordion-item">
       <h2 class="accordion-header" id="TESTE-AR">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#${(dados.produto[i].nome).replaceAll(" ", "")}" aria-expanded="false"
-              aria-controls="${(dados.produto[i].nome).replaceAll(" ", "")}">
+              data-bs-target="#${(dados.produto[i].nome+dados.produto[i].cod).replaceAll(" ", "")}" aria-expanded="false"
+              aria-controls="${(dados.produto[i].nome+dados.produto[i].cod).replaceAll(" ", "")}">
               ${dados.produto[i].nome}
           </button>
       </h2>
-      <div id="${(dados.produto[i].nome).replaceAll(" ", "")}" class="accordion-collapse collapse"
+      <div id="${(dados.produto[i].nome+dados.produto[i].cod).replaceAll(" ", "")}" class="accordion-collapse collapse"
 
           aria-labelledby="TESTE-AR">
 
