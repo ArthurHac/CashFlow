@@ -300,12 +300,12 @@ function dadosDespesa() {
             <div class="accordion-item">
                 <h2 class="accordion-header" id="TESTE-AR">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#${dados.despesa[i].descricao}" aria-expanded="false"
-                        aria-controls="${dados.despesa[i].descricao}}">
+                        data-bs-target="#${(dados.despesa[i].descricao).replace(" ","")}" aria-expanded="false"
+                        aria-controls="${(dados.despesa[i].descricao).replace(" ","")}}">
                         ${dados.despesa[i].descricao}
                     </button>
                 </h2>
-                <div id="${dados.despesa[i].descricao}" class="accordion-collapse collapse"
+                <div id="${(dados.despesa[i].descricao).replace(" ","")}" class="accordion-collapse collapse"
           
                     aria-labelledby="TESTE-AR">
           
